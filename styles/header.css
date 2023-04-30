@@ -4,6 +4,7 @@ header {
     display: flex;
     flex-direction: column;
     background-color: white;
+    font: normal 1em 'Raleway';
     margin-bottom: 20px;
 }
 

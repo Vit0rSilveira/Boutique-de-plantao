@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Raleway&display=swap');
 footer {
     background-color: #738C3E;
+    font: normal 1em 'Raleway';
     display: flex;
     text-align: center;
     justify-content: center;

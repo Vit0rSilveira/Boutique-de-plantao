@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+main {
+    display: grid;
+    border: 2px solid black;
+    border-radius: 10px;
+    gap: 0px 50px;
+    padding: 50px 75px;
+    margin: 75px 300px;
+
+    font: normal 3em 'Raleway', sans-serif;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px 100px;
+
+    grid-template-areas: 
+        "login email"
+        "login senha"
+        "cadastro continuar";
+}
+
+.titulo_login {
+    grid-area: login;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.email {
+    grid-area: email;
+}
+.senha {
+    grid-area: senha;
+}
+.email,.senha {
+    display: flex;
+    flex-direction: column;
+}
+input {
+    height: 50px;
+    font: normal 0.5em 'Raleway', sans-serif;
+}
+.cadastro {
+    grid-area: cadastro;
+}
+.continuar {
+    grid-area: continuar;
+}
+.botao_cadastrar, .botao_login {
+    background-color: #738c3e;
+    border: 2px solid black;
+    border-radius: 10px;
+    font: normal 0.5em 'Raleway', sans-serif;
+}

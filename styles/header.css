@@ -1,0 +1,89 @@
+/* Parte de superior */
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+#header-top, .icones {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#logo-header {
+    width: 300px;
+}
+
+#barra-pesquisa {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 50vw;
+    height: 6vh;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0px;
+}
+
+input {
+    width: 90%;
+    height: 90%;
+    flex-grow: 1;
+    gap: 10px;
+    border: none;
+    border-radius: 15px 0px 0px 15px;
+}
+
+#pesquisa:focus {
+    outline: none;
+}
+
+#botao-header {
+    width: 10%;
+    height: 100%;
+    border: none;
+    border-radius: 0px 8px 8px 0px;
+    background-color: #738c3e;
+}
+
+#botao-header:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#botao-header:hover {
+    cursor: pointer;
+}
+
+.icone-header {
+    width: 40px;
+    margin: 20px;
+}
+
+/* Navebar */
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #738c3e;
+    height: 3vw;
+    width: 100%;
+}
+  
+ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.5em;
+}

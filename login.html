@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boutique de Plantão</title>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <title>Login</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <div id="header-top">
+            <a href="index.html"><img src="images/logos/logo_completo.png" alt="Logo da loja" id="logo-header"></a>
+
+            <div id="barra-pesquisa">
+                <input type="text" name="barra de pesquisa" id="pesquisa" placeholder="Buscar Produto">
+                <button id="botao-header"><img src="images/header/lupa-arredondada.png" alt="lupa de pesquisa"></button>
+            </div>
+
+            <div id="icones">
+                <a href="login.html"><img src="images/header/perfil.png" alt="Botão de Login" class="icone-header"></a>
+                <a href="#"><img src="images/header/carrinho_de_compras.png" alt="Botão de carrinho" class="icone-header"></a>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="#"><li>Plantas</li></a>
+                <a href="#"><li>Flores</li></a>
+                <a href="#"><li>Vasos</li></a>
+                <a href="#"><li>Suportes</li></a>
+                <a href="#"><li>Jardinagem</li></a>
+                <a href="#"><li>Sobre Nós</li></a>
+            </ul>
+        </nav>
+    </header>
 
     <main>
-        <link rel="stylesheet" href="login.css">
         <div class="titulo_login">
             <h1>Login</h1>
         </div>
@@ -29,7 +56,6 @@
     </main>
 
     <footer>
-        <link rel="stylesheet" href="footer.css">
         <div class="ajuda_suporte">
             <h3>Ajuda e Suporte</h3>
             <p>FAQ</p>

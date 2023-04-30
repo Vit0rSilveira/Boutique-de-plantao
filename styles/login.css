@@ -35,19 +35,27 @@ main {
     display: flex;
     flex-direction: column;
 }
-input {
-    height: 50px;
+
+input[type="email"], input[type="password"] {
+    height: 5vh;
     font: normal 0.5em 'Raleway', sans-serif;
 }
+
 .cadastro {
     grid-area: cadastro;
 }
+
 .continuar {
     grid-area: continuar;
 }
+
 .botao_cadastrar, .botao_login {
     background-color: #738c3e;
     border: 2px solid black;
     border-radius: 10px;
     font: normal 0.5em 'Raleway', sans-serif;
+}
+
+.botao_cadastrar:hover, .botao_login:hover {
+    cursor:pointer;
 }

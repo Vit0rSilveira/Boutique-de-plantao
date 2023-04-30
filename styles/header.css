@@ -30,7 +30,7 @@ header {
     padding: 0px;
 }
 
-input {
+input[type="text"] {
     width: 90%;
     height: 90%;
     flex-grow: 1;

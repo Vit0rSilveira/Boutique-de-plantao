@@ -30,7 +30,7 @@ header {
     padding: 0px;
 }
 
-#pesquisa {
+input {
     width: 90%;
     height: 90%;
     flex-grow: 1;

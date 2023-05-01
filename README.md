@@ -1,4 +1,5 @@
-![Boutique de Plantão](https://github.com/Vit0rSilveira/Boutique-de-plantao/blob/main/images/logos/logo_completo_fundo.png?raw=true)
+# Boutique de Plantão
+![boutique_de_plantao](https://github.com/Vit0rSilveira/Boutique-de-plantao/blob/main/images/logos/logo_completo_fundo.png?raw=true)
 
 ## Sobre
 Projeto de uma loja online de plantas do Grupo 5 da disciplina de *Introdução ao Desenvolvimento Web (SCC0219)*
@@ -33,11 +34,18 @@ Os registros de produtos/serviços incluem, pelo menos: nome, ID, foto, descriç
 
 ## Descrição do Projeto
 
-quais info salvar?
+Armazenamento de dados do cliente (nome, endereço e cartões) e lista de produtos (preço e descrição)
+
+### Protótipo
+
 
 ### Funcionalidades
+- Cadastro e gerenciamento de administradores e clientes;
+- Criação, atualização, leitura e exclusão de novos produtos;
+
 
 ### Diagrama de Navegação
+![diagrama_de_navegacao](https://github.com/Vit0rSilveira/Boutique-de-plantao/blob/main/images/relatorio/diagrama_de_navegacao.png?raw=true)
 
 ## Comentários Sobre o Código
 

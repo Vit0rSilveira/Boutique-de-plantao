@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Raleway&display=swap');
 footer {
-    background-color: #738C3E;
+    background-color: #313D17;
+    color: #FFFFFF;
     font: normal 1em 'Raleway';
     display: flex;
     text-align: center;
@@ -19,6 +20,7 @@ footer {
 .atendimento img {
     width: 20%;
     height: auto;
+    filter: invert();
 }
 
 .formas_pagamento {
@@ -28,6 +30,7 @@ footer {
 .formas_pagamento img {
     width: 25%;
     height: auto;
+    filter: invert();
 }
 
 .redes_sociais {
@@ -37,6 +40,7 @@ footer {
 .redes_sociais img {
     width: 15%;
     height: auto;
+    filter: invert();
 }
 
 .logo_footer {

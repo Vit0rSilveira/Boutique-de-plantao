@@ -51,12 +51,14 @@ input[type="number"] {
     align-items: center;
     width: 70%;
     height: 25px;
-    background-color: #738c3e;
+    background-color: #313D17;
+    color: #FFFFFF;
     border-radius: 5px;
 }
 
 .icone-carrinho {
     height: 15px;
+    filter: invert();
 }
 
 h2 {

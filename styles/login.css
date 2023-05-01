@@ -61,6 +61,7 @@ input[type="email"], input[type="password"] {
 
 .botao_cadastrar, .botao_login {
     background-color: #738c3e;
+    color: #FFFFFF;
     border: 2px solid black;
     border-radius: 10px;
     font: normal 0.5em 'Raleway', sans-serif;

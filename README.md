@@ -41,7 +41,7 @@ O projeto consiste em um site completo, que inclui front-end, back-end e banco d
 O back-end foi construído utilizando o framework Node.js, permitindo a criação de uma API RESTful para gerenciamento de usuários, produtos e pedidos.
 
 ### Protótipo
-O primeiro passo para fazer o protótipo do projeto, foi criar o ![Mockup](https://www.figma.com/file/GlzppZUozmCoYpkpAnXuMg/Loja-de-Plantas?node-id=0-1&t=iYVTj3BoNRpTj6aM-0) de todas as páginas no figma. Em seguida foi elaborado em HTML e CSS 3 páginas, a Homepage, página de login e a página de sobre nós. Por se tratar de um protótipo o carrossel de imagens não foi implementado, foi colocado apenas uma imagem simbolizando o mesmo que no projeto final é feito usando react.
+O primeiro passo para fazer o protótipo do projeto, foi criar o [Mockup](https://www.figma.com/file/GlzppZUozmCoYpkpAnXuMg/Loja-de-Plantas?node-id=0-1&t=iYVTj3BoNRpTj6aM-0) de todas as páginas no figma. Em seguida foi elaborado em HTML e CSS 3 páginas, a Homepage, página de login e a página de sobre nós. Por se tratar de um protótipo o carrossel de imagens não foi implementado, foi colocado apenas uma imagem simbolizando o mesmo que no projeto final é feito usando react.
 
 ### Funcionalidades
 - Cadastro e gerenciamento de administradores e clientes;

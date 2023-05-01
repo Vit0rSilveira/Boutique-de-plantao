@@ -47,7 +47,7 @@ O back-end foi construído utilizando o framework Node.js, permitindo a criaçã
 - Criação, atualização, leitura e exclusão de novos produtos;
 
 ### Diagrama de Navegação
-![diagrama_de_navegacao](https://github.com/Vit0rSilveira/Boutique-de-plantao/blob/main/images/relatorio/diagrama_de_navegacao.png?raw=true)
+![diagrama_de_navegacao](https://github.com/Vit0rSilveira/Boutique-de-plantao/blob/main/images/relatorio/diagrama_de_navegacao.jpg?raw=true)
 
 ## Comentários Sobre o Código
 

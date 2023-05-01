@@ -33,7 +33,11 @@ Os registros de produtos/serviços incluem, pelo menos: nome, ID, foto, descriç
 
 ## Descrição do Projeto
 
-quais info salvar?
+A Boutique de Plantão é uma plataforma online de venda de plantas e produtos relacionados, como vasos e ferramentas de jardinagem. O foco principal é ser uma plataforma simples e de fácil usabilidade, contendo recursos de acessibilidade e interatividade para uma experiência agradável do usuário.
+
+O projeto consiste em um site completo, que inclui front-end, back-end e banco de dados. O frontend da Boutique de Plantão foi desenvolvido utilizando o framework React, uma biblioteca JavaScript de código aberto mantida pelo Facebook. Essa escolha foi feita devido à sua capacidade de criar interfaces de usuário interativas e escaláveis. A interface foi construída com uma abordagem responsiva, utilizando CSS Grid e Flexbox para permitir que o site se adapte a diferentes tamanhos de tela e dispositivos.
+
+O back-end foi construído utilizando o framework Node.js, permitindo a criação de uma API RESTful para gerenciamento de usuários, produtos e pedidos.
 
 ### Funcionalidades
 

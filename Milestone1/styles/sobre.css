@@ -1,0 +1,17 @@
+#sobre-nos, #compomisso-ambiental {
+    width: 90%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    line-height: 2em;
+}
+
+h1, h2 {
+    margin: 10px;
+}
+
+li {
+    margin-left: 15px;
+}

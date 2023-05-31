@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #313D17;
+    color: #FFFFFF;
+    height: 3vw;
+    width: 100%;
+}
+  
+ul#navbar-list {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.3em;
+}

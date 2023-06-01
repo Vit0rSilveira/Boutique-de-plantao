@@ -1,12 +1,13 @@
+/* Estilos padrão da barra de navegação */
 nav {
     display: flex;
     align-items: center;
     background-color: #313D17;
     color: #FFFFFF;
-    height: 3vw;
+    height: 4vw;
     width: 100%;
 }
-  
+
 ul#navbar-list {
     list-style: none;
     width: 100%;
@@ -18,4 +19,25 @@ a {
     color: #FFFFFF;
     text-decoration: none;
     font-size: 1.3em;
+}
+
+/* Estilos para tela menor ou igual a 600px */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+    }
+
+    ul#navbar-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    nav#mobile-screen {
+        display: none;
+    }
 }

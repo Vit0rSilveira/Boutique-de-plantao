@@ -1,4 +1,4 @@
-/* Parte de superior */
+header-logo/* Parte de superior */
 header {
     display: flex;
     flex-direction: column;
@@ -16,11 +16,11 @@ header {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #header-logo {
-    width: 20vw;
+    height: 25vh;
 }
 
 #container-search {
@@ -79,4 +79,10 @@ button:hover {
 #header-buttons {
     display: flex;
     flex: row;
+}
+
+@media (max-width: 600px) {
+    #header-top {
+        justify-content: space-evenly;
+    }
 }

@@ -1,10 +1,9 @@
-/* Estilos padrão da barra de navegação */
 nav {
     display: flex;
     align-items: center;
-    background-color: #313D17;
-    color: #FFFFFF;
-    height: 4vw;
+    background-color: #313d17;
+    color: #ffffff;
+    height: 3rem;
     width: 100%;
 }
 
@@ -16,12 +15,20 @@ ul#navbar-list {
 }
 
 a {
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
     font-size: 1.3em;
 }
 
-/* Estilos para tela menor ou igual a 600px */
+.menu-button {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
 @media (max-width: 600px) {
     nav {
         flex-direction: column;
@@ -31,13 +38,23 @@ a {
     ul#navbar-list {
         flex-direction: column;
         align-items: center;
+        display: none;
+    }
+
+    ul#navbar-list.open {
+        display: flex;
     }
 
     li {
         margin-bottom: 10px;
     }
 
-    nav#mobile-screen {
-        display: none;
+    .menu-button {
+        display: block;
+        height: 6vh;
+    }
+
+    #bar-icon {
+        height: 4vh;
     }
 }

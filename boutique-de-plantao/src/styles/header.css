@@ -1,4 +1,3 @@
-header-logo/* Parte de superior */
 header {
     display: flex;
     flex-direction: column;
@@ -79,10 +78,19 @@ button:hover {
 #header-buttons {
     display: flex;
     flex: row;
+    justify-content: space-between;
 }
 
 @media (max-width: 600px) {
     #header-top {
         justify-content: space-evenly;
+    }
+
+    #header-logo {
+        height: 12vh;
+    }
+
+    #header-buttons {
+        margin-left: 5px;
     }
 }

@@ -1,4 +1,5 @@
-// import './App.css'
+import React from 'react'
+import UncontrolledExample from './components/carousel'
 import Header from './components/header'
 import Navbar from './components/navbar'
 
@@ -8,6 +9,8 @@ function App() {
     <>
       <Header/>
       <Navbar/>
+      <UncontrolledExample/>
+      
     </>
   )
 }

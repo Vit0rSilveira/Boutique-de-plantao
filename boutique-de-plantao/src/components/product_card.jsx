@@ -9,8 +9,7 @@ function Product() {
             <p>Nome</p>
             
             <div id="amount">
-                <p>R$ preço</p>
-                <input type="number" name="amount-product" id="amount-product" />
+                <p>R$ {9.99}</p>
             </div>
             <button id="add-cart"><AiOutlineShoppingCart/>Adicionar</button>
         </div>

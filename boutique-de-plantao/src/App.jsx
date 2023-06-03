@@ -1,5 +1,5 @@
 import React from 'react'
-import UncontrolledExample from './components/carousel'
+import imgages_carousel from './components/carousel'
 import Header from './components/header'
 import Navbar from './components/navbar'
 import Product from './components/product_card'
@@ -10,9 +10,7 @@ function App() {
     <>
       <Header/>
       <Navbar/>
-      <UncontrolledExample/>
-      <div style={{ marginLeft: '100px' }}><Product/></div>
-      <div style={{ marginLeft: '100px' }}><Product/></div>
+      <Product/>
       
       <Complete_product/>
       

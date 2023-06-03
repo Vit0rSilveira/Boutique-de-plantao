@@ -1,0 +1,54 @@
+#complete-card-product {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    width: 75%;
+    height: 55vh;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 80px;
+}
+
+#not-image {
+    margin-left: 10px;
+}
+
+img {
+    height: 40vh;
+}
+
+input[type="number"],
+#add-cart-product {
+    width: 15vw;
+    height: 8vh;
+}
+
+#inputs {
+    display: flex;
+    justify-content: space-around;
+}
+
+#add-cart-product {
+    border-radius: 5px;
+}
+
+
+@media (max-width: 750px) {
+    #complete-card-product {
+        flex-direction: column;
+        height: 90vh;
+    }
+
+    img {
+        height: 30vh;
+    }
+
+    #inputs input[type="number"],
+    #add-cart-product {
+        margin-top: 10px;
+        width: 25vw;
+        height: 8vh;
+    }
+}

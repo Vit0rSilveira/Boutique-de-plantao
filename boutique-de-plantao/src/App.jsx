@@ -1,21 +1,17 @@
-import React from 'react'
-import imgages_carousel from './components/carousel'
-import Header from './components/header'
-import Navbar from './components/navbar'
-import Product from './components/product_card'
-import Complete_product from './components/complete_product_card'
+import React from 'react';
+import Rotas from './components/routers';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 function App() {
 
   return (
     <>
-      <Header/>
-      <Navbar/>
-      <Product/>
-      
-      <Complete_product/>
-      
+      <Router>
+        <Rotas />
+      </Router>
     </>
-  )
+  );
+  
 }
 
-export default App
+export default App;

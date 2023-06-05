@@ -1,15 +1,21 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
+import { Link, useNavigate } from 'react-router-dom';
 import {BsPersonCircle} from "react-icons/Bs"
 import {AiOutlineShoppingCart} from "react-icons/Ai"
 import "../styles/header.css"
 
 function Header() {
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate('/');
+      };
+
     return (
        <header>
         <div id="header-top">
-                <a href="./"><img src="../images/logos/logo_completo.png" alt="Logo da empresa" id="header-logo"/></a>
-        
+                <Link to="/"><img src="../images/logos/logo_completo.png" alt="Logo da empresa" id="header-logo"/></Link>
                 
                 <div id="container-search">
                     <input type="text" name="input" id="input-search"/>

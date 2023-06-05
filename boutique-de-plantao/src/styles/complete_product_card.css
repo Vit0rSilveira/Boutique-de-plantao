@@ -16,7 +16,7 @@
 }
 
 img {
-    height: 40vh;
+    height: 25vh;
 }
 
 input[type="number"],
@@ -35,7 +35,7 @@ input[type="number"],
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
     #complete-card-product {
         flex-direction: column;
         height: 90vh;

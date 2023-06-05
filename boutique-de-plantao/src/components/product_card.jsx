@@ -2,14 +2,14 @@ import React from "react";
 import {AiOutlineShoppingCart} from "react-icons/Ai"
 import "../styles/product_card.css"
 
-function Product() {
+function Product(props) {
     return (
         <div id="product">
-            <img src="../../images/produto.png" alt="imagem do produto" id="product-image" />
-            <p>Nome</p>
+            <img src={props.image} alt="imagem do produto" id="product-image" />
+            <p>{props.name}</p>
             
             <div id="amount">
-                <p>R$ {9.99}</p>
+                <p>R$ {props.value}</p>
             </div>
             <button id="add-cart"><AiOutlineShoppingCart/>Adicionar</button>
         </div>

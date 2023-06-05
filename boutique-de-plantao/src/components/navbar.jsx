@@ -1,10 +1,16 @@
-import React, { useRef, useState, useEffect } from "react";
-import {FaBars} from "react-icons/fa"
+import React, { useRef, useState, useEffect} from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import {FaBars} from "react-icons/fa";
 import "../styles/navbar.css";
 
 function Navbar() {
+  const navigate = useNavigate();
   const navbarListRef = useRef(null);
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const handleNavigate = () => {
+    navigate('/sobre-nos');
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -29,18 +35,20 @@ function Navbar() {
 
   return (
     <nav>
-      <button className="menu-button" onClick={toggleMenu}> <FaBars id="bar-icon"/> </button>
+      <button className="menu-button" onClick={toggleMenu}>
+        <FaBars id="bar-icon"/>
+      </button>
       <ul
         id="navbar-list"
         className={isMenuOpen ? "open" : ""}
         ref={navbarListRef}
       >
-        <a href="#"><li>Plantas</li></a>
-        <a href="#"><li>Flores</li></a>
-        <a href="#"><li>Vasos</li></a>
-        <a href="#"><li>Suportes</li></a>
-        <a href="#"><li>Jardinagem</li></a>
-        <a href="#"><li>Sobre Nós</li></a>
+        <li><Link to="/">Plantas</Link></li>
+        <li><Link to="/">Flores</Link></li>
+        <li><Link to="/">Vasos</Link></li>
+        <li><Link to="/">Suportes</Link></li>
+        <li><Link to="/">Jardinagem</Link></li>
+        <li><Link to="/sobre-nos" >Sobre Nós</Link></li>
       </ul>
     </nav>
   );

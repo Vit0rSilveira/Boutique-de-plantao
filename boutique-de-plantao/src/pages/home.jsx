@@ -9,7 +9,7 @@ function Home() {
     const [produtos, setProdutos] = useState([]);
 
     useEffect(() => {
-        fetch('../produtos.json')
+        fetch('../flores.json')
             .then(response => response.json())
             .then(data => setProdutos(Object.values(data)))
             .catch(error => console.log(error));
@@ -31,13 +31,13 @@ function Home() {
                     />
                     
                     <Complete_product
-                        key={produtos[1].id}
-                        name={produtos[1].nome}
-                        amount_free={produtos[1].quantidade_disponivel}
-                        value={produtos[1].valor}
-                        descricao={produtos[1].descricao}
-                        image={produtos[1].imagem}
-                        avaliacao={produtos[1].avaliacao}
+                        key={produtos[3].id}
+                        name={produtos[3].nome}
+                        amount_free={produtos[3].quantidade_disponivel}
+                        value={produtos[3].valor}
+                        descricao={produtos[3].descricao}
+                        image={produtos[3].imagem}
+                        avaliacao={produtos[3].avaliacao}
                     />
                 </>
             )}

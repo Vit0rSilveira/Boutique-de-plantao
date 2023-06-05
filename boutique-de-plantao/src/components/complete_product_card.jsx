@@ -27,7 +27,7 @@ function Complete_product(props) {
           <p>R$ {valor}</p>
           <div id="inputs">
               <button id="add-cart-product">
-                <AiOutlineShoppingCart />Adicionar
+                <AiOutlineShoppingCart /> Adicionar
               </button>
               <input
                 type="number"

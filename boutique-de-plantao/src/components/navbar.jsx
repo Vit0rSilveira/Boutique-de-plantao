@@ -7,11 +7,6 @@ function Navbar() {
   const navigate = useNavigate();
   const navbarListRef = useRef(null);
   const [isMenuOpen, setMenuOpen] = useState(false);
-
-  const handleNavigate = () => {
-    navigate('/sobre-nos');
-  };
-
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };

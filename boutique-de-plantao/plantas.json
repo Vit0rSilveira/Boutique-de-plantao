@@ -1,0 +1,93 @@
+{
+    "planta1": {
+      "nome": "Suculenta",
+      "id": "1",
+      "quantidade_disponivel": 10,
+      "descricao": "As suculentas são plantas que armazenam água em suas folhas, tornando-as resistentes à seca...",
+      "imagem": "https://static.wixstatic.com/media/73568e_b2602dca7a0a424e823622c06f74cc0f~mv2.png/v1/fill/w_2695,h_1946,al_c/73568e_b2602dca7a0a424e823622c06f74cc0f~mv2.png",
+      "valor": 15.9,
+      "avaliacao": [
+        {
+          "nota": 5,
+          "comentario": "Adoro as suculentas! São fáceis de cuidar e adicionam um toque de verde em qualquer ambiente."
+        },
+        {
+          "nota": 4,
+          "comentario": "As suculentas são plantas incríveis! Elas têm uma variedade de formas e cores fascinantes."
+        }
+      ]
+    },
+    "planta2": {
+      "nome": "Samambaia",
+      "id": "2",
+      "quantidade_disponivel": 8,
+      "descricao": "A samambaia é uma planta tropical com folhas delicadas e exuberantes...",
+      "imagem": "https://cdn-cosmos.bluesoft.com.br/products/7896553655100",
+      "valor": 12.5,
+      "avaliacao": [
+        {
+          "nota": 4,
+          "comentario": "A samambaia é uma planta linda! Suas folhas pendentes dão um toque de elegância a qualquer ambiente."
+        },
+        {
+          "nota": 5,
+          "comentario": "Adoro ter uma samambaia em casa! Ela traz frescor e vida ao ambiente."
+        }
+      ]
+    },
+    "planta3": {
+      "nome": "Dracena",
+      "id": "3",
+      "quantidade_disponivel": 6,
+      "descricao": "A Dracena é uma planta de folhagem exuberante e elegante, com diversas variedades...",
+      "imagem": "https://bonfimflores.com.br/wp-content/uploads/2021/06/PLANTA_DRACENA.jpg",
+      "valor": 22.9,
+      "avaliacao": [
+        {
+          "nota": 4,
+          "comentario": "A Dracena é uma planta linda! Suas folhas em tons de verde trazem um toque de natureza ao ambiente."
+        },
+        {
+          "nota": 5,
+          "comentario": "Adoro a Dracena! É uma planta versátil e de fácil cuidado, perfeita para decorar qualquer espaço."
+        }
+      ]
+    },
+    "planta4": {
+      "nome": "Pilea",
+      "id": "4",
+      "quantidade_disponivel": 9,
+      "descricao": "A Pilea, também conhecida como planta-moeda chinesa, é uma planta de pequenas folhas arredondadas...",
+      "imagem": "https://www.qualiflora.com.br/wp-content/uploads/2019/06/Pilea-Peperomioides-QualiFlora-website-1.png",
+      "valor": 18.5,
+      "avaliacao": [
+        {
+          "nota": 5,
+          "comentario": "A Pilea é uma planta encantadora! Suas folhas em formato de moedas são adoráveis."
+        },
+        {
+          "nota": 4,
+          "comentario": "Adoro ter uma Pilea em casa! É uma planta que traz um toque de delicadeza ao ambiente."
+        }
+      ]
+    },
+    "planta5": {
+      "nome": "Bambu da Sorte",
+      "id": "5",
+      "quantidade_disponivel": 12,
+      "descricao": "O Bambu da Sorte é uma planta de origem asiática que simboliza prosperidade e boa sorte...",
+      "imagem": "https://stack.flowermarket.com.br/floresvip/images/produto/400_3078.jpg",
+      "valor": 14.9,
+      "avaliacao": [
+        {
+          "nota": 4,
+          "comentario": "O Bambu da Sorte é uma planta especial! Além de trazer sorte, também traz um toque de elegância ao ambiente."
+        },
+        {
+          "nota": 5,
+          "comentario": "Adoro ter um Bambu da Sorte em casa! É uma planta de fácil cuidado e traz uma energia positiva."
+        }
+      ]
+    }
+  }
+  

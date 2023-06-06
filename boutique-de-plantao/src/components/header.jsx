@@ -3,7 +3,7 @@ import { FiSearch } from "react-icons/fi";
 import { Link, useNavigate } from 'react-router-dom';
 import {BsPersonCircle} from "react-icons/Bs"
 import {AiOutlineShoppingCart} from "react-icons/Ai"
-import "../styles/header.css"
+import "../styles/components/header.css"
 
 function Header() {
     const navigate = useNavigate();

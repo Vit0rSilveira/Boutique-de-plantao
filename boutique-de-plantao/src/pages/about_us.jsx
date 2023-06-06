@@ -1,7 +1,7 @@
 import React from "react";
 import Header from '../components/header.jsx';
-import Navbar from '../components/navbar';
-import "../styles/about_us.css"
+import Navbar from '../components/navbar.jsx';
+import "../styles/pages/about_us.css"
 
 function About_us() {
     return (

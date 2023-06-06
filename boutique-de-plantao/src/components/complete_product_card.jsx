@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineShoppingCart } from "react-icons/Ai";
-import "../styles/complete_product_card.css"
+import "../styles/components/complete_product_card.css"
 
 function Complete_product(props) {
   const [valor, setValor] = useState(props.value);

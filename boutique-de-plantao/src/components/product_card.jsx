@@ -1,6 +1,6 @@
 import React from "react";
 import {AiOutlineShoppingCart} from "react-icons/Ai"
-import "../styles/product_card.css"
+import "../styles/components/product_card.css"
 
 function Product(props) {
     return (

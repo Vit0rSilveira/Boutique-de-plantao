@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect} from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import {FaBars} from "react-icons/fa";
-import "../styles/navbar.css";
+import "../styles/components/navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();

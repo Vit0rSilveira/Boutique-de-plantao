@@ -32,13 +32,13 @@ function Home() {
                     />
                     
                     <Complete_product
-                        key={produtos[3].id}
-                        name={produtos[3].nome}
-                        amount_free={produtos[3].quantidade_disponivel}
-                        value={produtos[3].valor}
-                        descricao={produtos[3].descricao}
-                        image={produtos[3].imagem}
-                        avaliacao={produtos[3].avaliacao}
+                        key={produtos[2].id}
+                        name={produtos[2].nome}
+                        amount_free={produtos[2].quantidade_disponivel}
+                        value={produtos[2].valor}
+                        descricao={produtos[2].descricao}
+                        image={produtos[2].imagem}
+                        avaliacao={produtos[2].avaliacao}
                     />
                 </>
             )}

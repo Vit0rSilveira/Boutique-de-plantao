@@ -1,6 +1,6 @@
 import React from "react";
 import {AiFillStar} from "react-icons/Ai"
-import "../styles/review.css"
+import "../styles/components/review.css"
 
 function Review(props) {
     const stars = [];

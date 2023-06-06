@@ -1,0 +1,11 @@
+#review {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70vw;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+}

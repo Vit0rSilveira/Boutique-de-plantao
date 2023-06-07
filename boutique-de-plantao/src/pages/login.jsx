@@ -12,26 +12,29 @@ function Login() {
     }
 
     return (
-        <div id="login-page">
+        <>
             <Header />
             <Navbar />
-            <div id="login">
-                <div className="boxes-inputs">
+
+            <div id="login-page">
+                <div id="login">
                     <h1>Login</h1>
+
+                    <div className="boxes-inputs form ">
+                        <form action="">
+                            <label htmlFor="input-email">E-mail</label>
+                            <input type="email" id="input-email" />
+                            <label htmlFor="input-password">Senha</label>
+                            <input type="password" id="input-password" />
+                            <input type="submit" value="Continuar" onClick={handleLoginClick} />
+                        </form>
+                    </div>
+
                     <input type="button" value="Cadastre-se" />
                 </div>
-
-                <div className="boxes-inputs">
-                    <form action="">
-                        <label htmlFor="input-email">E-mail</label>
-                        <input type="email" id="input-email" />
-                        <label htmlFor="input-password">Senha</label>
-                        <input type="password" id="input-password" />
-                        <input type="submit" value="Continuar" onClick={handleLoginClick}/>
-                    </form>
-                </div>
             </div>
-        </div>
+        </>
+
     );
 }
 

@@ -8,10 +8,6 @@ import "../styles/components/header.css"
 function Header() {
     const navigate = useNavigate();
 
-    const handleNavigate = () => {
-        navigate('/');
-      };
-
     return (
        <header>
         <div id="header-top">
@@ -24,7 +20,7 @@ function Header() {
                 
                 <div id="header-buttons">
                     <button className="header-button"> <AiOutlineShoppingCart className="header-icon"/></button>
-                    <button className="header-button"> <BsPersonCircle className="header-icon" /></button>
+                    <Link to = "/login"><button className="header-button"> <BsPersonCircle className="header-icon" /></button></Link>
                 </div>
             </div>
        </header>

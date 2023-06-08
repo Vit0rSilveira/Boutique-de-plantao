@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Router, Routes} from 'react-router-dom';
-import Home from '../pages/home';
-import About_us from '../pages/about_us';
-import Login from "../pages/login";
+import Home from '../pages/home_page';
+import About_us from '../pages/about_us_page';
+import Login from "../pages/login_page";
 
 function Rotas() {
   return (

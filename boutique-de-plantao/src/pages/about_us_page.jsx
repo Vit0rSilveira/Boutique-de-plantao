@@ -1,7 +1,7 @@
 import React from "react";
 import Header from '../components/header.jsx';
 import Navbar from '../components/navbar.jsx';
-import Footer from '../components/footer';
+import Footer from '../components/footer.jsx';
 import "../styles/pages/about_us.css";
 
 function About_us() {

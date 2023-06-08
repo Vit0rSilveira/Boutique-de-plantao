@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
 import { Link, useNavigate } from 'react-router-dom';
-import {BsPersonCircle} from "react-icons/Bs"
-import {AiOutlineShoppingCart} from "react-icons/Ai"
+import {BsPersonCircle} from "react-icons/bs";
+import {AiOutlineShoppingCart} from "react-icons/ai";
 import { useCookies } from "react-cookie";
-import "../styles/components/header.css"
+import "../styles/components/header.css";
 
 function Header() {
     const [cookies, setCookies, removeCookies] = useCookies(["user"]);

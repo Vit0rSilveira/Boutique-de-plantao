@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AiOutlineShoppingCart } from "react-icons/Ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import "../styles/components/complete_product_card.css"
 
 function Complete_product(props) {

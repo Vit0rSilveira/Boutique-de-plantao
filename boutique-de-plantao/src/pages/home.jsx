@@ -5,6 +5,7 @@ import Navbar from '../components/navbar';
 import Product from '../components/product_card';
 import Complete_product from '../components/complete_product_card'
 import Review from '../components/review';
+import Footer from '../components/footer';
 
 function Home() {
     const [produtos, setProdutos] = useState([]);
@@ -44,6 +45,8 @@ function Home() {
             )}
             <Review star = {5} comenter={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum omnis beatae iusto cumque culpa similique asperiores maxime necessitatibus laborum, consequatur quas! Numquam quidem, aliquid nam illo mollitia doloremque consectetur atque."}/>
             
+            <Footer />
+
         </>
     );
 }

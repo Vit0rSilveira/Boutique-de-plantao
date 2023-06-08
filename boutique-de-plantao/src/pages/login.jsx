@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
+import Footer from '../components/footer';
 import "../styles/pages/login.css";
 import { useCookies } from "react-cookie";
 
@@ -33,6 +34,8 @@ function Login() {
                     <input type="button" value="Cadastre-se" />
                 </div>
             </div>
+
+            <Footer />
         </>
 
     );

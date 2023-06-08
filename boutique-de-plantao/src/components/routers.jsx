@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Router, Routes} from 'react-router-dom';
 import Home from '../pages/home';
 import About_us from '../pages/about_us';
-import Login from "../pages/login"
+import Login from "../pages/login";
 
 function Rotas() {
   return (

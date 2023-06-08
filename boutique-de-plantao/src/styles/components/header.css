@@ -81,6 +81,10 @@ button:hover {
     justify-content: space-between;
 }
 
+#not-log {
+    display: none;
+}
+
 @media (max-width: 600px) {
     #header-top {
         justify-content: space-evenly;

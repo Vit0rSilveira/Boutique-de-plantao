@@ -16,8 +16,6 @@ function Home() {
             .catch(error => console.log(error));
     }, []);
 
-    console.log(produtos);
-
     return (
         <>
             <Header />

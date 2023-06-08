@@ -4,14 +4,14 @@ import "../styles/components/review.css";
 
 function Review(props) {
     const stars = [];
-    for (let i = 0; i < props.star; i++) {
+    for (let i = 0; i < props.nota; i++) {
         stars.push(<AiFillStar />);
     }
 
     return (
         <div id="review">
             <p>{stars}</p>
-            <p>{props.comenter}</p>
+            <p>{props.comentario}</p>
         </div>
     );
 }

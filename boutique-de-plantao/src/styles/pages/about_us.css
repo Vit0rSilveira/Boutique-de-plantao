@@ -1,23 +1,8 @@
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 #bem-vindo, #compromisso-ambiental{
     width: 80%;
     margin: 20px;
-    padding: 20px;
+    padding: 2vh 3vw 2vh 3vw;
     border: 2px solid black;
     border-radius: 10px;
     background-color: white;
-}
-
-#bem-vindo {
-    margin-top: 40px;
-}
-
-#compromisso-ambiental {
-    margin-bottom: 40px;
 }

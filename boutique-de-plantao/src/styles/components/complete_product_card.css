@@ -25,6 +25,12 @@ input[type="number"],
     height: 8vh;
 }
 
+#add-cart-product{
+    border: none;
+    color: white;
+    background-color: #313D17;
+}
+
 #inputs {
     display: flex;
     justify-content: space-around;

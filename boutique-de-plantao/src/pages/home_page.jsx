@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Images_carousel from '../components/carousel';
 import Header from '../components/header';
 import Navbar from '../components/navbar';
@@ -21,28 +21,41 @@ function Home() {
         <>
             <Header />
             <Navbar />
-            <Images_carousel />
-            {produtos.length > 0 && (
-                <>
-                    <Product
-                        name={produtos[0].nome}
-                        value={produtos[0].valor}
-                        image={produtos[0].imagem}
-                    />
-                    
-                    <Complete_product
-                        key={produtos[2].id}
-                        name={produtos[2].nome}
-                        amount_free={produtos[2].quantidade_disponivel}
-                        value={produtos[2].valor}
-                        descricao={produtos[2].descricao}
-                        image={produtos[2].imagem}
-                        avaliacao={produtos[2].avaliacao}
-                    />
-                </>
-            )}
-            <Review star = {5} comenter={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum omnis beatae iusto cumque culpa similique asperiores maxime necessitatibus laborum, consequatur quas! Numquam quidem, aliquid nam illo mollitia doloremque consectetur atque."}/>
-            
+            <main>
+                <Images_carousel />
+                {produtos.length > 0 && (
+                    <>
+                        <Product
+                            nome={produtos[2].nome}
+                            quantidade_disponivel={produtos[2].quantidade_disponivel}
+                            valor={produtos[2].valor}
+                            descricao={produtos[2].descricao}
+                            imagem={produtos[2].imagem}
+                            avaliacao={produtos[2].avaliacao}
+                        />
+
+                        <Product
+                            nome={produtos[0].nome}
+                            quantidade_disponivel={produtos[0].quantidade_disponivel}
+                            valor={produtos[0].valor}
+                            descricao={produtos[0].descricao}
+                            imagem={produtos[0].imagem}
+                            avaliacao={produtos[0].avaliacao}
+                        />
+
+                        <Product
+                            nome={produtos[3].nome}
+                            quantidade_disponivel={produtos[3].quantidade_disponivel}
+                            valor={produtos[3].valor}
+                            descricao={produtos[3].descricao}
+                            imagem={produtos[3].imagem}
+                            avaliacao={produtos[3].avaliacao}
+                        />
+                    </>
+                )}
+            </main>
+
+
             <Footer />
 
         </>

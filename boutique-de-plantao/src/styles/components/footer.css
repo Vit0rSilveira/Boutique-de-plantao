@@ -57,15 +57,6 @@ footer {
 }
 
 @media(max-width: 800px) {
-    #atendimento {
-
-    }
     #formas_pagamento {display:none}
-
-    #redes_sociais {
-
-    }
-
     #logo_footer {display:none}
-
 }

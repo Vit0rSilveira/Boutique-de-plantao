@@ -6,6 +6,7 @@ import Product from '../components/product_card';
 import Complete_product from '../components/complete_product_card'
 import Review from '../components/review';
 import Footer from '../components/footer';
+import Item from '../components/cart_item';
 
 function Home() {
     const [produtos, setProdutos] = useState([]);
@@ -39,9 +40,17 @@ function Home() {
                         image={produtos[2].imagem}
                         avaliacao={produtos[2].avaliacao}
                     />
+
+                    <Item
+                        amount_free = {produtos[2].quantidade_disponivel}
+                        image={produtos[2].imagem}
+                        name = {produtos[2].nome}
+                        value = {produtos[2].valor}  
+                    />
                 </>
             )}
             <Review star = {5} comenter={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum omnis beatae iusto cumque culpa similique asperiores maxime necessitatibus laborum, consequatur quas! Numquam quidem, aliquid nam illo mollitia doloremque consectetur atque."}/>
+            
             
             <Footer />
 

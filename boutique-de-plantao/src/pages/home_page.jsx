@@ -11,7 +11,7 @@ function Home() {
     const [produtos, setProdutos] = useState([]);
 
     useEffect(() => {
-        fetch('../flores.json')
+        fetch('../jsons/flores.json')
             .then(response => response.json())
             .then(data => setProdutos(Object.values(data)))
             .catch(error => console.log(error));

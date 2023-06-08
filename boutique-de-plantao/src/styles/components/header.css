@@ -35,6 +35,7 @@ header {
 #container-search input {
     border: 0;
     width: 80%;
+    height: 100%;
     font-size: 20px;
     border-radius: 10px 0px 0px 10px;
     outline: none;

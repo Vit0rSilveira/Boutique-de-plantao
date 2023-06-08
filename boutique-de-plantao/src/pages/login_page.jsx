@@ -14,7 +14,7 @@ function Login() {
     const [cookies, setCookies, removeCookies] = useCookies(["credentials"]);
 
     useEffect(() => {
-        fetch("../../clientes.json")
+        fetch("../jsons/clientes.json")
             .then(response => response.json())
             .then(data => setDataClients(Object.values(data)))
             .catch(error => console.log(error))

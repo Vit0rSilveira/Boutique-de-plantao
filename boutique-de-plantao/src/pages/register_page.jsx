@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
@@ -8,6 +9,7 @@ import "../styles/pages/register.css";
 
 function Register() {
     const [formData, setFormData] = useState({});
+    const [cookies, setCookies, removeCookies] = useCookies(["credentials"]);
 
     function handlerRegister() {
         const nomeCompleto = document.getElementById('nome-completo').value;
@@ -21,6 +23,11 @@ function Register() {
         const estado = document.getElementById('estado').value;
         const cidade = document.getElementById('cidade').value;
         const bairro = document.getElementById('bairro').value;
+        let tipo = 'cliente'
+
+        if (cookies.credentials)
+            tipo = 'adm'
+            
 
         if (!nomeCompleto || !telefone || !email || !senha || !confirmacaoSenha || !endereco || !numero || !cep || !estado ||
             !cidade || !bairro) {
@@ -31,12 +38,13 @@ function Register() {
             alert("As senhas não coecidem")
             return
         }
-        
-        const formData = { nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, numero, cep, estado, cidade, bairro,
-          };
-      
-          setFormData(formData);
-        }
+
+        const formData = {
+            nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, numero, cep, estado, cidade, bairro, tipo
+        };
+
+        setFormData(formData);      
+    }
 
     return (
         <>

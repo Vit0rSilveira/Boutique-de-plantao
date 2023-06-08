@@ -30,7 +30,7 @@ input[type="button"] {
 form label,
 input {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 2vh;
 }
 
 .boxes-inputs, input[type="button"] {
@@ -46,6 +46,7 @@ input[type="button"],
     justify-content: center;
     background-color: #313d17;
     border: 1px solid black;
+    border-radius: 5px;
     color: white;
     margin-top: auto;
     font-size: larger;
@@ -53,6 +54,17 @@ input[type="button"],
 
 input {
     width: 20vw;
+}
+
+input[type="button"]:active,
+.boxes-inputs input[type="submit"]:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="button"]:hover,
+.boxes-inputs input[type="submit"]:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {

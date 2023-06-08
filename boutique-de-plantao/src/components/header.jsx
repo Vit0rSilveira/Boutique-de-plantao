@@ -27,6 +27,7 @@ function Header() {
     const handleLogOut = () => {
         removeCookies("credentials")
         navigate("/")
+        window.location.reload()
     }
 
     return (
@@ -36,7 +37,7 @@ function Header() {
                 
                 <div id="container-search">
                     <input type="text" name="input" id="input-search"/>
-                <button> <FiSearch /></button>
+                <button className= "button-header"> <FiSearch /></button>
                 </div>
                 
                 <div id="header-buttons">

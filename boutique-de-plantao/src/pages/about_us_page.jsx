@@ -47,6 +47,7 @@ function About_us() {
                         <li>Acreditamos que é nossa responsabilidade fazer a diferença positiva no mundo, preservando a natureza e incentivando nossos clientes a viver de maneira mais sustentável</li>
                     </ul>
                 </div>
+
             </main>
             <Footer />
         </>

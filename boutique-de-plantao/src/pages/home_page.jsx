@@ -6,6 +6,7 @@ import Product from '../components/product_card';
 import Complete_product from '../components/complete_product_card'
 import Review from '../components/review';
 import Footer from '../components/footer';
+import Item from '../components/cart_item';
 
 function Home() {
     const [produtos, setProdutos] = useState([]);
@@ -50,6 +51,13 @@ function Home() {
                             descricao={produtos[3].descricao}
                             imagem={produtos[3].imagem}
                             avaliacao={produtos[3].avaliacao}
+                        />
+
+                        <Item
+                            amount_free = {produtos[2].quantidade_disponivel}
+                            image={produtos[2].imagem}
+                            name = {produtos[2].nome}
+                            value = {produtos[2].valor}  
                         />
                     </>
                 )}

@@ -1,15 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import Footer from '../components/footer';
 import "../styles/pages/login.css";
 import { useCookies } from "react-cookie";
+import "../styles/pages/login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-    const [cookies, setCookies, removeCookies] = useCookies(["user"]);
+    const navigate = useNavigate()
+    const [warning, setWarning] = useState("not-warning");
+    const [dataClients, setDataClients] = useState({})
+    const [cookies, setCookies, removeCookies] = useCookies(["credentials"]);
 
-    const handleLoginClick = () => {
-        setCookies("user", "AAAA")
+    useEffect(() => {
+        fetch("../../clientes.json")
+            .then(response => response.json())
+            .then(data => setDataClients(Object.values(data)))
+            .catch(error => console.log(error))
+    }, [])
+
+    function handleLoginClick() {
+        const login = document.getElementById("input-email").value
+        const password = document.getElementById("input-password").value
+        let userFound = false;
+
+        dataClients.forEach(client => {
+            if (client.login === login && client.senha === password) {
+                setCookies("credentials", { login, password });
+                navigate("/perfil");
+                userFound = true;
+                return; // Interrompe a iteração
+            }
+        });
+
+        if (!userFound) {
+            setTimeout(() => {
+                alert("Usuário ou senha incorretos");
+            }, 0);
+        }
     }
 
     return (
@@ -17,9 +46,9 @@ function Login() {
             <Header />
             <Navbar />
 
-            <div id="login-page">
+            <main>
                 <div id="login">
-                    <h1>Login</h1>
+                    <h1 className="tittle">Login</h1>
 
                     <div className="boxes-inputs form ">
                         <form action="">

@@ -62,7 +62,7 @@ function Login() {
 
                     <input type="button" value="Cadastre-se" />
                 </div>
-            </div>
+            </main>
 
             <Footer />
         </>

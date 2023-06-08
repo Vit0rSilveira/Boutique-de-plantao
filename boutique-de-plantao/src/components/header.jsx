@@ -3,7 +3,7 @@ import { FiSearch } from "react-icons/fi";
 import { Link, useNavigate } from 'react-router-dom';
 import {BsPersonCircle} from "react-icons/bs";
 import {AiOutlineShoppingCart} from "react-icons/ai";
-import {RxExit} from "react-icons/Rx";
+import {RxExit} from "react-icons/rx";
 import { useCookies } from "react-cookie";
 import "../styles/components/header.css";
 

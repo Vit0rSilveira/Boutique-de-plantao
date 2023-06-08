@@ -1,0 +1,70 @@
+#formulario {
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh 0 5vh 0;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+#dados-pessoais {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1vw;
+    width: 100%;
+    margin-bottom: 5vh;
+}
+
+
+#endereco {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1vw;
+    width: 100%;
+}
+#dados-pessoais label {
+    grid-column: 1 / 2;
+}
+
+#dados-pessoais input {
+    grid-column: 2 / 3;
+}
+
+#endereco label {
+    grid-column: 1 / 2;
+}
+
+#endereco input {
+    grid-column: 2 / 3;
+}
+
+#formulario input[type="button"] {
+    margin-top: 5vh;
+}
+
+h3 {
+    margin: 5vh 5vw 5vh 5vw;
+}
+
+@media (max-width: 650px) {
+    #formulario {
+        padding: 5vh 5vw 5vh 5vw;
+    }
+
+    #endereco, #dados-pessoais {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #endereco label,
+    #endereco input,
+    #dados-pessoais label,
+    #dados-pessoais input {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

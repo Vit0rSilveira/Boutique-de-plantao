@@ -5,6 +5,8 @@ import About_us from '../pages/about_us_page';
 import Login from "../pages/login_page";
 import Product from '../pages/product_page';
 import Register from '../pages/register_page';
+import User from '../pages/user_page';
+import Adm from '../pages/adm_page';
 
 function Rotas() {
   return (
@@ -14,7 +16,8 @@ function Rotas() {
         <Route path = "/login" element = {<Login/>}/>
         <Route path="/produto" element={<Product />} />
         <Route path="/cadastrar" element={<Register />} />
-
+        <Route path="/adm" element={<Adm />} />
+        <Route path="/perfil" element={<User />} />
     </Routes>
   );
 }

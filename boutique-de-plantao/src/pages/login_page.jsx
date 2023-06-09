@@ -27,10 +27,16 @@ function Login() {
 
         dataClients.forEach(client => {
             if (client.login === login && client.senha === password) {
-                setCookies("credentials", { login, password });
-                navigate("/perfil");
+                const type = client.type
+                setCookies("credentials", { login, password, type });
+
+                if (type === "cliente")
+                    navigate("/perfil");
+                else
+                    navigate("/adm");
+
                 userFound = true;
-                return; // Interrompe a iteração
+                return;
             }
         });
 

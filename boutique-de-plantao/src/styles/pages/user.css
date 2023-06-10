@@ -1,0 +1,59 @@
+#page-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 20vw;
+    
+}
+
+.welcome-card {
+    height: 40vh;
+    width: 50vw;
+    background-color: white;
+    padding: 3rem;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.button-personal-page {
+    height: 10vh;
+    width: 15vw;
+    margin: 5vh 0vw;
+    color: white;
+    background-color: #313D17;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    .welcome-card {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+
+    #page-user {
+      flex-direction: column;
+      padding: 1vh 1vw;
+    }
+  
+    #buttons {
+      flex-direction: row;
+      justify-content: space-between;
+      height: auto;
+      width: 80%;
+    }
+
+    .button-personal-page {
+        width: 40%;
+    }
+  }
+  

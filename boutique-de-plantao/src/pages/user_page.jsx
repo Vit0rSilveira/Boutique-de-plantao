@@ -79,7 +79,7 @@ function User() {
                         </button>
                     </div>
 
-                    <div id="card">{renderCardContent()}</div>
+                    <div id={activeButton === "dados" ? "user-card" : ""}>{renderCardContent()}</div>
                 </div>
             </main>
             <Footer />

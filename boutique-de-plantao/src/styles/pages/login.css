@@ -23,7 +23,7 @@ h1 {
     grid-area: Form;
 }
 
-input[type="button"] {
+.login-button {
     grid-area: Cadastrar;
 }
 
@@ -33,13 +33,13 @@ input {
     margin-bottom: 2vh;
 }
 
-.boxes-inputs, input[type="button"] {
+.boxes-inputs input[type="button"] {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-input[type="button"],
+.login-button,
 .boxes-inputs input[type="submit"] {
     display: flex;
     align-items: center;
@@ -56,13 +56,13 @@ input {
     width: 20vw;
 }
 
-input[type="button"]:active,
+.login-button:active,
 .boxes-inputs input[type="submit"]:active {
     transform: translateY(1px);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-input[type="button"]:hover,
+.login-button:hover,
 .boxes-inputs input[type="submit"]:hover {
     cursor: pointer;
 }
@@ -81,7 +81,7 @@ input[type="button"]:hover,
         align-items: center;
     }
 
-    input[type="button"],
+    .login-button,
     .boxes-inputs input[type="submit"],
     input {
         width: 40vw;

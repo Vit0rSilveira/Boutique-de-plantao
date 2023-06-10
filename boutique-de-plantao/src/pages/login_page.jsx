@@ -65,7 +65,7 @@ function Login() {
                         </form>
                     </div>
 
-                    <input type="button" value="Cadastre-se" onClick={() => {navigate("/cadastrar")}}/>
+                    <input type="button" className ="login-button" value="Cadastre-se" onClick={() => {navigate("/cadastrar")}}/>
                 </div>
             </main>
 

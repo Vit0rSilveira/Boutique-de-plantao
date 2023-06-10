@@ -144,7 +144,7 @@ function Personal_data(props) {
       </div>
 
       <div className="button-wrapper">
-        <input type="button" value="Cadastrar" onClick={handlerRegister} />
+        <input type="button" className ="login-button" value="Cadastrar" onClick={handlerRegister} />
       </div>
     </form>
   );

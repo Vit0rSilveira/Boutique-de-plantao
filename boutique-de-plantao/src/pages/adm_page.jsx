@@ -45,12 +45,12 @@ function User() {
         if (activeButton === "dados") {
             return <Personal_data user={usuarioLogado} />;
         } else if (activeButton === "novo-adm") {
-            return ( <div>
+            return (<div>
                 <h3>Cadastrar novo administrador</h3>
                 <Personal_data user={{ tipo: "adm" }} />
-                </div>)
+            </div>)
         } else if (activeButton === "novo-produto") {
-            return (<Novo_produto/>)
+            return (<Novo_produto />)
         } else if (activeButton === "editar-produto") {
             return (<h1>editar-produto</h1>)
         }
@@ -58,7 +58,7 @@ function User() {
             // Card de boas-vindas
             return (
                 <div className="welcome-card">
-                    <h2> {usuarioLogado.nome } Bem-vindo(a)!</h2>
+                    <h2> {usuarioLogado.nome} Bem-vindo(a)!</h2>
                     <p>Selecione uma opção no menu para adicionar um novo administrador, editar um produto ou adicionar um novo produto</p>
                 </div>
             );

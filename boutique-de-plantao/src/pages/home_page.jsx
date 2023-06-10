@@ -27,6 +27,8 @@ function Home() {
                 {produtos.length > 0 && (
                     <>
                         <Product
+                            key = {1}
+                            id = {produtos[2].id}
                             nome={produtos[2].nome}
                             quantidade_disponivel={produtos[2].quantidade_disponivel}
                             valor={produtos[2].valor}
@@ -36,6 +38,8 @@ function Home() {
                         />
 
                         <Product
+                            key = {2}
+                            id = {produtos[0].id}
                             nome={produtos[0].nome}
                             quantidade_disponivel={produtos[0].quantidade_disponivel}
                             valor={produtos[0].valor}
@@ -45,6 +49,8 @@ function Home() {
                         />
 
                         <Product
+                            key = {3}
+                            id = {produtos[0].id}
                             nome={produtos[3].nome}
                             quantidade_disponivel={produtos[3].quantidade_disponivel}
                             valor={produtos[3].valor}

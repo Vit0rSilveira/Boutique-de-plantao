@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
     const navigate = useNavigate()
-    const [warning, setWarning] = useState("not-warning");
     const [dataClients, setDataClients] = useState({})
     const [cookies, setCookies, removeCookies] = useCookies(["credentials"]);
 

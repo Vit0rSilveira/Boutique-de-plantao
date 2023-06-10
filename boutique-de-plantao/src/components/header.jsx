@@ -18,8 +18,13 @@ function Header() {
     }, [])
 
     function handleLogin () {
-        if(cookies.credentials)
-            navigate("/perfil");
+        if(cookies.credentials) {
+            const type = cookies.credentials.type
+            if (type === "adm")
+                navigate("/adm");
+            else
+                navigate("/perfil");
+        }
         else
             navigate("/login")
     }

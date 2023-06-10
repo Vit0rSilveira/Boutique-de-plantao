@@ -7,18 +7,8 @@ function Product(props) {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/produto`, {
-            state: {
-                nome: props.nome,
-                descricao: props.descricao,
-                quantidade_disponivel: props.quantidade_disponivel,
-                imagem: props.imagem,
-                avaliacao: props.avaliacao,
-                valor: props.valor
-            }
-        });
+        navigate(`/produto/${props.id}`);
     };
-
 
     return (
         <div id="product">

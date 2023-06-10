@@ -3,12 +3,28 @@
         "nome": "Andre",
         "senha": "123",
         "type": "adm",
-        "login": "andre@andre.com"
+        "login": "andre@andre.com",
+        "telefone": "987654321",
+        "email": "andre@andre.com",
+        "endereco": "Rua Exemplo 123",
+        "numero": "456",
+        "cep": "98765-432",
+        "estado": "Exemplo Estado",
+        "cidade": "Exemplo Cidade",
+        "bairro": "Exemplo Bairro"
     },
     "user2": {
         "nome": "Vitor",
         "senha": "123",
         "type": "cliente",
-        "login": "vitor@vitor.com"
+        "login": "vitor@vitor.com",
+        "telefone": "123456789",
+        "email": "vitor@vitor.com",
+        "endereco": "Rua Exemplo 456",
+        "numero": "789",
+        "cep": "12345-678",
+        "estado": "Exemplo Estado",
+        "cidade": "Exemplo Cidade",
+        "bairro": "Exemplo Bairro"
     }
 }

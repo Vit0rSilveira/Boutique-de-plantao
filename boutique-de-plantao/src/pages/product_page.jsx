@@ -1,41 +1,59 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Complete_product from "../components/complete_product_card";
 import Review from "../components/review";
-import "../styles/pages/product.css"
+import "../styles/pages/product.css";
 
 function Product() {
-  const location = useLocation();
-  const { nome, descricao, quantidade_disponivel, imagem, avaliacao, valor } = location.state;
+  const { idProduto } = useParams();
+  const [produtos, setProdutos] = useState([]); 
+
+  useEffect(() => {
+    fetch("../jsons/flores.json")
+      .then((response) => response.json())
+      .then((data) => setProdutos(Object.values(data)))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const produtoEncontrado = produtos.find(
+    (produto) => produto.id === idProduto
+  );
 
   return (
-
     <>
       <Header />
       <Navbar />
 
       <main>
-        <Complete_product
-          nome={nome}
-          valor={valor}
-          quantidade_disponivel={quantidade_disponivel}
-          descricao={descricao}
-          imagem={imagem}
-        />
-
-        {avaliacao.length > 0 && (
-          <div id="avaliacao">
-            <h2>Avaliações</h2>
-            {avaliacao.length >= 1 && <Review nota={avaliacao[0].nota} comentario={avaliacao[0].comentario} />}
-            {avaliacao.length >= 2 && <Review nota={avaliacao[1].nota} comentario={avaliacao[1].comentario} />}
-          </div>
+        {produtoEncontrado ? (
+          <Complete_product
+            nome={produtoEncontrado.nome}
+            valor={produtoEncontrado.valor}
+            quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
+            descricao={produtoEncontrado.descricao}
+            imagem={produtoEncontrado.imagem}
+          />
+        ) : (
+          <p>Carregando...</p>
         )}
 
+        {produtoEncontrado && produtoEncontrado.avaliacao.length > 0 && (
+          <div id="avaliacao">
+            <h2>Avaliações</h2>
+            {produtoEncontrado.avaliacao.map((avaliacao) => (
+              <Review
+                key={avaliacao.id}
+                nota={avaliacao.nota}
+                comentario={avaliacao.comentario}
+              />
+            ))}
+          </div>
+        )}
       </main>
-      <Footer/> 
+      <Footer />
     </>
   );
 }

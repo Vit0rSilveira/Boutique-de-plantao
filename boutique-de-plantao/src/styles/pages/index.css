@@ -10,4 +10,9 @@ main {
     padding-top: 10vh;
     background-color: #F2F2F2;
     padding-bottom: 10vh;
+    width: 100%;
+}
+
+h3 {
+    margin-bottom: 5vh;
 }

@@ -6,14 +6,22 @@ import Footer from "../components/footer";
 import Personal_data from "../components/personal_data";
 import History from "../components/purchase_history";
 import "../styles/pages/user.css";
+import {useNavigate } from "react-router-dom";
+
 
 function User() {
     // Estado para controlar o botão ativo
     const [activeButton, setActiveButton] = useState("");
     const [users, setUsers] = useState([]);
     const [cookies] = useCookies(["credentials"]);
+    const navigate = useNavigate()
 
     useEffect(() => {
+        if (!cookies.credentials)
+            navigate("/login")
+        else if (cookies.credentials.type === "adm")
+            navigate("/adm")
+
         fetch("../jsons/clientes.json")
             .then((response) => response.json())
             .then((data) => setUsers(Object.values(data)))
@@ -42,8 +50,7 @@ function User() {
             // Card de boas-vindas
             return (
                 <div className="welcome-card">
-                    <h2>{usuarioLogado.nome}</h2>
-                    <h3>Bem-vindo(a)!</h3>
+                    <h2> {usuarioLogado.nome } Bem-vindo(a)!</h2>
                     <p>Selecione uma opção no menu para visualizar seus dados ou histórico de compras.</p>
                 </div>
             );

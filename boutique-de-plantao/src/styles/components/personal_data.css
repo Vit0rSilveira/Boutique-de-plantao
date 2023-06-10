@@ -13,7 +13,7 @@
 #formulario .button-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 5vh;
+    margin: 5vh 0px 0px 0px;
 }
 
 #dados-pessoais {

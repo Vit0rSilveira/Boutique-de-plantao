@@ -1,130 +1,153 @@
 import React, { useState } from "react";
-import { useCookies } from "react-cookie";
-import "../styles/components/personal_data.css"
+import "../styles/components/personal_data.css";
 
 function Personal_data(props) {
-    const { user } = props;
+  const { user: tipo } = props;
 
-    const [formData, setFormData] = useState({});
-    const [cookies, setCookies, removeCookies] = useCookies(["credentials"]);
+  const [formData, setFormData] = useState({
+    nomeCompleto: tipo?.nome || "",
+    telefone: tipo?.telefone || "",
+    email: tipo?.email || "",
+    senha: "",
+    confirmacaoSenha: "",
+    endereco: tipo?.endereco || "",
+    cep: tipo?.cep || "",
+    estado: tipo?.estado || "",
+    cidade: tipo?.cidade || "",
+    bairro: tipo?.bairro || "",
+  });
 
-    function handlerRegister() {
-        const nomeCompleto = document.getElementById('nome-completo').value;
-        const telefone = document.getElementById('telefone').value;
-        const email = document.getElementById('email').value;
-        const senha = document.getElementById('senha').value;
-        const confirmacaoSenha = document.getElementById('confirmacao-senha').value;
-        const endereco = document.getElementById('input-endereco').value;
-        const numero = document.getElementById('numero').value;
-        const cep = document.getElementById('cep').value;
-        const estado = document.getElementById('estado').value;
-        const cidade = document.getElementById('cidade').value;
-        const bairro = document.getElementById('bairro').value;
-        let tipo = 'cliente'
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
 
-        if (cookies.credentials)
-            tipo = 'adm'
+  function handlerRegister() {
+    const { nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, cep, estado, cidade, bairro,
+    } = formData;
 
-
-        if (!nomeCompleto || !telefone || !email || !senha || !confirmacaoSenha || !endereco || !numero || !cep || !estado ||
-            !cidade || !bairro) {
-            alert('Por favor, preencha todos os campos obrigatórios.');
-            return;
-        }
-        else if (senha != confirmacaoSenha) {
-            alert("As senhas não coecidem")
-            return
-        }
-
-        const formData = {
-            nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, numero, cep, estado, cidade, bairro, tipo
-        };
-
-        setFormData(formData);
+    if ( !nomeCompleto || !telefone || !email || !senha || !confirmacaoSenha ||
+       !endereco || !cep || !estado || !cidade || !bairro) {
+      alert("Por favor, preencha todos os campos obrigatórios.");
+      return;
+    } else if (senha !== confirmacaoSenha) {
+      alert("As senhas não coincidem");
+      return;
     }
 
-    return (
-        <form action="">
-            <div id="dados-pessoais">
-                <label htmlFor="nome-completo">Nome Completo</label>
-                <input
-                    type="text"
-                    name="nome-completo"
-                    id="nome-completo"
-                    placeholder={user?.nome || "Nome Completo"} />
-                <label htmlFor="telefone">Telefone</label>
-                <input
-                    type="text"
-                    name="telefone"
-                    id="telefone"
-                    placeholder={user?.telefone || "(XX) XXXXXXXXX"}
-                    required />
-                <label htmlFor="">E-mail</label>
-                <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder={user?.email || "e-mail"} />
-                <label htmlFor="senha">Senha</label>
-                <input type="password" name="senha" id="senha" placeholder="Senha" />
-                <label htmlFor="confirmacao-senha">Confirme sua Senha</label>
-                <input
-                    type="password"
-                    name="confirmacao-senha"
-                    id="confirmacao-senha"
-                    placeholder="Confirme sua Senha" />
-            </div>
+    setFormData((prevState) => ({
+      ...prevState,
+      user: tipo,
+    }));
+  }
 
-            <div id="endereco">
-                <label htmlFor="endereco">Endereço</label>
-                <input
-                    type="text"
-                    name="endereco"
-                    id="input-endereco"
-                    placeholder={user?.endereco || "Endereço"} />
-                <label htmlFor="numero">Numero</label>
-                <input
-                    type="text"
-                    name="numero"
-                    id="numero"
-                    placeholder={user?.numero || "Número"} />
-                <label htmlFor="cep">CEP</label>
-                <input
-                    type="text"
-                    name="cep"
-                    id="cep"
-                    placeholder={user?.cep || "CEP"} />
-                <label htmlFor="estado">Estado</label>
-                <input
-                    type="text"
-                    name="estado"
-                    id="estado"
-                    placeholder={user?.estado || "Estado"} />
-                <label htmlFor="cidade">Cidade</label>
-                <input
-                    type="text"
-                    name="cidade"
-                    id="cidade"
-                    placeholder={user?.cidade || "Cidade"} />
-                <label htmlFor="bairro">Bairro</label>
-                <input
-                    type="text"
-                    name="bairro"
-                    id="bairro"
-                    placeholder={user?.bairro || "Bairro"} />
-                <label htmlFor="complemento">Complemento</label>
-                <input
-                    type="text"
-                    name="complemento"
-                    id="complemento"
-                    placeholder={user?.complemento || "Complemento (opcional)"} />
-            </div>
+  return (
+    <form action="">
+      <div id="dados-pessoais">
+        <label htmlFor="nome-completo">Nome Completo</label>
+        <input
+          type="text"
+          name="nomeCompleto"
+          id="nome-completo"
+          value={formData.nomeCompleto}
+          onChange={handleChange}
+        />
+        <label htmlFor="telefone">Telefone</label>
+        <input
+          type="text"
+          name="telefone"
+          id="telefone"
+          value={formData.telefone}
+          onChange={handleChange}
+          required
+        />
+        <label htmlFor="">E-mail</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <label htmlFor="senha">Senha</label>
+        <input
+          type="password"
+          name="senha"
+          id="senha"
+          placeholder="Senha"
+          value={formData.senha}
+          onChange={handleChange}
+        />
+        <label htmlFor="confirmacao-senha">Confirme sua Senha</label>
+        <input
+          type="password"
+          name="confirmacaoSenha"
+          id="confirmacao-senha"
+          placeholder="Confirme sua Senha"
+          value={formData.confirmacaoSenha}
+          onChange={handleChange}
+        />
+      </div>
 
-            <div className="button-wrapper">
-                <input type="button" value="Cadastrar" onClick={handlerRegister}/>
-            </div>
-        </form>
-    );
+      <div id="endereco">
+        <label htmlFor="endereco">Endereço</label>
+        <input
+          type="text"
+          name="endereco"
+          id="input-endereco"
+          value={formData.endereco}
+          onChange={handleChange}
+        />
+        <label htmlFor="cep">CEP</label>
+        <input
+          type="text"
+          name="cep"
+          id="cep"
+          value={formData.cep}
+          onChange={handleChange}
+        />
+        <label htmlFor="estado">Estado</label>
+        <input
+          type="text"
+          name="estado"
+          id="estado"
+          value={formData.estado}
+          onChange={handleChange}
+        />
+        <label htmlFor="cidade">Cidade</label>
+        <input
+          type="text"
+          name="cidade"
+          id="cidade"
+          value={formData.cidade}
+          onChange={handleChange}
+        />
+        <label htmlFor="bairro">Bairro</label>
+        <input
+          type="text"
+          name="bairro"
+          id="bairro"
+          value={formData.bairro}
+          onChange={handleChange}
+        />
+        <label htmlFor="complemento">Complemento</label>
+        <input
+          type="text"
+          name="complemento"
+          id="complemento"
+          value={formData.complemento}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="button-wrapper">
+        <input type="button" value="Cadastrar" onClick={handlerRegister} />
+      </div>
+    </form>
+  );
 }
 
 export default Personal_data;

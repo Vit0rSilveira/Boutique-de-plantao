@@ -7,6 +7,8 @@ import Product from '../pages/product_page';
 import Register from '../pages/register_page';
 import User from '../pages/user_page';
 import Adm from '../pages/adm_page';
+import Cart from '../pages/cart_page';
+import Payment from '../pages/payment_page';
 
 function Rotas() {
   return (
@@ -18,6 +20,8 @@ function Rotas() {
         <Route path="/cadastrar" element={<Register />} />
         <Route path="/adm" element={<Adm />} />
         <Route path="/perfil" element={<User />} />
+        <Route path="/carrinho" element={<Cart />} />
+        <Route path="/pagamento" element={<Payment />} />
     </Routes>
   );
 }

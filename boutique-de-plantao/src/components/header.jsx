@@ -35,6 +35,10 @@ function Header() {
         window.location.reload()
     }
 
+    function handleCart() {
+        navigate("/carrinho");
+    }
+
     return (
        <header>
         <div id="header-top">
@@ -46,7 +50,7 @@ function Header() {
                 </div>
                 
                 <div id="header-buttons">
-                    <button className="header-button"> <AiOutlineShoppingCart className="header-icon"/></button>
+                    <button className="header-button" onClick={handleCart}> <AiOutlineShoppingCart className="header-icon"/></button>
 
                     <button className="header-button" onClick={handleLogin}> <BsPersonCircle className="header-icon" /></button>
                     <button className="header-button" id={logado} onClick={handleLogOut}> <RxExit className="header-icon"/></button>

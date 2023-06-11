@@ -1,41 +1,51 @@
 import React, { useState, useEffect } from "react";
+import { ImCross } from "react-icons/im";
 import "../styles/components/cart_item.css";
 
 function Item(props) {
-    const [price, setPrice] = useState(props.value);
-    const [amount, setAmount] = useState(1);
+    const [price, setPrice] = useState(props.valor);
+    const [amount, setAmount] = useState(props.quantidade_carrinho);
 
     useEffect (() => {
-        setPrice(props.value * amount);
+        setPrice(props.valor * amount);
     }, [amount]);
 
     function handleAmountChange(event) {
-        const newAmount = parseInt(event.target.value);
+        let newAmount = parseInt(event.target.value);
+        if (!newAmount)
+            newAmount = 0;
         setAmount(newAmount);
     }
+    
 
     return (
         <div id="cart-item">
-            <img src={props.image} alt={`imagem do produto ${props.name}`} id="item-image" />
-            <p>{props.name}</p>
+            <img src={props.imagem} alt={`imagem do produto ${props.nome}`} id="item-image" />
+            <p>{props.nome}</p>
             
             <div id="price">
-                <p>R$ {props.value}</p>
+                <p>Unidade: R$ {props.valor}</p>
             </div>
 
-            <div id="total-price">
-                <p>R$ {price}</p>
-            </div>
-
-            <div id="inputs">
-              <input
+            <input
                 type="number"
-                min= "0"
-                max={props.amount_free}
+                required
+                min= "1"
+                max={props.quantidade_disponivel}
+                placeholder={props.quantidade_carrinho}
                 id="amount-in-cart"
                 onChange={handleAmountChange}
-              />
-          </div>
+            />
+                
+
+            <div id="total-price">
+                <p>Total: R$ {price}</p>
+            </div>
+
+            <button id="remove-item">
+                <ImCross />
+            </button>
+
         </div>
     )
 }

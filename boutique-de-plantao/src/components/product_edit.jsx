@@ -28,7 +28,7 @@ function Edit_product(props) {
 
     return (
         <div id="product-edit">
-            <img src={props.dados.imagem} alt="Imagem do Produto" />
+            <img src={props.dados.imagem} alt="Imagem do Produto" id="image-product-edit"/>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="nome-produto">Nome do Produto</label>
                 <input

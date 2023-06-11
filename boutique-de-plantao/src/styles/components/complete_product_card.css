@@ -15,7 +15,7 @@
     margin-left: 10px;
 }
 
-img {
+#product-image-complete {
     height: 25vh;
 }
 
@@ -47,7 +47,7 @@ input[type="number"],
         height: 90vh;
     }
 
-    img {
+    #product-image-complete {
         height: 30vh;
     }
 

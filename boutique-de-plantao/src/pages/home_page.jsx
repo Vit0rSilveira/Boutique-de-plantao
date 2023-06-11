@@ -3,8 +3,6 @@ import Images_carousel from '../components/carousel';
 import Header from '../components/header';
 import Navbar from '../components/navbar';
 import Product from '../components/product_card';
-import Complete_product from '../components/complete_product_card'
-import Review from '../components/review';
 import Footer from '../components/footer';
 import Item from '../components/cart_item';
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import "../styles/components/product_card.css";
 import { useNavigate } from "react-router-dom";
+import "../styles/components/product_card.css";
 
 function Product(props) {
     const navigate = useNavigate();

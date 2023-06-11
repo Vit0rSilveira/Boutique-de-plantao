@@ -7,6 +7,7 @@ import Product from '../pages/product_page';
 import Register from '../pages/register_page';
 import User from '../pages/user_page';
 import Adm from '../pages/adm_page';
+import Search_product from '../pages/product_search';
 
 function Rotas() {
   return (
@@ -18,6 +19,8 @@ function Rotas() {
         <Route path="/cadastrar" element={<Register />} />
         <Route path="/adm" element={<Adm />} />
         <Route path="/perfil" element={<User />} />
+        <Route path="/pesquisar/:produto" element={<Search_product />} />
+
     </Routes>
   );
 }

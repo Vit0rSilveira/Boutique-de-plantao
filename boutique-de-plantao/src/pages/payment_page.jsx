@@ -32,10 +32,10 @@ function Payment() {
             <main>
                 <div id='page-payment'>
                     <h1>Escolha a forma de pagamento</h1>
-                    <input type="button" value="Visa **** XXXX" class="visa-payment" onClick={handlePayment}/>
-                    <input type="button" value="Pix" class="pix-payment" />
-                    <input type="button" value="Boleto" class="boleto-payment" />
-                    <input type="button" value="Novo Cartão" class="new-card-payment" />
+                    <input type="button" value="Visa **** XXXX" className="visa-payment" onClick={handlePayment}/>
+                    <input type="button" value="Pix" className="pix-payment" />
+                    <input type="button" value="Boleto" className="boleto-payment" />
+                    <input type="button" value="Novo Cartão" className="new-card-payment" />
                 </div>
             </main>
             <Footer />

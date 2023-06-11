@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Header from '../components/header';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import "../styles/pages/payment_page.css"
 
 function Payment() {
     const [users, setUsers] = useState([]);
@@ -12,31 +11,21 @@ function Payment() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!cookies.credentials)
-            navigate("/login")
-
-        fetch("../jsons/clientes.json")
+            fetch("../jsons/clientes.json")
             .then((response) => response.json())
             .then((data) => setUsers(Object.values(data)))
             .catch((error) => console.log(error));
     }, [])
-    
-    function handlePayment() {
-        navigate("/sumario");
-    }
+
+    const userLogin = cookies.credentials && cookies.credentials.login;
+    const usuarioLogado = users.find((user) => user.login === userLogin);
     
     return (
         <>
             <Header />
             <Navbar />
             <main>
-                <div id='page-payment'>
-                    <h1>Escolha a forma de pagamento</h1>
-                    <input type="button" value="Visa **** XXXX" class="visa-payment" onClick={handlePayment}/>
-                    <input type="button" value="Pix" class="pix-payment" />
-                    <input type="button" value="Boleto" class="boleto-payment" />
-                    <input type="button" value="Novo Cartão" class="new-card-payment" />
-                </div>
+                
             </main>
             <Footer />
 

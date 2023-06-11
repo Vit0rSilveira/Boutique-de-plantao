@@ -9,6 +9,7 @@ import User from '../pages/user_page';
 import Adm from '../pages/adm_page';
 import Cart from '../pages/cart_page';
 import Payment from '../pages/payment_page';
+import Search_product from '../pages/product_search';
 
 function Rotas() {
   return (
@@ -22,6 +23,8 @@ function Rotas() {
         <Route path="/perfil" element={<User />} />
         <Route path="/carrinho" element={<Cart />} />
         <Route path="/pagamento" element={<Payment />} />
+        <Route path="/pesquisar/:produto" element={<Search_product />} />
+
     </Routes>
   );
 }

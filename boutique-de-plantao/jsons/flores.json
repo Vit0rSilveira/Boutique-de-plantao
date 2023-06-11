@@ -1,75 +1,78 @@
 {
-    "planta1": {
-      "nome": "Lírio do Vale",
-      "id": "1",
-      "quantidade_disponivel": 10,
-      "descricao": "O Lírio do Vale é uma planta de beleza delicada e aroma suave. Suas flores brancas e pequenas são perfeitas para criar um ambiente sereno e tranquilo em qualquer espaço.",
-      "imagem": "https://png.pngtree.com/png-clipart/20210725/original/pngtree-lily-of-the-valley-color-leaves-leaf-png-image_6562511.jpg",
-      "valor": 10,
-      "avaliacao": [
-        {
-          "nota": 5,
-          "comentario": "Essa planta é simplesmente deslumbrante! As flores são lindas e o perfume é incrível."
-        },
-        {
-          "nota": 5,
-          "comentario": "Adorei o Lírio do Vale! É uma planta encantadora que traz uma atmosfera serena para o ambiente."
-        }
-      ]
-    },
-    "planta2": {
-      "nome": "Copo de Leite",
-      "id": "2",
-      "quantidade_disponivel": 5,
-      "descricao": "O Copo de Leite é uma planta tropical exuberante, conhecida por suas flores brancas em formato de cálice. Além de sua beleza impressionante, essa planta é resistente e de fácil cultivo, sendo uma ótima escolha para decorar jardins e interiores.",
-      "imagem": "https://img.elo7.com.br/product/main/431352F/24-flores-permanentes-copo-de-leite-de-silicone-toque-real.jpg",
-      "valor": 18.9,
-      "avaliacao": [
-        {
-          "nota": 4,
-          "comentario": "Essa planta é maravilhosa! As flores em formato de copo são elegantes e trazem um toque especial para qualquer ambiente."
-        },
-        {
-          "nota": 5,
-          "comentario": "O Copo de Leite é simplesmente deslumbrante! Adoro a combinação do branco puro das flores com o verde intenso das folhas."
-        }
-      ]
-    },
-    "planta3": {
-      "nome": "Orquídea",
-      "id": "3",
-      "quantidade_disponivel": 8,
-      "descricao": "A Orquídea é uma planta exótica e elegante, conhecida por suas flores coloridas e duradouras. Com diversas variedades, é uma ótima opção para decorar ambientes internos e presentear alguém especial.",
-      "imagem": "https://www.florestaflores.com.br/media/catalog/product/cache/1/image/800x/9df78eab33525d08d6e5fb8d27136e95/f/l/floresta100100.jpg",
-      "valor": 25.5,
-      "avaliacao": [
-        {
-          "nota": 4,
-          "comentario": "As orquídeas são simplesmente magníficas! Suas flores exóticas trazem um toque de sofisticação para qualquer ambiente."
-        },
-        {
-          "nota": 5,
-          "comentario": "Amo as orquídeas! São flores elegantes e duradouras, perfeitas para presentear alguém especial."
-        }
-      ]
-    },
-    "planta4": {
-      "nome": "Rosa",
-      "id": "4",
-      "quantidade_disponivel": 12,
-      "descricao": "A Rosa é uma das flores mais populares e conhecidas mundialmente. Com sua beleza e perfume inconfundíveis, é um símbolo de amor e romance. Disponível em diversas cores, é perfeita para presentear e decorar qualquer ocasião.",
-      "imagem": "https://cdn.awsli.com.br/600x1000/2081/2081818/produto/141163665/6fe3c242ea.jpg",
-      "valor": 9.9,
-      "avaliacao": [
-        {
-          "nota": 5,
-          "comentario": "As rosas são simplesmente maravilhosas! Sua fragrância e delicadeza encantam qualquer pessoa."
-        },
-        {
-          "nota": 4,
-          "comentario": "Adoro as rosas! São flores clássicas e românticas, perfeitas para presentear alguém especial."
-        }
-      ]
-    }
+  "flor1": {
+    "nome": "Lírio do Vale",
+    "id": "1",
+    "quantidade_disponivel": 10,
+    "descricao": "O Lírio do Vale é uma planta de beleza delicada e aroma suave. Suas flores brancas e pequenas são perfeitas para criar um ambiente sereno e tranquilo em qualquer espaço.",
+    "imagem": "https://png.pngtree.com/png-clipart/20210725/original/pngtree-lily-of-the-valley-color-leaves-leaf-png-image_6562511.jpg",
+    "valor": 10,
+    "avaliacao": [
+      {
+        "nota": 5,
+        "comentario": "Essa planta é simplesmente deslumbrante! As flores são lindas e o perfume é incrível."
+      },
+      {
+        "nota": 5,
+        "comentario": "Adorei o Lírio do Vale! É uma planta encantadora que traz uma atmosfera serena para o ambiente."
+      }
+    ],
+    "categoria": "flor"
+  },
+  "flor2": {
+    "nome": "Copo de Leite",
+    "id": "2",
+    "quantidade_disponivel": 5,
+    "descricao": "O Copo de Leite é uma planta tropical exuberante, conhecida por suas flores brancas em formato de cálice. Além de sua beleza impressionante, essa planta é resistente e de fácil cultivo, sendo uma ótima escolha para decorar jardins e interiores.",
+    "imagem": "https://img.elo7.com.br/product/main/431352F/24-flores-permanentes-copo-de-leite-de-silicone-toque-real.jpg",
+    "valor": 18.9,
+    "avaliacao": [
+      {
+        "nota": 4,
+        "comentario": "Essa planta é maravilhosa! As flores em formato de copo são elegantes e trazem um toque especial para qualquer ambiente."
+      },
+      {
+        "nota": 5,
+        "comentario": "O Copo de Leite é simplesmente deslumbrante! Adoro a combinação do branco puro das flores com o verde intenso das folhas."
+      }
+    ],
+    "categoria": "flor"
+  },
+  "flor3": {
+    "nome": "Orquídea",
+    "id": "3",
+    "quantidade_disponivel": 8,
+    "descricao": "A Orquídea é uma planta exótica e elegante, conhecida por suas flores coloridas e duradouras. Com diversas variedades, é uma ótima opção para decorar ambientes internos e presentear alguém especial.",
+    "imagem": "https://www.florestaflores.com.br/media/catalog/product/cache/1/image/800x/9df78eab33525d08d6e5fb8d27136e95/f/l/floresta100100.jpg",
+    "valor": 25.5,
+    "avaliacao": [
+      {
+        "nota": 4,
+        "comentario": "As orquídeas são simplesmente magníficas! Suas flores exóticas trazem um toque de sofisticação para qualquer ambiente."
+      },
+      {
+        "nota": 5,
+        "comentario": "Amo as orquídeas! São flores elegantes e duradouras, perfeitas para presentear alguém especial."
+      }
+    ],
+    "categoria": "flor"
+  },
+  "flor4": {
+    "nome": "Rosa",
+    "id": "4",
+    "quantidade_disponivel": 12,
+    "descricao": "A Rosa é uma das flores mais populares e conhecidas mundialmente. Com sua beleza e perfume inconfundíveis, é um símbolo de amor e romance. Disponível em diversas cores, é perfeita para presentear e decorar qualquer ocasião.",
+    "imagem": "https://cdn.awsli.com.br/600x1000/2081/2081818/produto/141163665/6fe3c242ea.jpg",
+    "valor": 9.9,
+    "avaliacao": [
+      {
+        "nota": 5,
+        "comentario": "As rosas são simplesmente maravilhosas! Sua fragrância e delicadeza encantam qualquer pessoa."
+      },
+      {
+        "nota": 4,
+        "comentario": "Adoro as rosas! São flores clássicas e românticas, perfeitas para presentear alguém especial."
+      }
+    ],
+    "categoria": "flor"
   }
-  
+}

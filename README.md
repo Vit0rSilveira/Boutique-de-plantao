@@ -165,14 +165,13 @@ Os testes foram realizados com sucesso e os seguintes resultados foram obtidos:
   - O sistema trata corretamente os casos de login ou senha inválidos.
 
 - **Input Number:**
-  - O campo vazio é tratado corretamente, não permitindo que fique em branco e registrando o valor como zero.
   - A entrada de números negativos é restrita corretamente.
   - O sistema trata adequadamente o caso de valor nulo, registrando-o como zero.
 
 - **Rotas:**
   - O sistema redireciona corretamente um usuário não logado ao tentar acessar a página de perfil.
-  - O acesso à página de administrador é devidamente restrito para clientes logados.
-  - O acesso ao perfil de cliente é restrito para administradores.
+  - O acesso à página de administrador é devidamente restrito para administradores logados.
+  - O acesso ao perfil de cliente é restrito para clientes.
 
 Esses resultados validam o correto funcionamento das funcionalidades e garantem uma melhor experiência para os usuários.
 

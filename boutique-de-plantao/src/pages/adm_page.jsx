@@ -54,19 +54,19 @@ function User() {
             return <Personal_data user={usuarioLogado} />;
         } else if (activeButton === "novo-adm") {
             return (
-                <div>
+                <div className="div-return-render">
                     <h3>Cadastrar novo administrador</h3>
                     <Personal_data user={{ tipo: "adm" }} />
                 </div>)
         } else if (activeButton === "novo-produto") {
             return (
-                <div>
+                <div className="div-return-render">
                     <h3>Cadastrar novo Produto</h3>
                     <New_product />
                 </div>)
         } else if (activeButton === "editar-produto") {
             return (
-                <div>
+                <div className="div-return-render">
                     <h3>Editar Produto</h3>
                     {produtos.map((produto) => (
                         <Edit_product dados={produto} key={produto.id} />
@@ -98,10 +98,14 @@ function User() {
             <main>
                 <div id="page-user">
                     <div id="buttons">
-                        <input type="button" value="Meus dados" className={"button-adm-page " + (activeButton === "dados" ? "active" : "")} onClick={() => handleButtonClick("dados")} />
-                        <input type="button" value="Cadastrar Administrador" className={"button-adm-page " + (activeButton === "novo-adm" ? "active" : "")} onClick={() => handleButtonClick("novo-adm")} />
-                        <input type="button" value="Cadastrar Produto" className={"button-adm-page " + (activeButton === "novo-produto" ? "active" : "")} onClick={() => handleButtonClick("novo-produto")} />
-                        <input type="button" value="Editar Produto" className={"button-adm-page " + (activeButton === "editar-produto" ? "active" : "")} onClick={() => handleButtonClick("editar-produto")} />
+                        <div>
+                            <input type="button" value="Meus dados" className={"button-adm-page " + (activeButton === "dados" ? "active" : "")} onClick={() => handleButtonClick("dados")} />
+                            <input type="button" value="Cadastrar Administrador" className={"button-adm-page " + (activeButton === "novo-adm" ? "active" : "")} onClick={() => handleButtonClick("novo-adm")} />
+                        </div>
+                        <div>
+                            <input type="button" value="Cadastrar Produto" className={"button-adm-page " + (activeButton === "novo-produto" ? "active" : "")} onClick={() => handleButtonClick("novo-produto")} />
+                            <input type="button" value="Editar Produto" className={"button-adm-page " + (activeButton === "editar-produto" ? "active" : "")} onClick={() => handleButtonClick("editar-produto")} />
+                        </div>
                     </div>
 
                     <div className={activeButton === "" ? "" : "adm-card"}>{renderCardContent()}</div>

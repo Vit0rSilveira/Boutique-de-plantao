@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/components/product_edit.css"
 
 function Edit_product(props) {
     const [nomeProduto, setNomeProduto] = useState(props.dados.nome);
@@ -26,7 +27,7 @@ function Edit_product(props) {
     };
 
     return (
-        <>
+        <div id="product-edit">
             <img src={props.dados.imagem} alt="Imagem do Produto" />
             <form onSubmit={handleSubmit}>
                 <label htmlFor="nome-produto">Nome do Produto</label>
@@ -40,6 +41,7 @@ function Edit_product(props) {
                 <label htmlFor="quantidade">Quantidade</label>
                 <input
                     type="number"
+                    min = "0"
                     id="quantidade"
                     value={quantidade}
                     onChange={handleQuantidadeChange}
@@ -53,9 +55,9 @@ function Edit_product(props) {
                     onChange={handleValorChange}
                 />
 
-                <input type="submit" value="Salvar" id="button-cadastrar-adm" />
+                <input type="submit" value="Salvar" id="button-salve-product" />
             </form>
-        </>
+        </div>
     );
 }
 

@@ -19,7 +19,7 @@
     height: auto;
 }
 
-#input_calculate_cep {
+#input_calculate_cep, #continuar_compra{
     justify-content: center;
     color: white;
     background-color: #313D17;
@@ -27,7 +27,7 @@
     border-radius: 10px;
 }
 
-#input_cep, #input_calculate_cep, .cost {
+#input_cep, #input_calculate_cep, .cost , #continuar_compra{
     width: 20vw;
     height: auto;
 }
@@ -36,4 +36,23 @@
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
+}
+
+#continuar_compra {
+    font-size: xx-large;
+    width: 50vw;
+}
+
+@media (max-width: 800px) {
+    .cost {
+        font-size: x-small;
+    }
+
+    #input_calculate_cep {
+        font-size: small;
+    }
+
+    #continuar_compra {
+        font-size: large;
+    }
 }

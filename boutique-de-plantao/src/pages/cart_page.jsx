@@ -8,24 +8,38 @@ import "../styles/pages/cart_page.css";
 
 function Cart() {
     const [itens, setItens] = useState([]);
-    const [subtotal, setSubtotal] = useState(1);
+    const [subtotal, setSubtotal] = useState(0);
     const [frete, setFrete] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
         fetch('../jsons/carrinho.json')
             .then(response => response.json())
-            .then(data => setItens(Object.values(data)))
+            .then(data => {
+                const updatedItens = Object.values(data).map(item => ({ ...item, subtotal: 0 }));
+                setItens(updatedItens);
+            })
             .catch(error => console.log(error));
     }, []);
 
+    function handlerCallback(valor, index) {
+        setItens(prevItens => {
+            const updatedItens = [...prevItens];
+            updatedItens[index].subtotal = valor;
+            return updatedItens;
+        });
+    }
 
+    useEffect(() => {
+        const newSubtotal = itens.reduce((total, item) => total + (item.subtotal || 0), 0);
+        setSubtotal(newSubtotal);
+    }, [itens]);
 
     function handleShippingCost() {
         let cep = document.getElementById("input_cep").value;
 
         if (!cep) {
-            setFrete(Math.floor(0));
+            setFrete(0);
             alert("Por favor, digite seu CEP");
             return;
         }
@@ -46,7 +60,6 @@ function Cart() {
         navigate("/pagamento");
     }
 
-
     return (
         <>
             <Header />
@@ -57,30 +70,17 @@ function Cart() {
 
                     {itens.length > 0 && (
                         <>
-                            <Item
-                                id = {itens[0].id}
-                                nome={itens[0].nome}
-                                quantidade_disponivel={itens[0].quantidade_disponivel}
-                                valor={itens[0].valor}
-                                imagem={itens[0].imagem}
-                                quantidade_carrinho={itens[0].quantidade_carrinho}
-                            />
-                            <Item
-                                id = {itens[1].id}
-                                nome={itens[1].nome}
-                                quantidade_disponivel={itens[1].quantidade_disponivel}
-                                valor={itens[1].valor}
-                                imagem={itens[1].imagem}
-                                quantidade_carrinho={itens[1].quantidade_carrinho}
-                            />
-                            <Item
-                                id = {itens[2].id}
-                                nome={itens[2].nome}
-                                quantidade_disponivel={itens[2].quantidade_disponivel}
-                                valor={itens[2].valor}
-                                imagem={itens[2].imagem}
-                                quantidade_carrinho={itens[2].quantidade_carrinho}
-                            />
+                            {itens.map((item, index) => (
+                                <Item
+                                    key={item.id}
+                                    nome={item.nome}
+                                    quantidade_disponivel={item.quantidade_disponivel}
+                                    valor={item.valor}
+                                    imagem={item.imagem}
+                                    quantidade_carrinho={item.quantidade_carrinho}
+                                    onCallback={(valor) => handlerCallback(valor, index)}
+                                />
+                            ))}
                         </>
                     )}
 
@@ -94,15 +94,15 @@ function Cart() {
                         <div id='total_cost'>
                             <div className='cost'>
                                 <div>SUBTOTAL</div>
-                                <div>R$ {subtotal}</div>
+                                <div>R$ {subtotal.toFixed(2)}</div>
                             </div>
                             <div className='cost'>
                                 <div>FRETE</div>
-                                <div>R$ {frete}</div>
+                                <div>R$ {frete.toFixed(2)}</div>
                             </div>
                             <div className='cost'>
                                 <div>TOTAL</div>
-                                <div>R$ {subtotal + frete}</div>
+                                <div>R$ {(subtotal + frete).toFixed(2)}</div>
                             </div>
                         </div>
                     </div>
@@ -110,10 +110,7 @@ function Cart() {
                     <input type="submit" id="continuar_compra" value="Continuar a compra" onClick={handlePayment} />
                 </div>
             </main>
-
-
             <Footer />
-
         </>
     );
 }

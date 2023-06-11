@@ -35,6 +35,13 @@ function Header() {
         window.location.reload()
     }
 
+    const handlerClick = () => {
+        let valor = document.getElementById("input-search").value
+
+        if (valor)
+            navigate(`/pesquisar/${valor}`)
+    }
+
     return (
        <header>
         <div id="header-top">
@@ -42,7 +49,7 @@ function Header() {
                 
                 <div id="container-search">
                     <input type="text" name="input" id="input-search"/>
-                <button className= "button-header"> <FiSearch /></button>
+                <button className= "button-header" onClick={handlerClick}> <FiSearch /></button>
                 </div>
                 
                 <div id="header-buttons">

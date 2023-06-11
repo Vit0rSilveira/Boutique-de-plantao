@@ -20,7 +20,7 @@ function Search_product() {
     }, [])
 
     const produtosFiltrados = produtos.filter((item) => {
-        return item.categoria === produto || item.nome.includes(produto);
+        return item.categoria.toLowerCase() === produto.toLowerCase() || item.nome.toLowerCase().includes(produto.toLowerCase());
     });
 
     const handler_produtos = () => {

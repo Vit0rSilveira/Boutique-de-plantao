@@ -27,8 +27,8 @@ function Item(props) {
 
             <input
                 type="number"
-                required
                 min="1"
+                value={amount}
                 max={props.quantidade_disponivel}
                 id="amount-in-cart"
                 onChange={handleAmountChange}

@@ -12,16 +12,23 @@ function Cart() {
     const [frete, setFrete] = useState(0);
     const navigate = useNavigate();
 
+    
+
     useEffect(() => {
         fetch('../jsons/carrinho.json')
             .then(response => response.json())
             .then(data => {
-                const updatedItens = Object.values(data).map(item => ({ ...item, subtotal: 0 }));
+                const updatedItens = Object.values(data).map(item => ({ ...item, subtotal: item.valor * item.quantidade_carrinho }));
                 setItens(updatedItens);
             })
             .catch(error => console.log(error));
     }, []);
 
+    useEffect(() => {
+        const newSubtotal = itens.reduce((total, item) => total + (item.subtotal || 0), 0);
+        setSubtotal(newSubtotal);
+    }, [itens]);
+    
     function handlerCallback(valor, index) {
         setItens(prevItens => {
             const updatedItens = [...prevItens];
@@ -30,10 +37,7 @@ function Cart() {
         });
     }
 
-    useEffect(() => {
-        const newSubtotal = itens.reduce((total, item) => total + (item.subtotal || 0), 0);
-        setSubtotal(newSubtotal);
-    }, [itens]);
+    
 
     function handleShippingCost() {
         let cep = document.getElementById("input_cep").value;

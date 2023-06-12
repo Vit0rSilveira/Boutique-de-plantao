@@ -26,8 +26,8 @@ function Payment() {
         fetch('../jsons/carrinho.json')
             .then(response => response.json())
             .then(data => {
-                const updatedItens = Object.values(data).map(item => ({ ...item, subtotal: 0 }));
-                setItens(updatedItens);
+                const updatedItens = Object.values(data).map(item => ({ ...item, subtotal: item.valor * item.quantidade_carrinho     }));
+                setItens(updatedItens); 
             })
             .catch(error => console.log(error));
     }, [])
@@ -40,13 +40,13 @@ function Payment() {
     const userLogin = cookies.credentials && cookies.credentials.login;
     const usuarioLogado = users.find((user) => user.login === userLogin);
 
-    if (usuarioLogado == undefined) {
-        return <>Carregando...</>
+    if (usuarioLogado == undefined) return <>Carregando...</>
+
+    const frete = Math.floor((usuarioLogado.cep).replace(/-/g, "") / 1000000);
+
+    function handlePurchase() {
+        navigate("/obrigado");
     }
-
-    console.log(usuarioLogado);
-
-    const frete = Math.floor(usuarioLogado.cep / 1000000);
 
     return (
         <>
@@ -86,7 +86,7 @@ function Payment() {
                     </div>
 
                     <h2>Confirme sua Compra</h2>
-                    <div id="confirm-purchase">
+                    <div id="verify-purchase">
                     <div className='cost'>
                                 <div>SUBTOTAL</div>
                                 <div>R$ {subtotal.toFixed(2)}</div>
@@ -100,6 +100,8 @@ function Payment() {
                                 <div>R$ {(subtotal + frete).toFixed(2)}</div>
                             </div>
                     </div>
+                                
+                    <input type="submit" id="confirm-purchase" value="Confirmar" onClick={handlePurchase} />
 
 
                 </div>

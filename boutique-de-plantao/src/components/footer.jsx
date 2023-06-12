@@ -15,7 +15,7 @@ function Footer(props) {
 
             <div id="atendimento">
                 <h3>Atendimento</h3>
-                <img src="../images/footer/telefone.png" alt="telefone_atendimento"/>
+                <img src="../images/footer/telefone.png" alt="telefone_atendimento" />
                 <p>sac@fontes.br</p>
                 <p>(16) 99571-2203</p>
             </div>
@@ -37,7 +37,7 @@ function Footer(props) {
             </div>
 
             <div id="logo_footer">
-            <Link to="/"><img src="../images/logos/logo_icone.png" alt="Logo da empresa" id="footer-logo"/></Link>
+                <Link to="/"><img src="../images/logos/logo_icone.png" alt="Logo da empresa" id="footer-logo" /></Link>
             </div>
         </footer>
     );

@@ -4,7 +4,7 @@ import Header from '../components/header';
 import Navbar from '../components/navbar';
 import Product from '../components/product_card';
 import Footer from '../components/footer';
-import Item from '../components/cart_item';
+import "../styles/pages/home.css";
 
 function Home() {
     const [produtos, setProdutos] = useState([]);
@@ -22,54 +22,50 @@ function Home() {
             <Navbar />
             <main>
                 <Images_carousel />
-                {produtos.length > 0 && (
-                    <>
-                        <Product
-                            key = {1}
-                            id = {produtos[2].id}
-                            nome={produtos[2].nome}
-                            quantidade_disponivel={produtos[2].quantidade_disponivel}
-                            valor={produtos[2].valor}
-                            descricao={produtos[2].descricao}
-                            imagem={produtos[2].imagem}
-                            avaliacao={produtos[2].avaliacao}
-                        />
+                
+                <h2>Mais vendidos</h2>
+                <div className='container-home'>
+                    {produtos.length > 0 && (
+                        <>
+                            {produtos.slice(0, 3).map((produto, index) => (
+                                <Product
+                                    key={index}
+                                    id={produto.id}
+                                    nome={produto.nome}
+                                    quantidade_disponivel={produto.quantidade_disponivel}
+                                    valor={produto.valor}
+                                    descricao={produto.descricao}
+                                    imagem={produto.imagem}
+                                    avaliacao={produto.avaliacao}
+                                />
+                            ))}
+                        </>
+                    )}
+                </div>
 
-                        <Product
-                            key = {2}
-                            id = {produtos[0].id}
-                            nome={produtos[0].nome}
-                            quantidade_disponivel={produtos[0].quantidade_disponivel}
-                            valor={produtos[0].valor}
-                            descricao={produtos[0].descricao}
-                            imagem={produtos[0].imagem}
-                            avaliacao={produtos[0].avaliacao}
-                        />
-
-                        <Product
-                            key = {3}
-                            id = {produtos[0].id}
-                            nome={produtos[3].nome}
-                            quantidade_disponivel={produtos[3].quantidade_disponivel}
-                            valor={produtos[3].valor}
-                            descricao={produtos[3].descricao}
-                            imagem={produtos[3].imagem}
-                            avaliacao={produtos[3].avaliacao}
-                        />
-
-                        <Item
-                            amount_free = {produtos[2].quantidade_disponivel}
-                            image={produtos[2].imagem}
-                            name = {produtos[2].nome}
-                            value = {produtos[2].valor}  
-                        />
-                    </>
-                )}
+                
+                <h2>Promoções</h2>
+                <div className='container-home'>
+                    {produtos.length > 0 && (
+                        <>
+                            {produtos.slice(-3).map((produto, index) => (
+                                <Product
+                                    key={index}
+                                    id={produto.id}
+                                    nome={produto.nome}
+                                    quantidade_disponivel={produto.quantidade_disponivel}
+                                    valor={produto.valor}
+                                    descricao={produto.descricao}
+                                    imagem={produto.imagem}
+                                    avaliacao={produto.avaliacao}
+                                />
+                            ))}
+                        </>
+                    )}
+                </div>
             </main>
 
-
             <Footer />
-
         </>
     );
 }

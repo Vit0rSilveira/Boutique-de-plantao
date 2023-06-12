@@ -1,0 +1,43 @@
+#historico-compra {
+    display: flex;
+    flex-direction: row;
+    padding: 2vh 2vw;
+    margin: 1rem;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    align-items: baseline;
+}
+
+.pais {
+    padding: 1vh 1vw;
+}
+
+.pais img {
+    height: 15vh;
+}
+
+@media (max-width: 600px) {
+    #historico-compra {
+        flex-direction: column;
+        padding: 1vh 1vw;
+        margin: 0.5rem;
+    }
+
+    .pais {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0.5vh 0.5vw;
+    }
+
+    .pais img {
+        height: 10vh;
+        margin-bottom: 1vh;
+    }
+
+    p {
+        margin: 0vh 3vw;
+    }
+
+}

@@ -1,0 +1,230 @@
+{
+  "flor1": {
+    "nome": "Lírio do Vale",
+    "id": "1",
+    "quantidade_disponivel": 10,
+    "descricao": "O Lírio do Vale é uma planta de beleza delicada e aroma suave. Suas flores brancas e pequenas são perfeitas para criar um ambiente sereno e tranquilo em qualquer espaço.",
+    "imagem": "https://png.pngtree.com/png-clipart/20210725/original/pngtree-lily-of-the-valley-color-leaves-leaf-png-image_6562511.jpg",
+    "valor": 10,
+    "avaliacao": [
+      {
+        "nota": 5,
+        "comentario": "Essa planta é simplesmente deslumbrante! As flores são lindas e o perfume é incrível."
+      },
+      {
+        "nota": 5,
+        "comentario": "Adorei o Lírio do Vale! É uma planta encantadora que traz uma atmosfera serena para o ambiente."
+      }
+    ],
+    "categoria": "flor"
+  },
+  "flor2": {
+    "nome": "Copo de Leite",
+    "id": "2",
+    "quantidade_disponivel": 5,
+    "descricao": "O Copo de Leite é uma planta tropical exuberante, conhecida por suas flores brancas em formato de cálice. Além de sua beleza impressionante, essa planta é resistente e de fácil cultivo, sendo uma ótima escolha para decorar jardins e interiores.",
+    "imagem": "https://img.elo7.com.br/product/main/431352F/24-flores-permanentes-copo-de-leite-de-silicone-toque-real.jpg",
+    "valor": 18.9,
+    "avaliacao": [
+      {
+        "nota": 4,
+        "comentario": "Essa planta é maravilhosa! As flores em formato de copo são elegantes e trazem um toque especial para qualquer ambiente."
+      },
+      {
+        "nota": 5,
+        "comentario": "O Copo de Leite é simplesmente deslumbrante! Adoro a combinação do branco puro das flores com o verde intenso das folhas."
+      }
+    ],
+    "categoria": "flor"
+  },
+  "flor3": {
+    "nome": "Orquídea",
+    "id": "3",
+    "quantidade_disponivel": 8,
+    "descricao": "A Orquídea é uma planta exótica e elegante, conhecida por suas flores coloridas e duradouras. Com diversas variedades, é uma ótima opção para decorar ambientes internos e presentear alguém especial.",
+    "imagem": "https://www.florestaflores.com.br/media/catalog/product/cache/1/image/800x/9df78eab33525d08d6e5fb8d27136e95/f/l/floresta100100.jpg",
+    "valor": 25.5,
+    "avaliacao": [
+      {
+        "nota": 4,
+        "comentario": "As orquídeas são simplesmente magníficas! Suas flores exóticas trazem um toque de sofisticação para qualquer ambiente."
+      },
+      {
+        "nota": 5,
+        "comentario": "Amo as orquídeas! São flores elegantes e duradouras, perfeitas para presentear alguém especial."
+      }
+    ],
+    "categoria": "flor"
+  },
+  "flor4": {
+    "nome": "Rosa",
+    "id": "4",
+    "quantidade_disponivel": 12,
+    "descricao": "A Rosa é uma das flores mais populares e conhecidas mundialmente. Com sua beleza e perfume inconfundíveis, é um símbolo de amor e romance. Disponível em diversas cores, é perfeita para presentear e decorar qualquer ocasião.",
+    "imagem": "https://cdn.awsli.com.br/600x1000/2081/2081818/produto/141163665/6fe3c242ea.jpg",
+    "valor": 9.9,
+    "avaliacao": [
+      {
+        "nota": 5,
+        "comentario": "As rosas são simplesmente maravilhosas! Sua fragrância e delicadeza encantam qualquer pessoa."
+      },
+      {
+        "nota": 4,
+        "comentario": "Adoro as rosas! São flores clássicas e românticas, perfeitas para presentear alguém especial."
+      }
+    ],
+    "categoria": "flor"
+  },
+  "flor5": {
+    "nome": "Girassol",
+    "id": "5",
+    "quantidade_disponivel": 15,
+    "descricao": "O Girassol é uma planta vibrante e alegre, conhecida por seus grandes girassóis amarelos que seguem o movimento do sol. Simbolizando felicidade e energia positiva, é perfeito para trazer luz e cor a qualquer ambiente.",
+    "imagem": "https://cdn.awsli.com.br/600x450/680/680472/produto/37050169/9ac5cb1b0e.jpg",
+    "valor": 12.5,
+    "avaliacao": [
+      {
+        "nota": 4,
+        "comentario": "Os girassóis são incríveis! Suas cores vivas trazem alegria para qualquer espaço."
+      },
+      {
+        "nota": 5,
+        "comentario": "Amo os girassóis! São flores radiantes que transmitem uma energia contagiante."
+      }
+    ],
+    "categoria": "flor"
+  },
+  "flor6": {
+    "nome": "Tulipa",
+    "id": "6",
+    "quantidade_disponivel": 20,
+    "descricao": "A Tulipa é uma flor elegante e delicada, conhecida por sua diversidade de cores e formas. Símbolo de amor e prosperidade, é perfeita para criar arranjos encantadores e dar um toque sofisticado à decoração.",
+    "imagem": "https://images.tcdn.com.br/img/img_prod/774792/haste_de_tulipa_amarela_artificial_50cm_9045_1_80b63fb2662ce494ab6de3b3b012545a.jpg",
+    "valor": 7.9,
+    "avaliacao": [
+      {
+        "nota": 5,
+        "comentario": "As tulipas são simplesmente encantadoras! Suas cores vivas e delicadas são perfeitas para criar arranjos românticos."
+      },
+      {
+        "nota": 4,
+        "comentario": "Adoro as tulipas! São flores elegantes e simbolizam sentimentos nobres."
+      }
+    ],
+    "categoria": "flor"
+  },
+  "planta1": {
+    "nome": "Suculenta",
+    "id": "7",
+    "quantidade_disponivel": 25,
+    "descricao": "As Suculentas são plantas charmosas e de baixa manutenção, ideais para quem deseja ter um toque verde em casa sem muitos cuidados. Com suas folhas suculentas e variadas, são perfeitas para decorar ambientes internos e externos.",
+    "imagem": "https://images.tcdn.com.br/img/img_prod/761023/suculenta_artificial_echeveria_20_cm_com_broto_em_silicone_937_1_2481ea5bd2756fdcf4e7abf01e916803_20230324145454.jpg",
+    "valor": 6.5,
+    "avaliacao": [
+      {
+        "nota": 4,
+        "comentario": "As suculentas são incríveis! Além de bonitas, são fáceis de cuidar e trazem um toque especial para qualquer espaço."
+      },
+      {
+        "nota": 5,
+        "comentario": "Adoro as suculentas! São plantas versáteis e ideais para quem não tem muito tempo para se dedicar aos cuidados de um jardim."
+      }
+    ],
+    "categoria": "planta"
+  },
+  "planta2": {
+    "nome": "Ficus",
+    "id": "8",
+    "quantidade_disponivel": 7,
+    "descricao": "O Ficus é uma planta de folhagem exuberante e elegante, ideal para decorar ambientes internos. Além de sua beleza, também é conhecido por ser um ótimo purificador de ar, tornando o ambiente mais saudável.",
+    "imagem": "https://images.tcdn.com.br/img/img_prod/762187/ficus_lyrata_bambino_pote_15_ficus_lyrata_197_1_66abf68807e1c26118563fab59b97f0a.jpeg",
+    "valor": 32.9,
+    "avaliacao": [
+      {
+        "nota": 5,
+        "comentario": "O Ficus é incrível! Suas folhas verdes e brilhantes trazem vida e frescor para qualquer ambiente."
+      },
+      {
+        "nota": 4,
+        "comentario": "Adoro o Ficus! Além de bonito, é ótimo para melhorar a qualidade do ar dentro de casa."
+      }
+    ],
+    "categoria": "planta"
+  },
+  "planta3": {
+    "nome": "Samambaia",
+    "id": "9",
+    "quantidade_disponivel": 15,
+    "descricao": "A Samambaia é uma planta clássica e delicada, conhecida por suas folhas verdes e pendentes. Perfeita para decoração suspensa, traz um toque de natureza e leveza para qualquer ambiente.",
+    "imagem": "https://www.ibirapueragarden.com.br/image/cache/data/Novas/samambaia%20americana-900x1200.jpg",
+    "valor": 14.8,
+    "avaliacao": [
+      {
+        "nota": 4,
+        "comentario": "As samambaias são maravilhosas! Suas folhas pendentes dão um charme especial para qualquer cantinho."
+      },
+      {
+        "nota": 5,
+        "comentario": "Amo as samambaias! São plantas clássicas e trazem uma sensação de tranquilidade para o ambiente."
+      }
+    ],
+    "categoria": "planta"
+  },
+  "planta4": {
+    "nome": "Costela-de-Adão",
+    "id": "10",
+    "quantidade_disponivel": 9,
+    "descricao": "A Costela-de-Adão é uma planta exótica e imponente, conhecida por suas grandes folhas com formato característico. Além de sua beleza, também é uma planta purificadora de ar, tornando o ambiente mais saudável.",
+    "imagem": "https://static3.tcdn.com.br/img/img_prod/350075/muda_de_costela_de_adao_monstera_deliciosa_12069_1_f10cddb4f26e82fdf55ebc4e009beb51.jpg",
+    "valor": 28.5,
+    "avaliacao": [
+      {
+        "nota": 5,
+        "comentario": "A Costela-de-Adão é incrível! Suas folhas grandes e recortadas são um verdadeiro destaque na decoração."
+      },
+      {
+        "nota": 4,
+        "comentario": "Adoro a Costela-de-Adão! É uma planta elegante e purifica o ar, tornando o ambiente mais saudável."
+      }
+    ],
+    "categoria": "planta"
+  },
+  "planta5": {
+    "nome": "Bromélia",
+    "id": "11",
+    "quantidade_disponivel": 12,
+    "descricao": "A Bromélia é uma planta exótica e colorida, conhecida por suas folhas em formato de roseta e suas flores vibrantes. Perfeita para criar um ponto focal na decoração, trazendo alegria e tropicalidade ao ambiente.",
+    "imagem": "https://cdn.awsli.com.br/2500x2500/935/935548/produto/49432633/bc0132ca7a.jpg",
+    "valor": 19.9,
+    "avaliacao": [
+      {
+        "nota": 4,
+        "comentario": "As bromélias são maravilhosas! Suas cores vibrantes trazem vida para qualquer espaço."
+      },
+      {
+        "nota": 5,
+        "comentario": "Amo as bromélias! São plantas exóticas e trazem um toque tropical para a decoração."
+      }
+    ],
+    "categoria": "planta"
+  },
+  "planta6": {
+    "nome": "Lavanda",
+    "id": "12",
+    "quantidade_disponivel": 6,
+    "descricao": "A Lavanda é uma planta aromática e delicada, conhecida por suas flores roxas e perfume relaxante. Além de sua beleza, também é utilizada na produção de óleos essenciais e chás, proporcionando benefícios terapêuticos.",
+    "imagem": "https://cdn.awsli.com.br/600x1000/935/935548/produto/99450200/03f5a8083a.jpg",
+    "valor": 15.7,
+    "avaliacao": [
+      {
+        "nota": 5,
+        "comentario": "A Lavanda é simplesmente maravilhosa! Seu perfume relaxante traz uma sensação de tranquilidade."
+      },
+      {
+        "nota": 4,
+        "comentario": "Adoro a Lavanda! É uma planta versátil, pode ser utilizada na decoração e também para produção de óleos essenciais."
+      }
+    ],
+    "categoria": "planta"
+  }
+}

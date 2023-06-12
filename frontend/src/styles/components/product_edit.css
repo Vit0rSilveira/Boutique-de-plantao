@@ -1,0 +1,35 @@
+#product-edit {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 6vh 1vw;
+    border: 1px solid black;
+    padding: 2vh 2vw;
+    border-radius: 10px;
+    width: 90%;
+}
+
+#image-product-edit {
+    height: 15vh;
+}
+
+#button-salve-product {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #313d17;
+    height: 6vh;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+
+@media (max-width: 1000px) {
+    #product-edit {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+
+    }
+}

@@ -15,7 +15,6 @@
 }
 
 .welcome-card {
-    height: 40vh;
     width: 50vw;
     background-color: white;
     padding: 3rem;
@@ -62,6 +61,7 @@
       justify-content: space-between;
       height: auto;
       width: 100%;
+      margin-bottom: 10vh;
     }
 
     #user-card {

@@ -10,7 +10,7 @@ input[type="button"].button-adm-page,
     color: white;
     margin-top: auto;
     font-size: larger;
-    height: 7vh;
+    height: 10vh;
 }
 
 .adm-card {
@@ -56,9 +56,11 @@ input[type="button"].button-adm-page,
     }
 
     .button-adm-page {
-        width: 45%;
+        width: 48%;
         margin-bottom: 10px;
-        white-space: normal; /* Permite que o texto quebre em múltiplas linhas */
-        height: 5vh; /* Ajuste a altura conforme necessário */
-      }
+        white-space: normal;
+        /* Permite que o texto quebre em múltiplas linhas */
+        height: 5vh;
+        /* Ajuste a altura conforme necessário */
+    }
 }

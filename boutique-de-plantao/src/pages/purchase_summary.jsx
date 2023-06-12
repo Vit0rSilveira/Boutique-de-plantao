@@ -88,7 +88,7 @@ function Payment() {
                     <div className='secao'>
                         <h2>Forma de Pagamento</h2>
                         <div id="payment-method">
-                            Pix
+                            Visa **** XXXX
                         </div>
                     </div>
 

@@ -2,7 +2,7 @@ import React from "react";
 import Header from '../components/header.jsx';
 import Navbar from '../components/navbar.jsx';
 import Footer from '../components/footer.jsx';
-//import "../styles/pages/about_us.css";
+import "../styles/pages/thank_you.css";
 
 function Thank_you() {
     return (

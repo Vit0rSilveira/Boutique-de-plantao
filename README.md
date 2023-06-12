@@ -179,7 +179,7 @@ Esses resultados validam o correto funcionamento das funcionalidades e garantem 
 Para instalar e executar corretamente a aplicação, siga os passos abaixo. Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
 - Node.js versão 18.16 LTS
-- Vite versão 2.5.1
+- Vite ultima versão
 - npm versão 9.5.1
 
 Após verificar as versões das ferramentas acima, siga as instruções abaixo:

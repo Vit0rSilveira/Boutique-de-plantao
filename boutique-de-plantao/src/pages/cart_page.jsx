@@ -5,16 +5,23 @@ import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import Item from '../components/cart_item';
 import "../styles/pages/cart_page.css";
+import { useCookies } from 'react-cookie';
 
 function Cart() {
     const [itens, setItens] = useState([]);
     const [subtotal, setSubtotal] = useState(0);
     const [frete, setFrete] = useState(0);
     const navigate = useNavigate();
+    const [cookies] = useCookies(["credentials"])
 
     
 
     useEffect(() => {
+        if (!cookies.credentials)
+            navigate("/login")
+        else if (cookies.credentials.type === "adm")
+            navigate("/adm")
+            
         fetch('../jsons/carrinho.json')
             .then(response => response.json())
             .then(data => {

@@ -22,7 +22,7 @@ function Item(props) {
             <p>{props.nome}</p>
 
             <div id="price">
-                <p>Unidade: R$ {props.valor.toFixed(2)}</p>
+                <p>Unidade: R$ {props.valor ? props.valor.toFixed(2) : 0.00}</p>
             </div>
 
             <input
@@ -35,7 +35,7 @@ function Item(props) {
             />
 
             <div id="total-price">
-                <p>Total: R$ {price.toFixed(2)}</p>
+                <p>Total: R$ {price? price.toFixed(2) : 0.00}</p>
             </div>
 
             <button id="remove-item">

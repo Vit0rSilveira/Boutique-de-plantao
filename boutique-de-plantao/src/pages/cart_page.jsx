@@ -94,11 +94,11 @@ function Cart() {
                         <div id='total_cost'>
                             <div className='cost'>
                                 <div>SUBTOTAL</div>
-                                <div>R$ {subtotal.toFixed(2)}</div>
+                                <div>R$ {subtotal ? subtotal.toFixed(2) : '0.00'}</div>
                             </div>
                             <div className='cost'>
                                 <div>FRETE</div>
-                                <div>R$ {frete.toFixed(2)}</div>
+                                <div>R$ {frete ? frete.toFixed(2) : '0.00'}</div>
                             </div>
                             <div className='cost'>
                                 <div>TOTAL</div>

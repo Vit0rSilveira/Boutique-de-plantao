@@ -19,7 +19,7 @@ header {
 }
 
 #header-logo {
-    height: 25vh;
+    height: 20vh;
 }
 
 #container-search {
@@ -43,7 +43,7 @@ header {
 
 #container-search button {
     border: 0;
-    width: 15%;
+    width: 20%;
     height: 100%;
     border-radius: 0px 7px 7px 0;
 }
@@ -92,13 +92,22 @@ button:hover {
         justify-content: space-evenly;
     }
 
+    #header-logo {
+        height: 15vh;
+    }
+
     #container-search {
         width: 30vw;
     }
 
-    #header-logo {
-        height: 10vh;
+    #container-search button {
+        border: 0;
+        width: 35%;
+        height: 100%;
+        border-radius: 0px 7px 7px 0;
     }
+
+    
 
     #header-buttons {
         margin-left: 5px;

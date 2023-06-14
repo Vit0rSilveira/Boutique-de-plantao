@@ -16,6 +16,7 @@ input[type="button"].button-adm-page,
     margin-top: auto;
     font-size: larger;
     height: 10vh;
+    margin-right: 5vw;
 }
 
 .adm-card {

@@ -224,3 +224,13 @@ Durante o desenvolvimento do frontend, foram encontradas algumas dificuldades, q
 Essas dificuldades foram superadas com o tempo, aprendizado e a busca por soluções adequadas para cada desafio encontrado.
 
 ## Comentários
+### Acesso de adm
+```bash
+login: andre@andre.com
+Senha: 123
+```
+### Acesso de cliente
+```bash
+login: vitor@vitor.com
+Senha: 123
+```

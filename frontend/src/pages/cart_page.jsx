@@ -16,12 +16,7 @@ function Cart() {
 
     
 
-    useEffect(() => {
-        if (!cookies.credentials)
-            navigate("/login")
-        else if (cookies.credentials.type === "adm")
-            navigate("/adm")
-            
+    useEffect(() => {            
         fetch('../jsons/carrinho.json')
             .then(response => response.json())
             .then(data => {

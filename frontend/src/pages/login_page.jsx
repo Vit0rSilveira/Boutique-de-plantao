@@ -64,8 +64,8 @@ function Login() {
                             <input type="submit" value="Continuar" onClick={handleLoginClick} />
                         </form>
                     </div>
+                        <input type="button" className ="login-button" value="Cadastre-se" onClick={() => {navigate("/cadastrar")}}/>
 
-                    <input type="button" className ="login-button" value="Cadastre-se" onClick={() => {navigate("/cadastrar")}}/>
                 </div>
             </main>
 

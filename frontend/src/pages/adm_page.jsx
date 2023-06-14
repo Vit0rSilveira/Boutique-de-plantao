@@ -96,7 +96,7 @@ function User() {
             <Header />
             <Navbar />
             <main>
-                <div id="page-user">
+                <div id="adm-user">
                     <div id="buttons">
                         <div>
                             <input type="button" value="Meus dados" className={"button-adm-page " + (activeButton === "dados" ? "active" : "")} onClick={() => handleButtonClick("dados")} />

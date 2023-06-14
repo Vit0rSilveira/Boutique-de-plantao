@@ -1,17 +1,18 @@
 nav {
     display: flex;
-    align-items: center;
     background-color: #313d17;
     color: #ffffff;
     height: 3rem;
     width: 100%;
 }
 
-ul#navbar-list {
-    list-style: none;
+#list-icons, ul#navbar-list {
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
+    list-style: none;
+    margin-top: 0.3vw;
 }
 
 a {
@@ -32,23 +33,33 @@ a {
 @media (max-width: 600px) {
     nav {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         height: auto;
     }
 
+    
     ul#navbar-list {
         flex-direction: column;
         align-items: center;
         display: none;
     }
-
+    
     ul#navbar-list.open {
         display: flex;
     }
-
+    
     li {
         margin-bottom: 10px;
     }
 
+    #list-icons {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 40%;
+    }
+    
     .menu-button {
         display: block;
         height: 6vh;

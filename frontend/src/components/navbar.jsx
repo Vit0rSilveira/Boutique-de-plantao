@@ -38,12 +38,14 @@ function Navbar() {
         className={isMenuOpen ? "open" : ""}
         ref={navbarListRef}
       >
-        <li><Link to="/pesquisar/planta">Plantas</Link></li>
-        <li><Link to="/pesquisar/flor">Flores</Link></li>
-        <li><Link to="/pesquisar/vaso">Vasos</Link></li>
-        <li><Link to="/pesquisar/suporte">Suportes</Link></li>
-        <li><Link to="/pesquisar/jardinagem">Jardinagem</Link></li>
-        <li><Link to="/sobre-nos" >Sobre Nós</Link></li>
+        <div id="list-icons">
+          <li><Link to="/pesquisar/planta">Plantas</Link></li>
+          <li><Link to="/pesquisar/flor">Flores</Link></li>
+          <li><Link to="/pesquisar/vaso">Vasos</Link></li>
+          <li><Link to="/pesquisar/suporte">Suportes</Link></li>
+          <li><Link to="/pesquisar/jardinagem">Jardinagem</Link></li>
+          <li><Link to="/sobre-nos" >Sobre Nós</Link></li>
+        </div>
       </ul>
     </nav>
   );

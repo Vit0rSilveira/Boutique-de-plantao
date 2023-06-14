@@ -70,7 +70,7 @@ function User() {
             <Navbar />
             <main>
                 <div id="page-user">
-                    <div id="buttons">
+                    <div id="buttons-user">
                         <button className={"button-personal-page " + (activeButton === "dados" ? "active" : "")} onClick={() => handleButtonClick("dados")}>
                             Meus dados
                         </button>

@@ -1,9 +1,0 @@
-#avaliacao {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 10vh 2vh 10vh 2vh;
-    background-color: white;
-}

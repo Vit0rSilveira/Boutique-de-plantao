@@ -1,8 +1,0 @@
-.container-home {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin: 5vh 0px;
-}

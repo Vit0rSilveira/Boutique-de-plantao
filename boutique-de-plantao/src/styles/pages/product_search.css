@@ -1,9 +1,0 @@
-#produtos-encontrados {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content:first space-between;
-    align-items: flex-start;
-    width: 70%;
-}

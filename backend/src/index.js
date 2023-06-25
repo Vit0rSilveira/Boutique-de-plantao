@@ -21,7 +21,7 @@ app.use('/usuario', personRoutes)
 // Rota inicial
 app.get("/", (req, res) => {res.json({message: "Oi andrezinho seu linduuu"}).status(200)})
 
-mongoose.connect(`mongodb+srv://${USER_MONGODB}:${PASSWORD_MONGODB}@boutique-de-plantao.0bhfoya.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://${USER_MONGODB}:${PASSWORD_MONGODB}@boutique-de-plantao.0bhfoya.mongodb.net/Boutique-de-plantao`)
 .then(() => {
     app.listen(PORT)
     console.log("Conectamos ao Mongo db")

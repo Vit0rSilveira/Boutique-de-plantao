@@ -12,6 +12,6 @@ const Person = mongoose.model('Person', {
     bairro: String,
     estado: String,
     complemento: String,
-})
+}, 'people')
 
 module.exports = Person

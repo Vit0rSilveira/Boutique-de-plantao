@@ -22,7 +22,8 @@ function Product(props) {
                 id: props.id,
                 nome: props.nome,
                 valor: props.valor,
-                quantidade_carrinho: 1
+                quantidade_carrinho: 1,
+                quantidade_disponivel: props.quantidade_disponivel,
             });
         }
 

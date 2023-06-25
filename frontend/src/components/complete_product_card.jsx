@@ -36,6 +36,7 @@ function Complete_product(props) {
         nome: props.nome,
         valor: props.valor,
         quantidade_carrinho: quantidade,
+        quantidade_disponivel: props.quantidade_disponivel,
       });
     }
 

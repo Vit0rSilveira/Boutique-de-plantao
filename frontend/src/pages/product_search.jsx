@@ -33,6 +33,7 @@ function Search_product() {
                 nome = {item.nome}
                 imagem = {item.imagem}
                 valor = {item.valor}
+                quantidade_disponivel = {item.quantidade_disponivel}
                 />)
             })
     }

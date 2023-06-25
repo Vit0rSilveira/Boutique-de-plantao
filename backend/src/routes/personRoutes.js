@@ -4,9 +4,10 @@ const Person = require('../models/Person')
 router.post('/', async (req, res) => {
     const { nome, tipo, email, senha, tel, endereco, numero, cidade, bairro, estado, complemento } = req.body
 
-    const regex = /^(?=.*[a-zA-Z])(?=.*\d).{8}$/;
+    const regex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
     if (!regex.test(senha)) {
-        res.status(422).json({ message: "Formato de senha inválido. Digite 8 dígitos contendo número e letras" })
+        return res.status(422).json({ message: "Formato de senha inválido. Digite 8 dígitos contendo número e letras" })
+        return
     }
 
     const person = {
@@ -25,19 +26,19 @@ router.post('/', async (req, res) => {
 
     try {
         await Person.create(person)
-        res.status(201).json({ message: "Usuário Inserido no sistema com sucesso" })
+        return res.status(201).json({ message: "Usuário Inserido no sistema com sucesso" })
 
     } catch (error) {
-        res.status(500).json({ error: error })
+        return res.status(500).json({ error: error })
     }
 }) 
 
 router.get('/', async(req, res) => {
     try {
         const people = await Person.find()
-        res.status(200).json(people)
+        return res.status(200).json(people)
     } catch(error) {
-        res.status(500).json({error: error})
+        return res.status(500).json({error: error})
     }
 })
 
@@ -48,12 +49,11 @@ router.get('/:email', async(req,res) => {
         const person = await Person.findOne({email: findEmail})
 
         if (!person) {
-            res.status(422).json({message: "Usuário não encontrado"})
-            return
+            return res.status(422).json({message: "Usuário não encontrado"})
         }
-        res.status(200).json(person)
+        return res.status(200).json(person)
     } catch(error) {
-        res.status(500).json({error: error})
+        return res.status(500).json({error: error})
     }
 })
 
@@ -80,13 +80,12 @@ router.patch("/:email", async (req, res) => {
         const updatePerson = await Person.updateOne({email: findEmail}, person)
 
         if (updatePerson.matchedCount === 0) {
-            res.status(422).json({message: "Usuário não encontrado"})
-            return
+            return res.status(422).json({message: "Usuário não encontrado"})
         }
 
-        res.status(200).json({message: "Usuário atualizado com sucesso"})
+        return res.status(200).json({message: "Usuário atualizado com sucesso"})
     } catch(error) {
-        res.status(500).json({error: error})
+        return res.status(500).json({error: error})
     }   
 })
 
@@ -96,16 +95,15 @@ router.delete("/:email", async(req, res) => {
     const person = await Person.findOne({email: findEmail})
 
     if (!person) {
-        res.status(422).json({message: "Usuário não encontrado"})
-        return
+        return res.status(422).json({message: "Usuário não encontrado"})
     }
 
     try {
         await Person.deleteOne({email: findEmail})
 
-        res.status(200).json({message: "Usuário removido com sucesso"})
+        return res.status(200).json({message: "Usuário removido com sucesso"})
     } catch(error) {
-        res.status(500).json({error: error})
+        return res.status(500).json({error: error})
     } 
 })
 

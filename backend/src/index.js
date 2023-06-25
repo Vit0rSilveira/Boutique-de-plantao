@@ -10,6 +10,7 @@ const PASSWORD_MONGODB = process.env.PASSWORD_MONGODB
 const USER_MONGODB = process.env.USER_MONGODB
 
 const app = express()
+app.use(cors())
 
 // Forma de ler JSON / middlwares
 app.use(
@@ -18,7 +19,6 @@ app.use(
 
 app.use(express.json())
 app.use('/usuario', personRoutes)
-app.use(cors())
 
 
 // Rota inicial

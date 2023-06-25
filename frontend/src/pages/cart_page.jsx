@@ -35,6 +35,7 @@ function Cart() {
         setItens(prevItens => {
             const updatedItens = [...prevItens];
             updatedItens[index].subtotal = valor;
+            updatedItens[index].quantidade_carrinho = valor / updatedItens[index].valor;
             return updatedItens;
         });
     }

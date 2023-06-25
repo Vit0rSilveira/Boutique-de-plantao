@@ -39,8 +39,14 @@ function Cart() {
         });
     }
 
-    
-
+    function handleItemDelete(index) {
+        setItens((prevItems) => {
+          const updatedItems = [...prevItems];
+          updatedItems.splice(index, 1);
+          return updatedItems;
+        });
+      }
+      
     function handleShippingCost() {
         let cep = document.getElementById("input_cep").value;
 
@@ -74,20 +80,21 @@ function Cart() {
                 <div id='cart'>
                     <h1>Meu Carrinho</h1>
 
-                    {itens.length > 0 && (
-                        <>
-                            {itens.map((item, index) => (
-                                <Item
-                                    key={item.id}
-                                    nome={item.nome}
-                                    quantidade_disponivel={item.quantidade_disponivel}
-                                    valor={item.valor}
-                                    imagem={item.imagem}
-                                    quantidade_carrinho={item.quantidade_carrinho}
-                                    onCallback={(valor) => handlerCallback(valor, index)}
-                                />
-                            ))}
-                        </>
+                    {itens.length > 0 ? (
+                        itens.map((item, index) => (
+                            <Item
+                                key={item.id}
+                                nome={item.nome}
+                                quantidade_disponivel={item.quantidade_disponivel}
+                                valor={item.valor}
+                                imagem={item.imagem}
+                                quantidade_carrinho={item.quantidade_carrinho}
+                                onCallback={(valor) => handlerCallback(valor, index)}
+                                onDelete={() => handleItemDelete(index)}
+                            />
+                        ))
+                    ) : (
+                        <h2>Seu carrinho está vazio</h2>
                     )}
 
                     <div id='bottom_info'>

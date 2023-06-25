@@ -38,7 +38,7 @@ function Item(props) {
                 <p>Total: R$ {price? price.toFixed(2) : 0.00}</p>
             </div>
 
-            <button id="remove-item">
+            <button id="remove-item" onClick={props.onDelete}>
                 <ImCross id="cross"/>
             </button>
         </div>

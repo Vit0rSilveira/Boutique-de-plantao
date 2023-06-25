@@ -12,7 +12,7 @@ import {useNavigate } from "react-router-dom";
 function User() {
     // Estado para controlar o botão ativo
     const [activeButton, setActiveButton] = useState("");
-    const [users, setUsers] = useState([]);
+    const [user, setUser] = useState([]);
     const [cookies] = useCookies(["credentials"]);
     const navigate = useNavigate()
 
@@ -22,35 +22,33 @@ function User() {
         else if (cookies.credentials.type === "adm")
             navigate("/adm")
 
-        fetch("../jsons/clientes.json")
+        fetch(`http://localhost:3000/usuario/${cookies.credentials.email}`)
             .then((response) => response.json())
-            .then((data) => setUsers(Object.values(data)))
+            .then((data) => setUser(data))
             .catch((error) => console.log(error));
     }, []);
-
-    const userLogin = cookies.credentials && cookies.credentials.login;
-    const usuarioLogado = users.find((user) => user.login === userLogin);
 
     // Função para lidar com o clique nos botões
     const handleButtonClick = (buttonType) => {
         setActiveButton(buttonType);
     };
 
+    console.log(user)
     /**
      * Função para renderizar o conteúdo com base no botão ativo
      */
     const renderCardContent = () => {
         if (activeButton === "dados") {
-            return <Personal_data user={usuarioLogado} />;
+            return <Personal_data user={user} />;
         } else if (activeButton === "compras") {
-            return usuarioLogado.historicoCompras.map((compra) => (
+            return user.historicoCompras.map((compra) => (
                 <History dados={compra} key={compra.id} />
             ));
-        } else if (usuarioLogado) {
+        } else if (user) {
             // Card de boas-vindas
             return (
                 <div className="welcome-card">
-                    <h2> {usuarioLogado.nome } Bem-vindo(a)!</h2>
+                    <h2> {user.nome } Bem-vindo(a)!</h2>
                     <p>Selecione uma opção no menu para visualizar seus dados ou histórico de compras.</p>
                 </div>
             );

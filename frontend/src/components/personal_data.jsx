@@ -83,7 +83,6 @@ function Personal_data(props) {
     
 
     const requestBody = formData;
-    console.log(`cookies: ${cookies.credentials.tipo} e medoto: ${metodo}`)
 
     fetch(urlreq, {
       method: metodo,

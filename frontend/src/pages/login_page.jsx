@@ -32,7 +32,6 @@ function Login() {
             setCookies("credentials", { email: client.email, tipo: client.tipo });
 
             if (client.tipo === "cliente") {
-                alert("AAAAAAAAAAAAA")
                 navigate("/perfil");
             } else {
                 navigate("/adm");

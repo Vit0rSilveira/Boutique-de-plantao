@@ -26,6 +26,11 @@ function Cart() {
         setSubtotal(newSubtotal);
     }, [itens]);
 
+    useEffect(() => {
+        const updatedItems = itens.map(item => ({ ...item, subtotal: item.valor * item.quantidade_carrinho }));
+        setItens(updatedItems);
+    }, []);
+
     function handlerCallback(valor, index) {
         setItens(prevItens => {
             const updatedItens = [...prevItens];

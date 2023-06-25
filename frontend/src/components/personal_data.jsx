@@ -40,7 +40,7 @@ function Personal_data(props) {
 
     const requestBody = { nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, cep, estado, cidade, bairro,};
 
-    fetch("http://localhost:3000/", {
+    fetch("http://localhost:3000/usuario", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

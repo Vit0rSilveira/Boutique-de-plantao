@@ -30,7 +30,7 @@ function Register(props) {
             <main>
                 <h1>Cadastrar Usuário</h1>
                 <div id="formulario">
-                   <Personal_data user={{ tipo: "adm" }}/>
+                   <Personal_data user={{ tipo: "cliente" }}/>
                 </div>
             </main>
             <Footer />

@@ -1,29 +1,47 @@
 const router = require('express').Router()
 const Person = require('../models/Person')
+const bcrypt = require('bcrypt')
+
+
+
+async function encode_password(password) {
+    const salt = 5;   
+    const senhaEncriptografada = await bcrypt.hash(password, salt);
+
+    return senhaEncriptografada;
+}
 
 router.post('/', async (req, res) => {
-    const { nome, tipo, email, senha, tel, endereco, numero, cidade, bairro, estado, complemento } = req.body
+    const { nome, tipo, email, senha, tel, endereco, cep, numero, cidade, bairro, estado, complemento } = req.body
 
     const regex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
     if (!regex.test(senha)) {
         return res.status(422).json({ message: "Formato de senha inválido. Digite 8 dígitos contendo número e letras" })
     }
 
-    const person = {
-        nome,
-        tipo,
-        email,
-        senha,
-        tel,
-        endereco,
-        numero,
-        cidade,
-        bairro,
-        estado,
-        complemento
-    }
-
     try {
+        const buscaDB = await Person.findOne({email: email})
+
+        if (buscaDB) {
+            return res.status(422).json({message: "Usuário Já cadastrado"})
+        }
+        const senhaEncriptografada = await encode_password(senha);
+
+        const person = {
+            nome,
+            tipo,
+            email,
+            senha: senhaEncriptografada,
+            tel,
+            endereco,
+            cep,
+            numero,
+            cidade,
+            bairro,
+            estado,
+            complemento
+        }
+
         await Person.create(person)
         return res.status(201).json({ message: "Usuário Inserido no sistema com sucesso" })
 

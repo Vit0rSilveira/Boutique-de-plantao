@@ -1,49 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import Footer from '../components/footer';
+import bcrypt from "bcryptjs";
 import "../styles/pages/login.css";
 import { useCookies } from "react-cookie";
 import "../styles/pages/login.css";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-    const navigate = useNavigate()
-    const [dataClients, setDataClients] = useState({})
+    const navigate = useNavigate();
     const [cookies, setCookies, removeCookies] = useCookies(["credentials"]);
 
-    useEffect(() => {
-        fetch("../jsons/clientes.json")
-            .then(response => response.json())
-            .then(data => setDataClients(Object.values(data)))
-            .catch(error => console.log(error))
-    }, [])
+    const passwordsEqual = async (password, passwordBD) => {
+        try {
+            const result = await bcrypt.compare(password, passwordBD);
+            return result;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
+    };
 
-    function handleLoginClick() {
-        const login = document.getElementById("input-email").value
-        const password = document.getElementById("input-password").value
-        let userFound = false;
+    const authenticateUser = async (client, password) => {
+        console.log(client)
+        console.log(password)
 
-        dataClients.forEach(client => {
-            if (client.login === login && client.senha === password) {
-                const type = client.type
-                setCookies("credentials", { login, password, type });
+        const passwordMatches = await passwordsEqual(password, client.senha);
 
-                if (type === "cliente")
-                    navigate("/perfil");
-                else
-                    navigate("/adm");
+        if (passwordMatches) {
+            const type = client.tipo;
+            setCookies("credentials", { email: client.email, tipo: client.tipo });
 
-                userFound = true;
-                return;
+            if (type === "cliente") {
+                navigate("/perfil");
+            } else {
+                navigate("/adm");
             }
-        });
-
-        if (!userFound) {
+        } else {
             setTimeout(() => {
                 alert("Usuário ou senha incorretos");
             }, 0);
         }
+    };
+
+    function handleLoginClick() {
+        const login = document.getElementById("input-email").value;
+        const password = document.getElementById("input-password").value;
+        fetch(`http://localhost:3000/usuario/${login}`)
+            .then(response => response.json())
+            .then(data => {
+                const client = data;
+                if (client) {
+                    authenticateUser(client, password); // Passa a senha como argumento
+                } else {
+                    setTimeout(() => {
+                        alert("Usuário não encontrado");
+                    }, 0);
+                }
+            })
+            .catch(error => console.log(error));
     }
 
     return (
@@ -61,17 +77,16 @@ function Login() {
                             <input type="email" id="input-email" />
                             <label htmlFor="input-password">Senha</label>
                             <input type="password" id="input-password" />
-                            <input type="submit" value="Continuar" onClick={handleLoginClick} />
+                            <input type="button" className="login-button" value="Continuar" onClick={handleLoginClick} />
                         </form>
                     </div>
-                        <input type="button" className ="login-button" value="Cadastre-se" onClick={() => {navigate("/cadastrar")}}/>
+                    <input type="button" className="login-button" value="Cadastre-se" onClick={() => { navigate("/cadastrar") }} />
 
                 </div>
             </main>
 
             <Footer />
         </>
-
     );
 }
 

@@ -7,6 +7,7 @@ const Person = mongoose.model('Person', {
     senha: String,
     tel: String,
     endereco: String,
+    cep: String,
     numero: Number,
     cidade: String,
     bairro: String,

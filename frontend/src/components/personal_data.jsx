@@ -37,7 +37,39 @@ function Personal_data(props) {
       alert("As senhas não coincidem");
       return;
     }
+
+    const requestBody = { nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, cep, estado, cidade, bairro,};
+
+    fetch("http://localhost:3000/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          if (response.status === 404) {
+            throw new Error("Endpoint not found");
+          } else if (response.status === 401) {
+            throw new Error("Unauthorized request");
+          } else {
+            throw new Error("Request failed with status: " + response.status);
+          }
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Usuário inserido com sucesso.")
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+      });
+  
   }
+
 
   return (
     <form action="">

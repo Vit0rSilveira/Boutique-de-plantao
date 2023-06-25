@@ -16,9 +16,9 @@ app.use(
     express.urlencoded({extended: true})
 )
 
+
 app.use(express.json())
 app.use('/usuario', personRoutes)
-app.use(cors())
 
 
 // Rota inicial

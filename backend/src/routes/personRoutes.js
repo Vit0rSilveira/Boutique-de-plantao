@@ -1,36 +1,35 @@
-const router = require('express').Router()
-const Person = require('../models/Person')
+const router = require('express').Router();
+const Person = require('../models/Person');
 
 router.post('/', async (req, res) => {
-    const { nome, tipo, email, senha, tel, endereco, numero, cidade, bairro, estado, complemento } = req.body
+  const { nome, tipo, email, senha, tel, endereco, numero, cidade, bairro, estado, complemento } = req.body;
 
-    const regex = /^(?=.*[a-zA-Z])(?=.*\d).{8}$/;
-    if (!regex.test(senha)) {
-        res.status(422).json({ message: "Formato de senha inválido. Digite 8 dígitos contendo número e letras" })
-    }
+  const regex = /^(?=.*[a-zA-Z])(?=.*\d).{8}$/;
+  if (!regex.test(senha)) {
+    return res.status(422).json({ message: "Formato de senha inválido. Digite 8 dígitos contendo número e letras" });
+  }
 
-    const person = {
-        nome,
-        tipo,
-        email,
-        senha,
-        tel,
-        endereco,
-        numero,
-        cidade,
-        bairro,
-        estado,
-        complemento
-    }
+  const person = {
+    nome,
+    tipo,
+    email,
+    senha,
+    tel,
+    endereco,
+    numero,
+    cidade,
+    bairro,
+    estado,
+    complemento
+  };
 
-    try {
-        await Person.create(person)
-        res.status(201).json({ message: "Usuário Inserido no sistema com sucesso" })
-
-    } catch (error) {
-        res.status(500).json({ error: error })
-    }
-}) 
+  try {
+    await Person.create(person);
+    return res.status(201).json({ message: "Usuário Inserido no sistema com sucesso" });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
 
 router.get('/', async(req, res) => {
     try {

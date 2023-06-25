@@ -1,5 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
+
 require('dotenv').config();
 const personRoutes = require('./routes/personRoutes')
 
@@ -16,6 +18,7 @@ app.use(
 
 app.use(express.json())
 app.use('/usuario', personRoutes)
+app.use(cors())
 
 
 // Rota inicial

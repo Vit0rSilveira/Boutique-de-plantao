@@ -80,6 +80,7 @@ function Personal_data(props) {
       alert("As senhas não coincidem");
       return;
     }
+    
 
     const requestBody = formData;
     console.log(`cookies: ${cookies.credentials.tipo} e medoto: ${metodo}`)

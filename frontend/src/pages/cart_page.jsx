@@ -8,29 +8,29 @@ import "../styles/pages/cart_page.css";
 import { useCookies } from 'react-cookie';
 
 function Cart() {
-    const [itens, setItens] = useState([]);
+    const [itens, setItens] = useState(() => {
+        const storedItems = localStorage.getItem("cartItems");
+        return storedItems ? JSON.parse(storedItems) : [];
+    });
     const [subtotal, setSubtotal] = useState(0);
     const [frete, setFrete] = useState(0);
     const navigate = useNavigate();
-    const [cookies] = useCookies(["credentials"])
+    const [cookies] = useCookies(["credentials"]);
 
-    
-
-    useEffect(() => {            
-        fetch('../jsons/carrinho.json')
-            .then(response => response.json())
-            .then(data => {
-                const updatedItens = Object.values(data).map(item => ({ ...item, subtotal: item.valor * item.quantidade_carrinho }));
-                setItens(updatedItens);
-            })
-            .catch(error => console.log(error));
-    }, []);
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(itens));
+    }, [itens]);
 
     useEffect(() => {
         const newSubtotal = itens.reduce((total, item) => total + (item.subtotal || 0), 0);
         setSubtotal(newSubtotal);
     }, [itens]);
-    
+
+    useEffect(() => {
+        const updatedItems = itens.map(item => ({ ...item, subtotal: item.valor * item.quantidade_carrinho }));
+        setItens(updatedItems);
+    }, []);
+
     function handlerCallback(valor, index) {
         setItens(prevItens => {
             const updatedItens = [...prevItens];
@@ -40,13 +40,13 @@ function Cart() {
     }
 
     function handleItemDelete(index) {
-        setItens((prevItems) => {
-          const updatedItems = [...prevItems];
-          updatedItems.splice(index, 1);
-          return updatedItems;
+        setItens(prevItems => {
+            const updatedItems = [...prevItems];
+            updatedItems.splice(index, 1);
+            return updatedItems;
         });
-      }
-      
+    }
+
     function handleShippingCost() {
         let cep = document.getElementById("input_cep").value;
 

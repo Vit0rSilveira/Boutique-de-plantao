@@ -34,11 +34,37 @@ input[type="number"],
 #inputs {
     display: flex;
     justify-content: space-around;
+    align-items:baseline;
+    text-align:center;
+    vertical-align: middle;
     margin-bottom: 10vh;
 }
 
 #add-cart-product {
     border-radius: 5px;
+}
+
+#amount-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.amount-in-cart1 {
+    font-size: 3vw;
+    transform: translate(0, 0.6vw);
+}
+
+.amount-button1 {
+    vertical-align: bottom;
+    background-color: white;
+    border:none;
+    width: 4vw;
+    height: auto;
+}
+
+.amount-icon1 {
+    width: 3vw;
+    height: auto;
 }
 
 

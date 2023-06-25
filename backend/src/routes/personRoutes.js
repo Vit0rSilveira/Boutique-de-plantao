@@ -17,7 +17,6 @@ router.post('/', async (req, res) => {
     const regex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
     if (!regex.test(senha)) {
         return res.status(422).json({ message: "Formato de senha inválido. Digite 8 dígitos contendo número e letras" })
-        return
     }
 
     try {

@@ -10,6 +10,27 @@ function Product(props) {
         navigate(`/produto/${props.id}`);
     };
 
+    const handleAddToCart = () => {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        const existingItem = cartItems.find(item => item.id === props.id);
+
+        if (existingItem) {
+            existingItem.quantidade_carrinho += 1;
+        } else {
+            cartItems.push({
+                id: props.id,
+                nome: props.nome,
+                valor: props.valor,
+                quantidade_carrinho: 1
+            });
+        }
+
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+        navigate("/carrinho");
+    };
+
     return (
         <div id="product">
             <button id="product-button" onClick={handleClick}><img src={props.imagem} alt="imagem do produto" id="product-image" /> </button>
@@ -18,7 +39,7 @@ function Product(props) {
             <div id="amount">
                 <p>R$ {props.valor}</p>
             </div>
-            <button id="add-cart"><AiOutlineShoppingCart />Adicionar</button>
+            <button id="add-cart" onClick={handleAddToCart}><AiOutlineShoppingCart />Adicionar</button>
         </div>
 
 

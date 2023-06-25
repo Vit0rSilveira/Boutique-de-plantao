@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import "../styles/components/complete_product_card.css"
 
 function Complete_product(props) {
+  const navigate = useNavigate();
   const [valor, setValor] = useState(props.valor);
-  const [quantidade, setQuantidade] = useState(0);
+  const [quantidade, setQuantidade] = useState(1);
 
   useEffect(() => {
     setValor(props.valor * quantidade);
   }, [quantidade]);
-
 
   function handleAmountChange(increment) {
     let newAmount = quantidade + increment;
@@ -19,6 +20,30 @@ function Complete_product(props) {
     if (newAmount > props.quantidade_disponivel) newAmount = props.quantidade_disponivel;
     setQuantidade(newAmount);
   }
+
+  function handleAddToCart() {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const existingItem = cartItems.find(item => item.id === props.id);
+
+    console.log(existingItem)
+
+    if (existingItem) {
+      existingItem.quantidade_carrinho += quantidade;
+    } else {
+      cartItems.push({
+        id: props.id,
+        nome: props.nome,
+        valor: props.valor,
+        quantidade_carrinho: quantidade,
+      });
+    }
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    navigate("/carrinho");
+  };
+
 
   return (
     <div id="complete-card-product">
@@ -31,7 +56,7 @@ function Complete_product(props) {
         </p>
         <p>R$ {valor}</p>
         <div id="inputs">
-          <button id="add-cart-product">
+          <button id="add-cart-product" onClick={handleAddToCart}>
             <AiOutlineShoppingCart /> Adicionar
           </button>
           <div id="amount-wrapper">

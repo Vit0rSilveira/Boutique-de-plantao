@@ -15,6 +15,7 @@ function Personal_data(props) {
     estado: tipo?.estado || "",
     cidade: tipo?.cidade || "",
     bairro: tipo?.bairro || "",
+    complemento: tipo?.complemento || "",
   });
 
   function handleChange(event) {
@@ -26,7 +27,7 @@ function Personal_data(props) {
   }
 
   function handlerRegister() {
-    const { nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, cep, estado, cidade, bairro,
+    const { nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, cep, estado, cidade, bairro, complemento
     } = formData;
 
     if ( !nomeCompleto || !telefone || !email || !senha || !confirmacaoSenha ||
@@ -37,8 +38,9 @@ function Personal_data(props) {
       alert("As senhas não coincidem");
       return;
     }
+    
 
-    const requestBody = { nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, cep, estado, cidade, bairro,};
+    const requestBody = { nomeCompleto, telefone, email, senha, confirmacaoSenha, endereco, cep, estado, cidade, bairro, complemento,};
 
     fetch("http://localhost:3000/usuario", {
       method: "POST",

@@ -30,6 +30,7 @@ function Product() {
       <main>
         {produtoEncontrado ? (
           <Complete_product
+            id={idProduto}
             nome={produtoEncontrado.nome}
             valor={produtoEncontrado.valor}
             quantidade_disponivel={produtoEncontrado.quantidade_disponivel}

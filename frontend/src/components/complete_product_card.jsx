@@ -35,9 +35,9 @@ function Complete_product(props) {
             <AiOutlineShoppingCart /> Adicionar
           </button>
           <div id="amount-wrapper">
-            <button className="amount-button" onClick={() => handleAmountChange(-1)}><AiOutlineMinusCircle className="amount-icon" /> </button>
-            <p id="amount-in-cart">{quantidade}</p>
-            <button className="amount-button" onClick={() => handleAmountChange(1)}> <AiOutlinePlusCircle className="amount-icon" /> </button>
+            <button className="amount-button1" onClick={() => handleAmountChange(-1)}><AiOutlineMinusCircle className="amount-icon1" /> </button>
+            <p className="amount-in-cart1">{quantidade}</p>
+            <button className="amount-button1" onClick={() => handleAmountChange(1)}> <AiOutlinePlusCircle className="amount-icon1" /> </button>
           </div>
         </div>
       </div>

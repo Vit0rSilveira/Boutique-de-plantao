@@ -35,8 +35,8 @@ input[type="number"],
     display: flex;
     justify-content: space-around;
     align-items:baseline;
-    text-align: center;
-    vertical-align: center;
+    text-align:center;
+    vertical-align: middle;
     margin-bottom: 10vh;
 }
 
@@ -44,21 +44,25 @@ input[type="number"],
     border-radius: 5px;
 }
 
-#amount-in-cart {
-    font-size: 3vw;
-    align-self: baseline;
-    vertical-align: text-bottom;
+#amount-wrapper {
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.amount-button {
+.amount-in-cart1 {
+    font-size: 3vw;
+    transform: translate(0, 0.6vw);
+}
+
+.amount-button1 {
+    vertical-align: bottom;
     background-color: white;
     border:none;
-    padding: 0vw 100vw;
     width: 4vw;
     height: auto;
 }
 
-.amount-icon {
+.amount-icon1 {
     width: 3vw;
     height: auto;
 }

@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { AiOutlineMinusCircle } from "react-icons/ai";
 import "../styles/components/cart_item.css";
 
 function Item(props) {
     const [amount, setAmount] = useState(props.quantidade_carrinho);
 
-    function handleAmountChange(event) {
-        let newAmount = parseInt(event.target.value);
-        if (!newAmount) newAmount = 0;
+    function handleAmountChange(increment) {
+        let newAmount = amount + increment;
+        if (newAmount < 1) newAmount = 1;
+        if (newAmount > props.quantidade_disponivel) newAmount = props.quantidade_disponivel;
         setAmount(newAmount);
 
         const newPrice = props.valor * newAmount;
@@ -25,22 +28,17 @@ function Item(props) {
                 <p>Unidade: R$ {props.valor ? props.valor.toFixed(2) : 0.00}</p>
             </div>
 
-            <input
-                type="number"
-                min="1"
-                value={amount}
-                max={props.quantidade_disponivel}
-                id="amount-in-cart"
-                onChange={handleAmountChange}
-            />
-
-            <div id="total-price">
-                <p>Total: R$ {price? price.toFixed(2) : 0.00}</p>
+            <div id="amount-wrapper">
+                <button className="amount-button" onClick={() => handleAmountChange(-1)}><AiOutlineMinusCircle className="amount-icon" /> </button>
+                <p id="amount-in-cart">{amount}</p>
+                <button className="amount-button" onClick={() => handleAmountChange(1)}> <AiOutlinePlusCircle className="amount-icon" /> </button>
             </div>
 
-            <button id="remove-item" onClick={props.onDelete}>
-                <ImCross id="cross"/>
-            </button>
+            <div id="total-price">
+                <p>Total: R$ {price ? price.toFixed(2) : 0.00}</p>
+            </div>
+
+            <button id="remove-item" onClick={props.onDelete}> <ImCross id="cross" /> </button>
         </div>
     );
 }

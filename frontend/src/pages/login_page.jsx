@@ -25,14 +25,14 @@ function Login() {
     const authenticateUser = async (client, password) => {
         console.log(client)
         console.log(password)
-
+        console.log(client)
         const passwordMatches = await passwordsEqual(password, client.senha);
 
         if (passwordMatches) {
-            const type = client.tipo;
             setCookies("credentials", { email: client.email, tipo: client.tipo });
 
-            if (type === "cliente") {
+            if (client.tipo === "cliente") {
+                alert("AAAAAAAAAAAAA")
                 navigate("/perfil");
             } else {
                 navigate("/adm");

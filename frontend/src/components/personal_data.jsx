@@ -35,9 +35,15 @@ function Personal_data(props) {
   }
 
   useEffect(() => {
-    if (cookies.credentials && cookies.credentials.tipo === "cliente")
+    if (cookies.credentials && (cookies.credentials.tipo === "cliente" || props.update)) {
       setMetodo("PATCH")
       setUrlreq(`http://localhost:3000/usuario/${cookies.credentials.email}`)
+    }
+
+    else {
+      setMetodo("POST")
+      setUrlreq("http://localhost:3000/usuario")
+    }
   }, [])
 
   function handlerRegister() {
@@ -104,7 +110,7 @@ function Personal_data(props) {
 
         return response.json().then((data) => {
           alert(data.message);
-          navigate("/home");
+          navigate("/");
         }); 
       })
       .then((data) => {

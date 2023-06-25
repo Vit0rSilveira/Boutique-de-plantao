@@ -13,7 +13,7 @@ import "../styles/pages/adm.css"
 function User() {
     // Estado para controlar o botão ativo
     const [activeButton, setActiveButton] = useState("");
-    const [users, setUsers] = useState([]);
+    const [user, setUser] = useState([]);
     const [produtos, setProdutos] = useState({})
     const [cookies] = useCookies(["credentials"]);
     const navigate = useNavigate()
@@ -21,13 +21,13 @@ function User() {
     useEffect(() => {
         if (!cookies.credentials)
             navigate("/login")
-        else if (cookies.credentials.type != "adm")
+        else if (cookies.credentials.tipo != "adm")
             navigate("/perfil")
 
 
-        fetch("../jsons/clientes.json")
+        fetch(`http://localhost:3000/usuario/${cookies.credentials.email}`)
             .then((response) => response.json())
-            .then((data) => setUsers(Object.values(data)))
+            .then((data) => setUser(data))
             .catch((error) => console.log(error));
 
         fetch("../jsons/flores.json")
@@ -37,9 +37,6 @@ function User() {
 
 
     }, [])
-
-    const userLogin = cookies.credentials && cookies.credentials.login;
-    const usuarioLogado = users.find((user) => user.login === userLogin);
 
     // Função para lidar com o clique nos botões
     const handleButtonClick = (buttonType) => {
@@ -51,12 +48,12 @@ function User() {
      */
     const renderCardContent = () => {
         if (activeButton === "dados") {
-            return <Personal_data user={usuarioLogado} />;
+            return <Personal_data user={user} update = {true} />;
         } else if (activeButton === "novo-adm") {
             return (
                 <div className="div-return-render">
                     <h3>Cadastrar novo administrador</h3>
-                    <Personal_data user={{ tipo: "adm" }} />
+                    <Personal_data user={{ tipo: "adm" }} update = {false} />
                 </div>)
         } else if (activeButton === "novo-produto") {
             return (
@@ -73,11 +70,11 @@ function User() {
                     ))}
                 </div>)
         }
-        else if (usuarioLogado) {
+        else if (user) {
             // Card de boas-vindas
             return (
                 <div className="welcome-card">
-                    <h2> {usuarioLogado.nome} Bem-vindo(a)!</h2>
+                    <h2> {user.nome} Bem-vindo(a)!</h2>
                     <p>Selecione uma opção no menu para adicionar um novo administrador, editar um produto ou adicionar um novo produto</p>
                 </div>
             );

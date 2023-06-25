@@ -19,8 +19,7 @@ function Header() {
 
     function handleLogin () {
         if(cookies.credentials) {
-            const type = cookies.credentials.type
-            if (type === "adm")
+            if (cookies.credentials.tipo === "adm")
                 navigate("/adm");
             else
                 navigate("/perfil");

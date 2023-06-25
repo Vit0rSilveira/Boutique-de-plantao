@@ -33,7 +33,6 @@ function User() {
         setActiveButton(buttonType);
     };
 
-    console.log(user)
     /**
      * Função para renderizar o conteúdo com base no botão ativo
      */

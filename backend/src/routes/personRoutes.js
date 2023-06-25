@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const Person = require('../models/Person');
+const router = require('express').Router()
+const Person = require('../models/Person')
 
 router.post('/', async (req, res) => {
     const { nome, tipo, email, senha, tel, endereco, numero, cidade, bairro, estado, complemento } = req.body

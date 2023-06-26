@@ -29,7 +29,7 @@ function Search_product() {
         else
             return produtosFiltrados.map((item) => {
                 return (<Product 
-                id = {item.id}
+                codigo = {item.codigo}
                 nome = {item.nome}
                 imagem = {item.imagem}
                 valor = {item.valor}

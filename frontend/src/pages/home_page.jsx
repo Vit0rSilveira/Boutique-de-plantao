@@ -30,7 +30,7 @@ function Home() {
                             {produtos.slice(0, 3).map((produto, index) => (
                                 <Product
                                     key={index}
-                                    id={produto.id}
+                                    codigo={produto.codigo}
                                     nome={produto.nome}
                                     quantidade_disponivel={produto.quantidade_disponivel}
                                     valor={produto.valor}
@@ -51,7 +51,7 @@ function Home() {
                             {produtos.slice(-3).map((produto, index) => (
                                 <Product
                                     key={index}
-                                    id={produto.id}
+                                    codigo={produto.codigo}
                                     nome={produto.nome}
                                     quantidade_disponivel={produto.quantidade_disponivel}
                                     valor={produto.valor}

@@ -1,9 +1,9 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
-
-require('dotenv').config();
+const productRoutes = require('./routes/productRoutes')
 const personRoutes = require('./routes/personRoutes')
+const mongoose = require('mongoose')
+const express = require('express')
+const cors = require('cors')
+require('dotenv').config();
 
 const PORT = process.env.PORT
 const PASSWORD_MONGODB = process.env.PASSWORD_MONGODB
@@ -17,10 +17,9 @@ app.use(
     express.urlencoded({extended: true})
 )
 
-
 app.use(express.json())
 app.use('/usuario', personRoutes)
-
+app.use('/produto', productRoutes)
 
 // Rota inicial
 app.get("/", (req, res) => {res.json({message: "Oi andrezinho seu linduuu"}).status(200)})

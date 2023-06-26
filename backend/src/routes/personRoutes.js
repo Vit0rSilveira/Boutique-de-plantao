@@ -3,7 +3,6 @@ const Person = require('../models/Person')
 const bcrypt = require('bcrypt')
 
 
-
 async function encode_password(password) {
     const salt = 5;
     const senhaEncriptografada = await bcrypt.hash(password, salt);
@@ -73,7 +72,6 @@ router.get('/:email', async (req, res) => {
         return res.status(500).json({ error: error })
     }
 })
-
 
 router.patch("/:email", async (req, res) => {
     const findEmail = req.params.email

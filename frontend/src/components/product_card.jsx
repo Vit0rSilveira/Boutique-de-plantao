@@ -7,19 +7,19 @@ function Product(props) {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/produto/${props.id}`);
+        navigate(`/produto/${props.codigo}`);
     };
 
     const handleAddToCart = () => {
         const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-        const existingItem = cartItems.find(item => item.id === props.id);
+        const existingItem = cartItems.find(item => item.codigo === props.codigo);
 
         if (existingItem) {
             existingItem.quantidade_carrinho += 1;
         } else {
             cartItems.push({
-                id: props.id,
+                codigo: props.codigo,
                 nome: props.nome,
                 valor: props.valor,
                 quantidade_carrinho: 1

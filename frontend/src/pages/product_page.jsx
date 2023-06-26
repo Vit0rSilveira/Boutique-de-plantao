@@ -19,7 +19,7 @@ function Product() {
   }, []);
 
   const produtoEncontrado = produtos.find(
-    (produto) => produto.id === idProduto
+    (produto) => produto.codigo === idProduto
   );
 
   return (

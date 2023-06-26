@@ -32,7 +32,7 @@ function Complete_product(props) {
       existingItem.quantidade_carrinho += quantidade;
     } else {
       cartItems.push({
-        id: props.id,
+        id: props.codigo,
         nome: props.nome,
         valor: props.valor,
         quantidade_carrinho: quantidade,

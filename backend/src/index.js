@@ -20,7 +20,7 @@ app.use(
 app.use(express.json())
 app.use('/usuario', personRoutes)
 app.use('/produto', productRoutes)
-app.use('/uploads', express.static('uploads'));
+app.use('/imagens', express.static("public/imagens"))
 
 // Rota inicial
 app.get("/", (req, res) => {res.json({message: "Oi andrezinho seu linduuu"}).status(200)})

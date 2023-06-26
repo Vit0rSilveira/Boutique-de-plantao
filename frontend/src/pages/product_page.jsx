@@ -30,7 +30,7 @@ function Product() {
       <main>
         {produtoEncontrado ? (
           <Complete_product
-            id={idProduto}
+            codigo={idProduto}
             nome={produtoEncontrado.nome}
             valor={produtoEncontrado.valor}
             quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
@@ -46,7 +46,7 @@ function Product() {
             <h2>Avaliações</h2>
             {produtoEncontrado.avaliacao.map((avaliacao) => (
               <Review
-                key={avaliacao.id}
+                key={avaliacao.codigo}
                 nota={avaliacao.nota}
                 comentario={avaliacao.comentario}
               />

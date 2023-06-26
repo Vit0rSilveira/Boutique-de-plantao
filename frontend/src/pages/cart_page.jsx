@@ -84,7 +84,7 @@ function Cart() {
                     {itens.length > 0 ? (
                         itens.map((item, index) => (
                             <Item
-                                key={item.id}
+                                key={item.codigo}
                                 nome={item.nome}
                                 quantidade_disponivel={item.quantidade_disponivel}
                                 valor={item.valor}

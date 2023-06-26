@@ -24,7 +24,7 @@ function Complete_product(props) {
   function handleAddToCart() {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    const existingItem = cartItems.find(item => item.id === props.id);
+    const existingItem = cartItems.find(item => item.codigo === props.codigo);
 
     console.log(existingItem)
 
@@ -32,7 +32,7 @@ function Complete_product(props) {
       existingItem.quantidade_carrinho += quantidade;
     } else {
       cartItems.push({
-        id: props.codigo,
+        codigo: props.codigo,
         nome: props.nome,
         valor: props.valor,
         quantidade_carrinho: quantidade,

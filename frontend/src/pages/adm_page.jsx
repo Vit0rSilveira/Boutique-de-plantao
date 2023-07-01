@@ -29,11 +29,6 @@ function User() {
             .then((data) => setUser(data))
             .catch((error) => console.log(error));
 
-        fetch("../jsons/flores.json")
-            .then((response) => response.json())
-            .then((data) => setProdutos(Object.values(data)))
-            .catch((error) => console.log(error));
-
 
     }, [])
 

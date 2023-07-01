@@ -10,7 +10,7 @@ function Home() {
     const [produtos, setProdutos] = useState([]);
 
     useEffect(() => {
-        fetch('../jsons/flores.json')
+        fetch('http://localhost:3000/produto')
             .then(response => response.json())
             .then(data => setProdutos(Object.values(data)))
             .catch(error => console.log(error));
@@ -35,13 +35,12 @@ function Home() {
                                     quantidade_disponivel={produto.quantidade_disponivel}
                                     valor={produto.valor}
                                     descricao={produto.descricao}
-                                    imagem={produto.imagem}
-                                    avaliacao={produto.avaliacao}
+                                    imagem={`http://localhost:3000/${produto.imagem.replace("public/", "")}`}
                                 />
                             ))}
                         </>
                     )}
-                </div>
+                   </div>
 
                 
                 <h1>Promoções</h1>
@@ -56,8 +55,7 @@ function Home() {
                                     quantidade_disponivel={produto.quantidade_disponivel}
                                     valor={produto.valor}
                                     descricao={produto.descricao}
-                                    imagem={produto.imagem}
-                                    avaliacao={produto.avaliacao}
+                                    imagem={`http://localhost:3000/${produto.imagem.replace("public/", "")}`}
                                 />
                             ))}
                         </>

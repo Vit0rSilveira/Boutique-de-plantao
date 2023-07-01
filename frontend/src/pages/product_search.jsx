@@ -6,32 +6,29 @@ import Product from "../components/product_card";
 import { useParams } from "react-router-dom";
 import "../styles/pages/product_search.css";
 
-
 function Search_product() {
     const { produto } = useParams()
     const [produtos, setProdutos] = useState([])
 
     useEffect(() => {
-        fetch('../jsons/flores.json')
-            .then(response => response.json())
-            .then(data => setProdutos(Object.values(data)))
-            .catch(error => console.log(error))
+        fetch(`http://localhost:3000/produto/${produto}`)
+          .then((response) => response.json())
+          .then((data) => setProdutos(data)) // Atualizar o estado com o objeto retornado
+          .catch((error) => console.log(error));
+      }, [produto]);
 
-    }, [])
-
-    const produtosFiltrados = produtos.filter((item) => {
-        return item.categoria.toLowerCase() === produto.toLowerCase() || item.nome.toLowerCase().includes(produto.toLowerCase());
-    });
+    console.log(produtos)
 
     const handler_produtos = () => {
-        if (produtosFiltrados.length === 0)
+        if (produtos.length === 0)
             return (<h1> Nenhum Produto Encontrado</h1>)
         else
-            return produtosFiltrados.map((item) => {
-                return (<Product 
+            return produtos.map((item) => {
+                return (<Product
+                key = {item.codigo}
                 codigo = {item.codigo}
                 nome = {item.nome}
-                imagem = {item.imagem}
+                imagem = {`http://localhost:3000/${item.imagem.replace("public/", "")}`}
                 valor = {item.valor}
                 quantidade_disponivel = {item.quantidade_disponivel}
                 />)

@@ -20,7 +20,7 @@ function Rotas() {
         <Route exact path = "/" element={<Home/>} />
         <Route path = "/sobre-nos" element={<About_us/>} />
         <Route path = "/login" element = {<Login/>}/>
-        <Route path="/produto/:idProduto" element={<ProductPage />} />
+        <Route path="/produto/:codProduto" element={<Product />} />
         <Route path="/cadastrar" element={<Register />} />
         <Route path="/adm" element={<Adm />} />
         <Route path="/perfil" element={<User />} />

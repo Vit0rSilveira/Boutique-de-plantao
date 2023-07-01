@@ -37,6 +37,7 @@ function Complete_product(props) {
         valor: props.valor,
         quantidade_carrinho: quantidade,
         quantidade_disponivel: props.quantidade_disponivel,
+        imagem: props.imagem
       });
     }
 

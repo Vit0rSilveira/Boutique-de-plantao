@@ -9,7 +9,7 @@ function Product(props) {
     const handleClick = () => {
         navigate(`/produto/${props.codigo}`);
     };
-
+    console.log("Carinho:",  props.imagem)
     const handleAddToCart = () => {
         const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -24,6 +24,7 @@ function Product(props) {
                 valor: props.valor,
                 quantidade_carrinho: 1,
                 quantidade_disponivel: props.quantidade_disponivel,
+                imagem: props.imagem
             });
         }
 

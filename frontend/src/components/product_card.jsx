@@ -3,7 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/product_card.css";
 
-function Product(props) {
+function ProductCard(props) {
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -47,4 +47,4 @@ function Product(props) {
     )
 }
 
-export default Product
+export default ProductCard

@@ -4,7 +4,6 @@ const multer = require('multer');
 const fs = require("fs");
 const path = require("path");
 
-
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "public/imagens")
@@ -12,13 +11,12 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
         cb(null, Date.now() + file.originalname)
     }
-
 })
 
 const upload = multer({ storage });
 
 router.post('/', upload.single('file'), async (req, res) => {
-    const { nome, codigo, quantidade_disponivel, descricao, valor } = req.body;
+    const { nome, codigo, quantidade_disponivel, categoria, descricao, valor } = req.body;
     const imagem = req.file.path
 
     try {
@@ -32,6 +30,7 @@ router.post('/', upload.single('file'), async (req, res) => {
             nome,
             codigo,
             quantidade_disponivel,
+            categoria,
             descricao,
             imagem,
             valor,
@@ -150,7 +149,7 @@ router.delete("/:codigo", async (req, res) => {
     if (!existingProduct) {
         return res.status(422).json({ message: "Produto não encontrado" });
     }
-    console.log("AAAAAAA")
+
     try {
         const imagemPath = existingProduct.imagem;
         // Apaga a imagem da pasta

@@ -46,7 +46,6 @@ function Complete_product(props) {
     navigate("/carrinho");
   };
 
-
   return (
     <div id="complete-card-product">
       <img src={props.imagem} alt={`imagem do produto ${props.nome}`} id="product-image-complete" />

@@ -22,7 +22,8 @@ function Product() {
   }, []);
 
   const tipoUsuarioLogado = () => {
-    return cookies.credentials.tipo
+    if (cookies.credentials)
+      return cookies.credentials.tipo
   }
 
   const produtoEncontrado = produtos.find(
@@ -39,6 +40,7 @@ function Product() {
           tipoUsuarioLogado() === 'adm' ? (
             <Edit_product
               id={idProduto}
+              codigo = {idProduto}
               nome={produtoEncontrado.nome}
               valor={produtoEncontrado.valor}
               quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
@@ -48,6 +50,7 @@ function Product() {
           ) : (
             <Complete_product
               id={idProduto}
+              codigo = {idProduto}
               nome={produtoEncontrado.nome}
               valor={produtoEncontrado.valor}
               quantidade_disponivel={produtoEncontrado.quantidade_disponivel}

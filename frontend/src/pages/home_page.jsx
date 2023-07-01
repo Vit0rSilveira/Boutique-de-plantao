@@ -23,7 +23,7 @@ function Home() {
             <main>
                 <Images_carousel />
                 
-                <h2>Mais vendidos</h2>
+                <h1>Mais vendidos</h1>
                 <div className='container-home'>
                     {produtos.length > 0 && (
                         <>
@@ -44,7 +44,7 @@ function Home() {
                 </div>
 
                 
-                <h2>Promoções</h2>
+                <h1>Promoções</h1>
                 <div className='container-home'>
                     {produtos.length > 0 && (
                         <>

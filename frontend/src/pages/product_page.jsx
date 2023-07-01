@@ -92,6 +92,7 @@ function Product() {
             <div id='recomendacoes'>
               {shuffle(produtos, produto.id).slice(0, 3).map((produtoo) => (
                 <ProductCard
+                  key={produtoo.id}
                   codigo={produtoo.codigo}
                   nome={produtoo.nome}
                   quantidade_disponivel={produtoo.quantidade_disponivel}

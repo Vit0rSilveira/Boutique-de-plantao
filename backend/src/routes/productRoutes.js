@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Product = require('../models/Product');
 const multer = require('multer');
+const fs = require('fs');
 
 
 const storage = multer.diskStorage({
@@ -13,7 +14,7 @@ const storage = multer.diskStorage({
 
 })
 
-const upload = multer({storage});
+const upload = multer({ storage });
 
 router.post('/', upload.single('file'), async (req, res) => {
     const { nome, codigo, quantidade_disponivel, descricao, valor } = req.body;
@@ -94,6 +95,36 @@ router.patch("/:codigo", async (req, res) => {
         return res.status(200).json({ message: "Produto atualizado com sucesso" });
     } catch (error) {
         return res.status(500).json({ error: error.message });
+    }
+});
+
+router.delete("/:codigo", async (req, res) => {
+    const findCod = req.params.codigo;
+
+    const existingProduct = await Product.findOne({ codigo: findCod });
+
+    if (!existingProduct) {
+        return res.status(422).json({ message: "Produto não encontrado" });
+    }
+
+    try {
+        const imagemPath = existingProduct.imagem;
+        console.log(imagemPath)
+
+        // Apaga a imagem da pasta
+        fs.unlink(imagemPath, (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: "Erro ao apagar a imagem" });
+            }
+            console.log('Imagem removida com sucesso');
+        });
+
+        await Product.deleteOne({ codigo: findCod });
+
+        return res.status(200).json({ message: "Produto removido com sucesso" });
+    } catch (error) {
+        return res.status(500).json({ error: error });
     }
 });
 

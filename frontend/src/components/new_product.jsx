@@ -6,8 +6,8 @@ function New_product() {
             <form action="">
                 <label htmlFor="nome-produto">Nome do Produto</label>
                 <input type="text" id="nome-produto"/>
-                <label htmlFor="id">Id produto</label>
-                <input type="text" id="id"/>
+                <label htmlFor="cod">Código do produto</label>
+                <input type="text" id="cod"/>
                 <label htmlFor="categoria">Categoria</label>
                 <input type="text" id="categoria"/>
                 <label htmlFor="descricao">Descrição</label>

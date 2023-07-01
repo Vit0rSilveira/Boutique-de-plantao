@@ -61,16 +61,7 @@ function User() {
                     <h3>Cadastrar novo Produto</h3>
                     <New_product />
                 </div>)
-        } else if (activeButton === "editar-produto") {
-            return (
-                <div className="div-return-render">
-                    <h3>Editar Produto</h3>
-                    {produtos.map((produto) => (
-                        <Edit_product dados={produto} key={produto.id} />
-                    ))}
-                </div>)
-        }
-        else if (user) {
+        }else if (user) {
             // Card de boas-vindas
             return (
                 <div className="welcome-card">
@@ -101,7 +92,6 @@ function User() {
                         </div>
                         <div>
                             <input type="button" value="Cadastrar Produto" className={"button-adm-page " + (activeButton === "novo-produto" ? "active" : "")} onClick={() => handleButtonClick("novo-produto")} />
-                            <input type="button" value="Editar Produto" className={"button-adm-page " + (activeButton === "editar-produto" ? "active" : "")} onClick={() => handleButtonClick("editar-produto")} />
                         </div>
                     </div>
 

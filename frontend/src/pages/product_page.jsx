@@ -6,10 +6,13 @@ import Footer from "../components/footer";
 import Complete_product from "../components/complete_product_card";
 import Review from "../components/review";
 import "../styles/pages/product.css";
+import { useCookies } from "react-cookie";
+import Edit_product from "../components/product_edit";
 
 function Product() {
   const { idProduto } = useParams();
-  const [produtos, setProdutos] = useState([]); 
+  const [cookies] = useCookies(['credentials'])
+  const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
     fetch("../jsons/flores.json")
@@ -17,6 +20,10 @@ function Product() {
       .then((data) => setProdutos(Object.values(data)))
       .catch((error) => console.log(error));
   }, []);
+
+  const tipoUsuarioLogado = () => {
+    return cookies.credentials.tipo
+  }
 
   const produtoEncontrado = produtos.find(
     (produto) => produto.codigo === idProduto
@@ -29,14 +36,25 @@ function Product() {
 
       <main>
         {produtoEncontrado ? (
-          <Complete_product
-            id={idProduto}
-            nome={produtoEncontrado.nome}
-            valor={produtoEncontrado.valor}
-            quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
-            descricao={produtoEncontrado.descricao}
-            imagem={produtoEncontrado.imagem}
-          />
+          tipoUsuarioLogado() === 'adm' ? (
+            <Edit_product
+              id={idProduto}
+              nome={produtoEncontrado.nome}
+              valor={produtoEncontrado.valor}
+              quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
+              descricao={produtoEncontrado.descricao}
+              imagem={produtoEncontrado.imagem}
+            />
+          ) : (
+            <Complete_product
+              id={idProduto}
+              nome={produtoEncontrado.nome}
+              valor={produtoEncontrado.valor}
+              quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
+              descricao={produtoEncontrado.descricao}
+              imagem={produtoEncontrado.imagem}
+            />
+          )
         ) : (
           <p>Carregando...</p>
         )}
@@ -54,6 +72,7 @@ function Product() {
           </div>
         )}
       </main>
+
       <Footer />
     </>
   );

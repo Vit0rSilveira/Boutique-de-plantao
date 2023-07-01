@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { AiOutlinePlusCircle } from "react-icons/ai";
-import { AiOutlineMinusCircle } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { AiFillSave, AiFillDelete } from "react-icons/ai";
 import "../styles/components/complete_edit_product.css";
 
 function Edit_product(props) {
-    const navigate = useNavigate();
     const [valor, setValor] = useState(props.valor);
-    const [quantidade, setQuantidade] = useState(1);
-    const [disponibilidade, setDisponibilidade] = useState(
-        props.quantidade_disponivel
-    );
+    const [disponibilidade, setDisponibilidade] = useState(props.quantidade_disponivel);
     const [imagem, setImagem] = useState(null);
-
-    useEffect(() => {
-        setValor(props.valor * quantidade);
-    }, [quantidade]);
 
     function handleSaveChanges() {
         const formData = new FormData();
         formData.append("nome", document.querySelector("#complete-edit-product input[type='text']").value);
-        formData.append("disponibilidade", disponibilidade);
+        formData.append("quantidade_disponivel", disponibilidade);
         formData.append("descricao", document.querySelector("#complete-edit-product textarea").value);
         formData.append("imagem", imagem);
+        formData.append("valor", valor); // Include 'valor' in the form data
 
         const codigo = props.codigo;
 
@@ -32,13 +22,27 @@ function Edit_product(props) {
             body: formData,
         })
             .then((response) => {
-                if (response.ok) {
-                    // Lógica de sucesso
-                    console.log("Alterações salvas com sucesso");
-                } else {
-                    // Lógica de erro
-                    console.error("Erro ao salvar as alterações");
-                }
+                return response.json(); // Converte o corpo da resposta em um objeto JavaScript
+            })
+            .then((data) => {
+                alert(data.message); // Acessa a propriedade 'message' do objeto retornado
+            })
+            .catch((error) => {
+                // Lógica de erro
+                console.error("Erro ao salvar as alterações", error);
+            });
+    }
+
+    function handleDellItem() {
+        const codigo = props.codigo;
+        fetch(`http://localhost:3000/produto/${codigo}`, {
+            method: "DELETE",
+        })
+            .then((response) => {
+                return response.json(); // Converte o corpo da resposta em um objeto JavaScript
+            })
+            .then((data) => {
+                alert(data.message); // Acessa a propriedade 'message' do objeto retornado
             })
             .catch((error) => {
                 // Lógica de erro
@@ -69,6 +73,15 @@ function Edit_product(props) {
                         onChange={(e) => setDisponibilidade(e.target.value)}
                     />
                 </p>
+                <p>
+                    Valor:{" "}
+                    <input
+                        type="number"
+                        min="0"
+                        value={valor}
+                        onChange={(e) => setValor(e.target.value)}
+                    />
+                </p>
                 <textarea defaultValue={props.descricao}></textarea>
                 <div id="inputs">
                     <input
@@ -76,11 +89,19 @@ function Edit_product(props) {
                         accept="image/*"
                         onChange={handleImageChange}
                     />
-                    <button id="add-cart-product" onClick={handleSaveChanges}>
-                        <AiOutlineShoppingCart /> Salvar alterações
-                    </button>
+                    <div id="buttons-edit-product">
+                        <button id="edit-cart-product" onClick={handleSaveChanges}>
+                            <AiFillSave /> Salvar alterações
+                        </button>
+                        <br />
+                        <button id="dell-cart-product" onClick={handleDellItem}>
+                            <AiFillDelete /> Deletar Item
+                        </button>
+                    </div>
                 </div>
+                    
             </div>
+
         </div>
     );
 }

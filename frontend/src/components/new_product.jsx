@@ -49,9 +49,9 @@ function NewProduct() {
         requestBody.append("codigo", codigo);
         requestBody.append("categoria", categoria);
         requestBody.append("descricao", descricao);
-        requestBody.append("quantidade", quantidade);
+        requestBody.append("quantidade_disponivel", quantidade);
         requestBody.append("valor", valor);
-        requestBody.append("imagem", imagem);
+        requestBody.append("file", imagem);
 
         fetch("http://localhost:3000/produto", {
             method: "POST",
@@ -72,24 +72,25 @@ function NewProduct() {
                         throw new Error("Request failed with status: " + response.status);
                     }
                 }
-                console.log(response);
                 return response.json();
             })
             .then((data) => {
-                console.log("Produto inserido com sucesso.");
+                alert("Produto inserido com sucesso.");
             })
             .catch((error) => {
+                alert("Erro ao adicionar o produto")
                 console.error("Error:", error.message);
             });
+
     }
 
     return (
         <>
             <form onSubmit={handleFormSubmit}>
-                <label htmlFor="nome-produto">Nome do Produto</label>
-                <input type="text" id="nome-produto"/>
-                <label htmlFor="cod">Código do produto</label>
-                <input type="text" id="cod"/>
+                <label htmlFor="nome">Nome do Produto</label>
+                <input type="text" id="nome" name="nome" onChange={handleInputChange} />
+                <label htmlFor="codigo">Código do produto</label>
+                <input type="text" id="codigo" name="codigo" onChange={handleInputChange} />
                 <label htmlFor="categoria">Categoria</label>
                 <input type="text" id="categoria" name="categoria" onChange={handleInputChange} />
                 <label htmlFor="descricao">Descrição</label>

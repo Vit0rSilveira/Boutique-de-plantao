@@ -41,6 +41,9 @@ function Payment() {
     function handleInsertinDB(codProduto, body) {
         fetch(`http://localhost:3000/produto/${codProduto}`, {
             method: "PATCH",
+            headers: {
+                "Content-Type": "application/json" // Define o cabeçalho Content-Type
+            },
             body: JSON.stringify(body),
         })
             .then((response) => response.json())
@@ -52,20 +55,19 @@ function Payment() {
         fetch(`http://localhost:3000/produto/codigo/${codProduto}`)
             .then((response) => response.json())
             .then((data) => {
-                setBody(data); // Atualiza o estado com os dados retornados
+                setBody(data);
                 body.quantidade_disponivel = data.quantidade_disponivel - quantidadeVendida
                 handleInsertinDB(codProduto, body)
             })
             .catch((error) => console.log(error));
     }
 
-
     function handlePurchase() {
         const localStorageItems = itens;
 
         localStorageItems.forEach(element => {
             console.log(element)
-            handleUpdateAmount(element.codigo)
+            handleUpdateAmount(element.codigo, element.quantidade_carrinho)
         });
         localStorage.clear()
 

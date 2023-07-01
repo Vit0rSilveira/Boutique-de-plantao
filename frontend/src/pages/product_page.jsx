@@ -26,7 +26,6 @@ function Product() {
       return cookies.credentials.tipo
   }
 
-  console.log(`produto:`, produto.imagem); // Exibir o vetor de produtos no console
   return (
     <>
       <Header />

@@ -82,16 +82,15 @@ router.get("/codigo/:codigo", async (req, res) => {
             return res.status(404).json({ message: "Produto não encontrado" });
         }
 
-        console.log(product)
         return res.status(200).json(product);
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
 });
 
-
 router.patch("/:codigo", upload.any(), async (req, res) => {
     const findCod = req.params.codigo;
+
     const { nome, codigo, quantidade_disponivel, valor, descricao } = req.body;
     let imagem = null;
 

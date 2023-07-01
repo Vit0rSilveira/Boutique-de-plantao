@@ -87,9 +87,9 @@ function NewProduct() {
         <>
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="nome-produto">Nome do Produto</label>
-                <input type="text" id="nome-produto" name="nome" onChange={handleInputChange} />
-                <label htmlFor="id">Codigo produto</label>
-                <input type="text" id="id" name="codigo" onChange={handleInputChange} />
+                <input type="text" id="nome-produto"/>
+                <label htmlFor="cod">Código do produto</label>
+                <input type="text" id="cod"/>
                 <label htmlFor="categoria">Categoria</label>
                 <input type="text" id="categoria" name="categoria" onChange={handleInputChange} />
                 <label htmlFor="descricao">Descrição</label>

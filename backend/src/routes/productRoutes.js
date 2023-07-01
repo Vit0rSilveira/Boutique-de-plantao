@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const Product = require('../models/Product');
 const multer = require('multer');
+const fs = require("fs");
+const path = require("path");
 
 
 const storage = multer.diskStorage({
@@ -13,9 +15,10 @@ const storage = multer.diskStorage({
 
 })
 
-const upload = multer({storage});
+const upload = multer({ storage });
 
 router.post('/', upload.single('file'), async (req, res) => {
+    console.log(`req.body: ${req.body.nome}`)
     const { nome, codigo, quantidade_disponivel, descricao, valor } = req.body;
     const imagem = req.file.path
 
@@ -71,9 +74,15 @@ router.get("/:texto", async (req, res) => {
     }
 });
 
-router.patch("/:codigo", async (req, res) => {
+router.patch("/:codigo", upload.any(), async (req, res) => {
     const findCod = req.params.codigo;
-    const { nome, codigo, quantidade_disponivel, valor, descricao, imagem } = req.body;
+    const { nome, codigo, quantidade_disponivel, valor, descricao } = req.body;
+    let imagem = null;
+
+    if (req.files && req.files.length > 0) {
+        // Se houver arquivos enviados, atribua o caminho do primeiro arquivo
+        imagem = req.files[0].path;
+    }
 
     try {
         const existingProduct = await Product.findOne({ codigo: findCod });
@@ -87,13 +96,64 @@ router.patch("/:codigo", async (req, res) => {
         existingProduct.quantidade_disponivel = quantidade_disponivel || existingProduct.quantidade_disponivel;
         existingProduct.valor = valor || existingProduct.valor;
         existingProduct.descricao = descricao || existingProduct.descricao;
-        existingProduct.imagem = imagem || existingProduct.imagem;
+
+        // Remover a imagem anterior se houver uma nova imagem
+        if (imagem) {
+            const imagePath = existingProduct.imagem;
+            fs.unlink(imagePath, (err) => {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ error: "Erro ao apagar a imagem" });
+                }
+                console.log('Imagem removida com sucesso');
+            });
+            existingProduct.imagem = imagem;
+        }
 
         await existingProduct.save();
 
         return res.status(200).json({ message: "Produto atualizado com sucesso" });
     } catch (error) {
+        // Se houver um erro, apagar a nova imagem que foi enviada
+        if (imagem) {
+            fs.unlink(imagem, (err) => {
+                if (err) {
+                    console.error("Erro ao apagar a nova imagem:", err);
+                }
+            });
+        }
         return res.status(500).json({ error: error.message });
+    }
+});
+
+
+
+router.delete("/:codigo", async (req, res) => {
+    const findCod = req.params.codigo;
+
+    const existingProduct = await Product.findOne({ codigo: findCod });
+
+    if (!existingProduct) {
+        return res.status(422).json({ message: "Produto não encontrado" });
+    }
+
+    try {
+        const imagemPath = existingProduct.imagem;
+
+        // Apaga a imagem da pasta
+        fs.unlink(imagemPath, (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: "Erro ao apagar a imagem" });
+            }
+            console.log('Imagem removida com sucesso');
+        });
+
+        await Product.deleteOne({ codigo: findCod });
+
+        return res.status(200).json({ message: "Produto removido com sucesso" });
+    } catch (error) {
+        return res.status(500).json({ error: error });
     }
 });
 

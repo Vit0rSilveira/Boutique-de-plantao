@@ -1,62 +1,86 @@
-import React, { useState } from "react";
-import "../styles/components/product_edit.css"
+import React, { useState, useEffect } from "react";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { AiOutlineMinusCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import "../styles/components/complete_edit_product.css";
 
 function Edit_product(props) {
-    const [nomeProduto, setNomeProduto] = useState(props.dados.nome);
-    const [quantidade, setQuantidade] = useState(props.dados.quantidade);
-    const [valor, setValor] = useState(props.dados.valor);
+    const navigate = useNavigate();
+    const [valor, setValor] = useState(props.valor);
+    const [quantidade, setQuantidade] = useState(1);
+    const [disponibilidade, setDisponibilidade] = useState(
+        props.quantidade_disponivel
+    );
+    const [imagem, setImagem] = useState(null);
 
-    const handleNomeProdutoChange = (event) => {
-        setNomeProduto(event.target.value);
-    };
+    useEffect(() => {
+        setValor(props.valor * quantidade);
+    }, [quantidade]);
 
-    const handleQuantidadeChange = (event) => {
-        setQuantidade(event.target.value);
-    };
+    function handleSaveChanges() {
+        const formData = new FormData();
+        formData.append("nome", document.querySelector("#complete-edit-product input[type='text']").value);
+        formData.append("disponibilidade", disponibilidade);
+        formData.append("descricao", document.querySelector("#complete-edit-product textarea").value);
+        formData.append("imagem", imagem);
 
-    const handleValorChange = (event) => {
-        setValor(event.target.value);
-    };
+        const codigo = props.codigo;
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Aqui você pode fazer algo com os valores atualizados
-        console.log("Nome do Produto:", nomeProduto);
-        console.log("Quantidade:", quantidade);
-        console.log("Valor:", valor);
-    };
+        fetch(`http://localhost:3000/produto/${codigo}`, {
+            method: "PATCH",
+            body: formData,
+        })
+            .then((response) => {
+                if (response.ok) {
+                    // Lógica de sucesso
+                    console.log("Alterações salvas com sucesso");
+                } else {
+                    // Lógica de erro
+                    console.error("Erro ao salvar as alterações");
+                }
+            })
+            .catch((error) => {
+                // Lógica de erro
+                console.error("Erro ao salvar as alterações", error);
+            });
+    }
+
+    function handleImageChange(event) {
+        const file = event.target.files[0];
+        setImagem(file);
+    }
 
     return (
-        <div id="product-edit">
-            <img src={props.dados.imagem} alt="Imagem do Produto" id="image-product-edit"/>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="nome-produto">Nome do Produto</label>
-                <input
-                    type="text"
-                    id="nome-produto"
-                    value={nomeProduto}
-                    onChange={handleNomeProdutoChange}
-                />
-
-                <label htmlFor="quantidade">Quantidade</label>
-                <input
-                    type="number"
-                    min = "0"
-                    id="quantidade"
-                    value={quantidade}
-                    onChange={handleQuantidadeChange}
-                />
-
-                <label htmlFor="valor">Valor</label>
-                <input
-                    type="text"
-                    id="valor"
-                    value={valor}
-                    onChange={handleValorChange}
-                />
-
-                <input type="submit" value="Salvar" id="button-salve-product" />
-            </form>
+        <div id="complete-edit-product">
+            <img
+                src={props.imagem}
+                alt={`imagem do produto ${props.nome}`}
+                id="product-image-complete"
+            />
+            <div id="not-image">
+                <input type="text" defaultValue={props.nome} />
+                <p>
+                    Disponibilidade:{" "}
+                    <input
+                        type="number"
+                        min="0"
+                        value={disponibilidade}
+                        onChange={(e) => setDisponibilidade(e.target.value)}
+                    />
+                </p>
+                <textarea defaultValue={props.descricao}></textarea>
+                <div id="inputs">
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                    />
+                    <button id="add-cart-product" onClick={handleSaveChanges}>
+                        <AiOutlineShoppingCart /> Salvar alterações
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }

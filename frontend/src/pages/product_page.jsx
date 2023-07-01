@@ -10,25 +10,21 @@ import { useCookies } from "react-cookie";
 import Edit_product from "../components/product_edit";
 
 function Product() {
-  const { idProduto } = useParams();
+  const { codProduto } = useParams();
   const [cookies] = useCookies(['credentials'])
-  const [produtos, setProdutos] = useState([]);
+  const [produto, setProduto] = useState(null); // Definir o estado inicial como null
 
   useEffect(() => {
-    fetch("../jsons/flores.json")
+    fetch(`http://localhost:3000/produto/codigo/${codProduto}`)
       .then((response) => response.json())
-      .then((data) => setProdutos(Object.values(data)))
+      .then((data) => setProduto(data)) // Atualizar o estado com o objeto retornado
       .catch((error) => console.log(error));
-  }, []);
+  }, [codProduto]); // Adicionar codProduto como dependência do useEffect para buscar o produto correto
 
   const tipoUsuarioLogado = () => {
     if (cookies.credentials)
       return cookies.credentials.tipo
   }
-
-  const produtoEncontrado = produtos.find(
-    (produto) => produto.codigo === idProduto
-  );
 
   return (
     <>
@@ -36,43 +32,30 @@ function Product() {
       <Navbar />
 
       <main>
-        {produtoEncontrado ? (
+        {produto ? (
           tipoUsuarioLogado() === 'adm' ? (
             <Edit_product
-              id={idProduto}
-              codigo = {idProduto}
-              nome={produtoEncontrado.nome}
-              valor={produtoEncontrado.valor}
-              quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
-              descricao={produtoEncontrado.descricao}
-              imagem={produtoEncontrado.imagem}
+              id={codProduto}
+              codigo={codProduto}
+              nome={produto.nome}
+              valor={produto.valor}
+              quantidade_disponivel={produto.quantidade_disponivel}
+              descricao={produto.descricao}
+              imagem={`http://localhost:3000/${produto.imagem.replace("public/", "")}`}
             />
           ) : (
             <Complete_product
-              id={idProduto}
-              codigo = {idProduto}
-              nome={produtoEncontrado.nome}
-              valor={produtoEncontrado.valor}
-              quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
-              descricao={produtoEncontrado.descricao}
-              imagem={produtoEncontrado.imagem}
+              id={codProduto}
+              codigo={codProduto}
+              nome={produto.nome}
+              valor={produto.valor}
+              quantidade_disponivel={produto.quantidade_disponivel}
+              descricao={produto.descricao}
+              imagem={`http://localhost:3000/${produto.imagem.replace("public/", "")}`}
             />
           )
         ) : (
           <p>Carregando...</p>
-        )}
-
-        {produtoEncontrado && produtoEncontrado.avaliacao.length > 0 && (
-          <div id="avaliacao">
-            <h2>Avaliações</h2>
-            {produtoEncontrado.avaliacao.map((avaliacao) => (
-              <Review
-                key={avaliacao.codigo}
-                nota={avaliacao.nota}
-                comentario={avaliacao.comentario}
-              />
-            ))}
-          </div>
         )}
       </main>
 

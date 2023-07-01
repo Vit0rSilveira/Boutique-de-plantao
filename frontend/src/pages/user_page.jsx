@@ -39,23 +39,19 @@ function User() {
     const renderCardContent = () => {
         if (activeButton === "dados") {
             return <Personal_data user={user} />;
-        } else if (activeButton === "compras") {
-            return user.historicoCompras.map((compra) => (
-                <History dados={compra} key={compra.id} />
-            ));
         } else if (user) {
             // Card de boas-vindas
             return (
                 <div className="welcome-card">
                     <h2> {user.nome } Bem-vindo(a)!</h2>
-                    <p>Selecione uma opção no menu para visualizar seus dados ou histórico de compras.</p>
+                    <p>Aqui você pode ver seus dados cadastrais e altera - los.</p>
                 </div>
             );
         } else {
             return (
                 <div className="welcome-card">
                     <h2>Bem-vindo(a)!</h2>
-                    <p>Selecione uma opção no menu para visualizar seus dados ou histórico de compras.</p>
+                    <p>Aqui você pode ver seus dados cadastrais e altera - los.</p>
                 </div>
             );
         }
@@ -70,9 +66,6 @@ function User() {
                     <div id="buttons-user">
                         <button className={"button-personal-page " + (activeButton === "dados" ? "active" : "")} onClick={() => handleButtonClick("dados")}>
                             Meus dados
-                        </button>
-                        <button className={"button-personal-page " + (activeButton === "dados" ? "active" : "")} onClick={() => handleButtonClick("compras")}>
-                            Histórico de Compras
                         </button>
                     </div>
 

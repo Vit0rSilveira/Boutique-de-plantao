@@ -80,7 +80,7 @@ function Personal_data(props) {
       alert("As senhas não coincidem");
       return;
     }
-    
+
 
     const requestBody = formData;
 
@@ -111,7 +111,7 @@ function Personal_data(props) {
         return response.json().then((data) => {
           alert(data.message);
           navigate("/");
-        }); 
+        });
       })
       .then((data) => {
         console.log("Usuário inserido com sucesso.");

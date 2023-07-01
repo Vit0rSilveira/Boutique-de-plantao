@@ -1,12 +1,11 @@
 import React, { useState } from "react";
+import bcrypt from "bcryptjs";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import Footer from '../components/footer';
-import bcrypt from "bcryptjs";
-import "../styles/pages/login.css";
 import { useCookies } from "react-cookie";
-import "../styles/pages/login.css";
 import { useNavigate } from "react-router-dom";
+import "../styles/pages/login.css";
 
 function Login() {
     const navigate = useNavigate();

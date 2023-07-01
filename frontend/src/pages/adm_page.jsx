@@ -6,7 +6,6 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Personal_data from "../components/personal_data";
 import New_product from "../components/new_product";
-import Edit_product from "../components/product_edit";
 import "../styles/pages/adm.css"
 
 
@@ -48,12 +47,12 @@ function User() {
      */
     const renderCardContent = () => {
         if (activeButton === "dados") {
-            return <Personal_data user={user} update = {true} />;
+            return <Personal_data user={user} update={true} />;
         } else if (activeButton === "novo-adm") {
             return (
                 <div className="div-return-render">
                     <h3>Cadastrar novo administrador</h3>
-                    <Personal_data user={{ tipo: "adm" }} update = {false} />
+                    <Personal_data user={{ tipo: "adm" }} update={false} />
                 </div>)
         } else if (activeButton === "novo-produto") {
             return (
@@ -61,7 +60,7 @@ function User() {
                     <h3>Cadastrar novo Produto</h3>
                     <New_product />
                 </div>)
-        }else if (user) {
+        } else if (user) {
             // Card de boas-vindas
             return (
                 <div className="welcome-card">

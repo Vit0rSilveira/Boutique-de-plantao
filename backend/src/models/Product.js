@@ -5,14 +5,11 @@ const productSchema = new mongoose.Schema({
   codigo: Number,
   quantidade_disponivel: Number,
   descricao: String,
-  imagem: {
-    data: Buffer,
-    contentType: String
-  },
+  imagem: String,
   valor: Number,
 }, {
-  collection: 'products', // nome da coleção no MongoDB
-  typeKey: '$type' // chave para especificar o tipo dos campos
+  collection: 'products',
+  typeKey: '$type'
 });
 
 const Product = mongoose.model('Product', productSchema);

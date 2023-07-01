@@ -18,7 +18,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post('/', upload.single('file'), async (req, res) => {
-    console.log(`req.body: ${req.body.nome}`)
     const { nome, codigo, quantidade_disponivel, descricao, valor } = req.body;
     const imagem = req.file.path
 
@@ -97,9 +96,9 @@ router.patch("/:codigo", upload.any(), async (req, res) => {
         existingProduct.valor = valor || existingProduct.valor;
         existingProduct.descricao = descricao || existingProduct.descricao;
 
+        const imagePath = existingProduct.imagem;
         // Remover a imagem anterior se houver uma nova imagem
-        if (imagem) {
-            const imagePath = existingProduct.imagem;
+        if (imagem && imagePath) {
             fs.unlink(imagePath, (err) => {
                 if (err) {
                     console.error(err);
@@ -130,16 +129,14 @@ router.patch("/:codigo", upload.any(), async (req, res) => {
 
 router.delete("/:codigo", async (req, res) => {
     const findCod = req.params.codigo;
-
     const existingProduct = await Product.findOne({ codigo: findCod });
 
     if (!existingProduct) {
         return res.status(422).json({ message: "Produto não encontrado" });
     }
-
+    console.log("AAAAAAA")
     try {
         const imagemPath = existingProduct.imagem;
-
         // Apaga a imagem da pasta
         fs.unlink(imagemPath, (err) => {
             if (err) {

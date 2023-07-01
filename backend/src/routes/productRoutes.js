@@ -81,6 +81,8 @@ router.get("/codigo/:codigo", async (req, res) => {
         if (!product) {
             return res.status(404).json({ message: "Produto não encontrado" });
         }
+
+        console.log(product)
         return res.status(200).json(product);
     } catch (error) {
         return res.status(500).json({ error: error.message });

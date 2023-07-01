@@ -44,7 +44,6 @@ function ProductCard(props) {
             <button id="add-cart" onClick={handleAddToCart}><AiOutlineShoppingCart />Adicionar</button>
         </div>
 
-
     )
 }
 

@@ -18,6 +18,7 @@ const upload = multer({ storage });
 router.post('/', upload.single('file'), async (req, res) => {
     const { nome, codigo, quantidade_disponivel, categoria, descricao, valor } = req.body;
     const imagem = req.file.path
+    console.log(categoria)
 
     try {
         const buscaDB = await Product.findOne({ codigo: codigo });

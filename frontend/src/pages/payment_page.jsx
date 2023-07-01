@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import Header from '../components/header';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import Payment_card from '../components/payment_card';
 import "../styles/pages/payment_page.css"
 
 function Payment() {

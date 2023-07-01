@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Images_carousel from '../components/carousel';
 import Header from '../components/header';
 import Navbar from '../components/navbar';
-import Product from '../components/product_card';
+import ProductCard from '../components/product_card';
 import Footer from '../components/footer';
 import "../styles/pages/home.css";
 
@@ -28,7 +28,7 @@ function Home() {
                     {produtos.length > 0 && (
                         <>
                             {produtos.slice(0, 3).map((produto, index) => (
-                                <Product
+                                <ProductCard
                                     key={index}
                                     codigo={produto.codigo}
                                     nome={produto.nome}
@@ -48,7 +48,7 @@ function Home() {
                     {produtos.length > 0 && (
                         <>
                             {produtos.slice(-3).map((produto, index) => (
-                                <Product
+                                <ProductCard
                                     key={index}
                                     codigo={produto.codigo}
                                     nome={produto.nome}

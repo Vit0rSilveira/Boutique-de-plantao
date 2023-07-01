@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/header"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
-import Product from "../components/product_card";
+import ProductCard from "../components/product_card";
 import { useParams } from "react-router-dom";
 import "../styles/pages/product_search.css";
 
@@ -24,7 +24,7 @@ function Search_product() {
             return (<h1> Nenhum Produto Encontrado</h1>)
         else
             return produtos.map((item) => {
-                return (<Product
+                return (<ProductCard
                 key = {item.codigo}
                 codigo = {item.codigo}
                 nome = {item.nome}

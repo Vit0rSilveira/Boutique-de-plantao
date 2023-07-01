@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import Product from '../components/product_card';
 import Complete_product from "../components/complete_product_card";
 import Review from "../components/review";
 import "../styles/pages/product.css";
 import { useCookies } from "react-cookie";
 import Edit_product from "../components/product_edit";
 
-function Product() {
+function ProductPage() {
   const { idProduto } = useParams();
   const [cookies] = useCookies(['credentials'])
   const [produtos, setProdutos] = useState([]);
@@ -30,6 +31,26 @@ function Product() {
     (produto) => produto.codigo === idProduto
   );
 
+  function shuffle(array, remove) {
+    const filteredArray = array.filter((produto) => produto.codigo !== remove);
+    const shuffledArray = [...filteredArray];
+
+    let currentIndex = shuffledArray.length;
+    let temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = shuffledArray[currentIndex];
+      shuffledArray[currentIndex] = shuffledArray[randomIndex];
+      shuffledArray[randomIndex] = temporaryValue;
+    }
+
+    return shuffledArray;
+  }
+
+
   return (
     <>
       <Header />
@@ -40,7 +61,7 @@ function Product() {
           tipoUsuarioLogado() === 'adm' ? (
             <Edit_product
               id={idProduto}
-              codigo = {idProduto}
+              codigo={idProduto}
               nome={produtoEncontrado.nome}
               valor={produtoEncontrado.valor}
               quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
@@ -50,7 +71,7 @@ function Product() {
           ) : (
             <Complete_product
               id={idProduto}
-              codigo = {idProduto}
+              codigo={idProduto}
               nome={produtoEncontrado.nome}
               valor={produtoEncontrado.valor}
               quantidade_disponivel={produtoEncontrado.quantidade_disponivel}
@@ -62,16 +83,21 @@ function Product() {
           <p>Carregando...</p>
         )}
 
-        {produtoEncontrado && produtoEncontrado.avaliacao.length > 0 && (
+        {produtos.length > 3 && (
           <div id="avaliacao">
-            <h2>Avaliações</h2>
-            {produtoEncontrado.avaliacao.map((avaliacao) => (
-              <Review
-                key={avaliacao.codigo}
-                nota={avaliacao.nota}
-                comentario={avaliacao.comentario}
-              />
-            ))}
+            <h2>Você também vai gostar de</h2>
+            <div id='recomendacoes'>
+              {shuffle(produtos, idProduto).slice(0, 3).map((produtoo) => (
+                <Product
+                  codigo={produtoo.codigo}
+                  nome={produtoo.nome}
+                  quantidade_disponivel={produtoo.quantidade_disponivel}
+                  valor={produtoo.valor}
+                  descricao={produtoo.descricao}
+                  imagem={produtoo.imagem}
+                />
+              ))}
+            </div>
           </div>
         )}
       </main>
@@ -81,4 +107,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default ProductPage;

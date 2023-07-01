@@ -7,3 +7,14 @@
     padding: 10vh 2vh 10vh 2vh;
     background-color: white;
 }
+
+#recomendacoes {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 600px) {
+    #recomendacoes {
+        flex-direction: column;
+    }
+}

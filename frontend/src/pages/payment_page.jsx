@@ -5,24 +5,19 @@ import Header from '../components/header';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import "../styles/pages/payment_page.css"
+import Payment_card from '../components/payment_card';
 
 function Payment() {
-    const [users, setUsers] = useState([]);
-    const [cookies] = useCookies(["credentials"]);
     const navigate = useNavigate()
-
-    useEffect(() => {
-        if (!cookies.credentials)
-            navigate("/login")
-
-        fetch("../jsons/clientes.json")
-            .then((response) => response.json())
-            .then((data) => setUsers(Object.values(data)))
-            .catch((error) => console.log(error));
-    }, [])
     
-    function handlePayment() {
-        navigate("/sumario");
+    const handlePaymentMethod = (paymentMethod) => {
+        if (paymentMethod == 'Cartão'){
+            navigate("/cartao")
+        }
+        else {
+            localStorage.setItem("paymentMethod", paymentMethod);
+            navigate("/sumario");
+        }
     }
     
     return (
@@ -32,10 +27,9 @@ function Payment() {
             <main>
                 <div id='page-payment'>
                     <h1>Escolha a forma de pagamento</h1>
-                    <input type="button" value="Visa **** XXXX" className="visa-payment" onClick={handlePayment}/>
-                    <input type="button" value="Pix" className="pix-payment" />
-                    <input type="button" value="Boleto" className="boleto-payment" />
-                    <input type="button" value="Novo Cartão" className="new-card-payment" />
+                    <input type="button"value="Cartão" className="new-card-payment" onClick={() => handlePaymentMethod('Cartão')}/>
+                    <input type="button" value="Pix" className="pix-payment" onClick={() => handlePaymentMethod('Pix')}/>
+                    <input type="button" value="Boleto" className="boleto-payment" onClick={() => handlePaymentMethod('Boleto bancário')}/>
                 </div>
             </main>
             <Footer />

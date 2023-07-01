@@ -8,46 +8,43 @@ import Item from '../components/cart_item';
 import "../styles/pages/summary.css"
 
 function Payment() {
-    const [itens, setItens] = useState([]);
-    const [users, setUsers] = useState([]);
+    const [itens, setItens] = useState(() => {
+        const storedItems = localStorage.getItem("cartItems");
+        return storedItems ? JSON.parse(storedItems) : [];
+    });
+    const [user, setUser] = useState([]);
     const [subtotal, setSubtotal] = useState(0);
     const [cookies] = useCookies(["credentials"]);
     const navigate = useNavigate();
     
-
     useEffect(() => {
-        if (!cookies.credentials)
-            navigate("/login")
-
-        fetch("../jsons/clientes.json")
-            .then((response) => response.json())
-            .then((data) => setUsers(Object.values(data)))
-            .catch((error) => console.log(error));
-
-        fetch('../jsons/carrinho.json')
-            .then(response => response.json())
-            .then(data => {
-                const updatedItens = Object.values(data).map(item => ({ ...item, subtotal: item.valor * item.quantidade_carrinho     }));
-                setItens(updatedItens); 
-            })
-            .catch(error => console.log(error));
-    }, [])
+        localStorage.setItem("cartItems", JSON.stringify(itens));
+    }, [itens]);
 
     useEffect(() => {
         const newSubtotal = itens.reduce((total, item) => total + (item.subtotal || 0), 0);
         setSubtotal(newSubtotal);
     }, [itens]);
 
-    const userLogin = cookies.credentials && cookies.credentials.login;
-    const usuarioLogado = users.find((user) => user.login === userLogin);
+    useEffect(() => {
+        if (!cookies.credentials)
+            navigate("/login")
 
-    if (usuarioLogado == undefined) return <>Carregando...</>
-
-    const frete = Math.floor((usuarioLogado.cep).replace(/-/g, "") / 1000000);
+        fetch(`http://localhost:3000/usuario/${cookies.credentials.email}`)
+            .then((response) => response.json())
+            .then((data) => setUser(data))
+            .catch((error) => console.log(error));
+    
+    }, [])
 
     function handlePurchase() {
+        localStorage.clear()
         navigate("/obrigado");
     }
+
+    if (Object.keys(user).length === 0) return <>Carregando...</>;
+
+    const frete = Math.floor((user.cep).replace(/-/g, "") / 1000000);
 
     return (
         <>
@@ -58,37 +55,19 @@ function Payment() {
                     <h1>Resumo da Compra</h1>
 
                     <div className='secao'>
-                        <h2>Produtos</h2>
-                        {itens.length > 0 && (
-                            <>
-                                {itens.map((item, index) => (
-                                    <Item
-                                        key={item.id}
-                                        nome={item.nome}
-                                        quantidade_disponivel={item.quantidade_disponivel}
-                                        valor={item.valor}
-                                        imagem={item.imagem}
-                                        quantidade_carrinho={item.quantidade_carrinho}
-                                    />
-                                ))}
-                            </>
-                        )}
-                    </div>
-
-                    <div className='secao'>
                         <h2>Endereço</h2>
                         <div id="personal-data">
-                            <h3> {usuarioLogado.endereco}</h3>
-                            <p> {usuarioLogado.cep} - {usuarioLogado.bairro}</p>
-                            <p>{usuarioLogado.cidade} - {usuarioLogado.estado}</p>
-                            <p>{usuarioLogado.nome} - {usuarioLogado.telefone}</p>
+                            <h3> {user.endereco} {user.complemento}</h3>
+                            <h4> {user.cep} - {user.bairro}</h4>
+                            <h4>{user.cidade} - {user.estado}</h4>
+                            <h4>{user.nome} - {user.telefone}</h4>
                         </div>
                     </div>
                     
                     <div className='secao'>
                         <h2>Forma de Pagamento</h2>
                         <div id="payment-method">
-                            Visa **** XXXX
+                            <h4>{localStorage.getItem("paymentMethod")}</h4>
                         </div>
                     </div>
 

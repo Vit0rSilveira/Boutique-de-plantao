@@ -12,6 +12,7 @@ import Payment from '../pages/payment_page';
 import Search_product from '../pages/product_search';
 import Summary from '../pages/purchase_summary';
 import Thank_you from '../pages/thank_you_page';
+import Register_card from '../pages/register_card';
 
 function Rotas() {
   return (
@@ -28,6 +29,7 @@ function Rotas() {
         <Route path="/pesquisar/:produto" element={<Search_product />} />
         <Route path="/sumario" element={<Summary />} />
         <Route path='/obrigado' element={<Thank_you />} />
+        <Route path='/cartao' element={<Register_card />} />
 
     </Routes>
   );

@@ -16,7 +16,8 @@ function Payment() {
     const [subtotal, setSubtotal] = useState(0);
     const [cookies] = useCookies(["credentials"]);
     const navigate = useNavigate();
-    
+    const [body, setBody] = useState({})
+
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(itens));
     }, [itens]);
@@ -34,11 +35,40 @@ function Payment() {
             .then((response) => response.json())
             .then((data) => setUser(data))
             .catch((error) => console.log(error));
-    
+
     }, [])
 
+    function handleInsertinDB(codProduto, body) {
+        fetch(`http://localhost:3000/produto/${codProduto}`, {
+            method: "PATCH",
+            body: JSON.stringify(body),
+        })
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));;
+    }
+
+    function handleUpdateAmount(codProduto, quantidadeVendida) {
+        fetch(`http://localhost:3000/produto/codigo/${codProduto}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setBody(data); // Atualiza o estado com os dados retornados
+                body.quantidade_disponivel = data.quantidade_disponivel - quantidadeVendida
+                handleInsertinDB(codProduto, body)
+            })
+            .catch((error) => console.log(error));
+    }
+
+
     function handlePurchase() {
+        const localStorageItems = itens;
+
+        localStorageItems.forEach(element => {
+            console.log(element)
+            handleUpdateAmount(element.codigo)
+        });
         localStorage.clear()
+
         navigate("/obrigado");
     }
 
@@ -63,7 +93,7 @@ function Payment() {
                             <h4>{user.nome} - {user.telefone}</h4>
                         </div>
                     </div>
-                    
+
                     <div className='secao'>
                         <h2>Forma de Pagamento</h2>
                         <div id="payment-method">
@@ -74,26 +104,26 @@ function Payment() {
                     <div className='secao' id='confirmation'>
                         <h2>Confirme sua Compra</h2>
                         <div id="verify-purchase">
-                        <div className='cost'>
-                                    <div>SUBTOTAL</div>
-                                    <div>R$ {subtotal.toFixed(2)}</div>
-                                </div>
-                                <div className='cost'>
-                                    <div>FRETE</div>
-                                    <div>R$ {frete.toFixed(2)}</div>
-                                </div>
-                                <div className='cost'>
-                                    <div>TOTAL</div>
-                                    <div>R$ {(subtotal + frete).toFixed(2)}</div>
-                                </div>
+                            <div className='cost'>
+                                <div>SUBTOTAL</div>
+                                <div>R$ {subtotal.toFixed(2)}</div>
+                            </div>
+                            <div className='cost'>
+                                <div>FRETE</div>
+                                <div>R$ {frete.toFixed(2)}</div>
+                            </div>
+                            <div className='cost'>
+                                <div>TOTAL</div>
+                                <div>R$ {(subtotal + frete).toFixed(2)}</div>
+                            </div>
                         </div>
                     </div>
-                                
+
                     <input type="submit" id="confirm-purchase" value="Confirmar" onClick={handlePurchase} />
 
 
                 </div>
-                
+
             </main>
             <Footer />
 

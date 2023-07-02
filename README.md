@@ -299,7 +299,7 @@ npm run dev
 ```
 
 ### Backend
-1. Acesse a pasta do frontend no seu terminal:
+1. Acesse a pasta do backend no seu terminal:
 
 ```bash
 cd backend
@@ -345,14 +345,20 @@ Durante o desenvolvimento do frontend, foram encontradas algumas dificuldades, q
 
 Essas dificuldades foram superadas com o tempo, aprendizado e a busca por soluções adequadas para cada desafio encontrado.
 
+### Dificuldades no backend
+Durante o desenvolvimento do backend, foram encontradas algumas dificuldades, que são listadas abaixo:
+
+- Uso do postman para testar a aplicação.
+- Adicionar imagens ao banco de dados.
+
 ## Comentários
 ### Acesso de adm
 ```bash
-login: andre@andre.com
-Senha: 123
+login: adm@adm.com
+Senha: 12345aaa
 ```
 ### Acesso de cliente
 ```bash
-login: vitor@vitor.com
-Senha: 123
+login: cliente@cliente.com
+Senha: 12345aaa
 ```

@@ -81,6 +81,32 @@ A estrutura de pastas na pasta `src` é a seguinte:
       - PaginaB.css
       - PaginaC.css
       - ...
+- imagens
+   - header
+-index.html
+-package-lock.json
+-package.json
+```
+### Backend
+
+```
+- public
+  - imagens
+- uploads
+- src
+  - models
+    - ModelA.js
+    - ModelB.js
+    - ModelC.js
+    - ...
+  - routes
+    - RouteA.js
+    - RouteB.js
+    - RouteC.js
+    - ...
+-index.js
+-package-lock.json
+-package.json
 ```
 
 A pasta `components` contém os componentes reutilizáveis da aplicação. Cada arquivo nessa pasta representa um componente específico e o nome do arquivo reflete o nome do componente correspondente.

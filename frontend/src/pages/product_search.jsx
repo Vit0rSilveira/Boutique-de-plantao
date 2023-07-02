@@ -13,11 +13,9 @@ function Search_product() {
     useEffect(() => {
         fetch(`http://localhost:3000/produto/${produto}`)
           .then((response) => response.json())
-          .then((data) => setProdutos(data)) // Atualizar o estado com o objeto retornado
+          .then((data) => setProdutos(data.produto)) // Atualizar o estado com o objeto retornado
           .catch((error) => console.log(error));
       }, [produto]);
-
-    console.log(produtos)
 
     const handler_produtos = () => {
         if (produtos.length === 0)

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import Puglin from "./puglin";
 
 function NewProduct() {
     const [formData, setFormData] = useState({
@@ -44,7 +44,7 @@ function NewProduct() {
         if (!nome || !codigo || !categoria || !descricao || !quantidade || !valor || !imagem) {
             toast.error("Por favor, preencha todos os campos obrigatórios.");
             return
-        }  
+        }
 
         const requestBody = new FormData();
         requestBody.append("nome", nome);
@@ -54,7 +54,7 @@ function NewProduct() {
         requestBody.append("quantidade_disponivel", quantidade);
         requestBody.append("valor", valor);
         requestBody.append("file", imagem);
-        
+
 
         fetch("http://localhost:3000/produto", {
             method: "POST",
@@ -78,7 +78,7 @@ function NewProduct() {
                 return response.json();
             })
             .then((data) => {
-                toast("Produto inserido com sucesso.");
+                toast.success("Produto inserido com sucesso.");
             })
             .catch((error) => {
                 toast.error("Erro ao adicionar o produto")
@@ -89,6 +89,7 @@ function NewProduct() {
 
     return (
         <>
+            <Puglin />
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="nome">Nome do Produto</label>
                 <input type="text" id="nome" name="nome" onChange={handleInputChange} />
@@ -106,7 +107,6 @@ function NewProduct() {
                 <input type="file" name="imagem" id="imagem" onChange={handleFileChange} />
                 <input type="submit" value="Cadastrar" id="button-cadastrar-adm" />
             </form>
-            <ToastContainer />
         </>
     );
 }

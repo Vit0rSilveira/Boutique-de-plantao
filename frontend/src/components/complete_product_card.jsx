@@ -26,7 +26,6 @@ function Complete_product(props) {
 
     const existingItem = cartItems.find(item => item.codigo === props.codigo);
 
-    console.log(existingItem)
 
     if (existingItem) {
       existingItem.quantidade_carrinho += quantidade;

@@ -19,14 +19,14 @@ function Product() {
   useEffect(() => {
     fetch(`http://localhost:3000/produto/codigo/${codProduto}`)
       .then((response) => response.json())
-      .then((data) => setProduto(data)) // Atualizar o estado com os produtos retornados
+      .then((data) => setProduto(data.produto)) // Atualizar o estado com os produtos retornados
       .catch((error) => console.log(error));
   }, [codProduto]);
 
   useEffect(() => {
     fetch('http://localhost:3000/produto')
       .then(response => response.json())
-      .then(data => setProdutos(Object.values(data)))
+      .then(data => setProdutos(Object.values(data.produto)))
       .catch(error => console.log(error));
   }, []);
 
@@ -104,8 +104,6 @@ function Product() {
           </div>
         )}
       </main>
-
-
       <Footer />
     </>
   );

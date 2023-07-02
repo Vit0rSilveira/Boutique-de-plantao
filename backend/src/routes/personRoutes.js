@@ -67,7 +67,7 @@ router.get('/:email', async (req, res) => {
         if (!person) {
             return res.status(422).json({ message: "Usuário não encontrado" })
         }
-        return res.status(200).json(person)
+        return res.status(200).json({ cliente: person})
     } catch (error) {
         return res.status(500).json({ error: error })
     }

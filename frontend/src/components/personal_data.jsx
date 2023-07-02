@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/components/personal_data.css";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import Puglin from "./puglin";
 
 function Personal_data(props) {
   const [cookies] = useCookies(['credentials'])
@@ -116,7 +116,7 @@ function Personal_data(props) {
         });
       })
       .then((data) => {
-        toast("Usuário inserido com sucesso.");
+        toast.success("Usuário inserido com sucesso.");
       })
       .catch((error) => {
         console.error("Error:", error.message);
@@ -124,47 +124,50 @@ function Personal_data(props) {
   }
 
   return (
-    <form action="">
-      <div id="dados-pessoais">
-        <label htmlFor="nome-completo">Nome Completo</label>
-        <input type="text" name="nome" id="nome-completo" value={formData.nome} onChange={handleChange} />
-        <label htmlFor="telefone">Telefone</label>
-        <input type="text" name="tel" id="telefone" value={formData.tel} onChange={handleChange} required />
-        <label htmlFor="">E-mail</label>
-        <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} />
-        <label htmlFor="senha">Senha</label>
-        <input type="password" name="senha" id="senha" placeholder="Senha" value={formData.senha} onChange={handleChange} />
-        <label htmlFor="confirmacao-senha">Confirme sua Senha</label>
-        <input
-          type="password"
-          name="confirmacaoSenha"
-          id="confirmacao-senha"
-          placeholder="Confirme sua Senha"
-          value={formData.confirmacaoSenha}
-          onChange={handleChange}
-        />
-      </div>
+    <>
+      <Puglin />
 
-      <div id="endereco">
-        <label htmlFor="endereco">Endereço</label>
-        <input type="text" name="endereco" id="input-endereco" value={formData.endereco} onChange={handleChange} />
-        <label htmlFor="cep">CEP</label>
-        <input type="text" name="cep" id="cep" value={formData.cep} onChange={handleChange} />
-        <label htmlFor="estado">Estado</label>
-        <input type="text" name="estado" id="estado" value={formData.estado} onChange={handleChange} />
-        <label htmlFor="cidade">Cidade</label>
-        <input type="text" name="cidade" id="cidade" value={formData.cidade} onChange={handleChange} />
-        <label htmlFor="bairro">Bairro</label>
-        <input type="text" name="bairro" id="bairro" value={formData.bairro} onChange={handleChange} />
-        <label htmlFor="complemento">Complemento</label>
-        <input type="text" name="complemento" id="complemento" value={formData.complemento} onChange={handleChange} />
-      </div>
+      <form action="">
+        <div id="dados-pessoais">
+          <label htmlFor="nome-completo">Nome Completo</label>
+          <input type="text" name="nome" id="nome-completo" value={formData.nome} onChange={handleChange} />
+          <label htmlFor="telefone">Telefone</label>
+          <input type="text" name="tel" id="telefone" value={formData.tel} onChange={handleChange} required />
+          <label htmlFor="">E-mail</label>
+          <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} />
+          <label htmlFor="senha">Senha</label>
+          <input type="password" name="senha" id="senha" placeholder="Senha" value={formData.senha} onChange={handleChange} />
+          <label htmlFor="confirmacao-senha">Confirme sua Senha</label>
+          <input
+            type="password"
+            name="confirmacaoSenha"
+            id="confirmacao-senha"
+            placeholder="Confirme sua Senha"
+            value={formData.confirmacaoSenha}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div className="button-wrapper">
-        <input type="button" className="login-button" value="Cadastrar" onClick={handlerRegister} />
-      </div>
-      <ToastContainer />
-    </form>
+        <div id="endereco">
+          <label htmlFor="endereco">Endereço</label>
+          <input type="text" name="endereco" id="input-endereco" value={formData.endereco} onChange={handleChange} />
+          <label htmlFor="cep">CEP</label>
+          <input type="text" name="cep" id="cep" value={formData.cep} onChange={handleChange} />
+          <label htmlFor="estado">Estado</label>
+          <input type="text" name="estado" id="estado" value={formData.estado} onChange={handleChange} />
+          <label htmlFor="cidade">Cidade</label>
+          <input type="text" name="cidade" id="cidade" value={formData.cidade} onChange={handleChange} />
+          <label htmlFor="bairro">Bairro</label>
+          <input type="text" name="bairro" id="bairro" value={formData.bairro} onChange={handleChange} />
+          <label htmlFor="complemento">Complemento</label>
+          <input type="text" name="complemento" id="complemento" value={formData.complemento} onChange={handleChange} />
+        </div>
+
+        <div className="button-wrapper">
+          <input type="button" className="login-button" value="Cadastrar" onClick={handlerRegister} />
+        </div>
+      </form>
+    </>
   );
 }
 

@@ -12,7 +12,7 @@ function Home() {
     useEffect(() => {
         fetch('http://localhost:3000/produto')
             .then(response => response.json())
-            .then(data => setProdutos(Object.values(data)))
+            .then(data => {setProdutos(data.produto)})
             .catch(error => console.log(error));
     }, []);
 

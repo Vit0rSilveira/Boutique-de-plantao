@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Header from '../components/header';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import Item from '../components/cart_item';
+import Puglin from '../components/puglin';
 import "../styles/pages/cart_page.css";
 import { useCookies } from 'react-cookie';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function Cart() {
     const [itens, setItens] = useState(() => {
@@ -77,6 +77,7 @@ function Cart() {
 
     return (
         <>
+            <Puglin />
             <Header />
             <Navbar />
             <main>
@@ -126,7 +127,6 @@ function Cart() {
                     <input type="submit" id="continuar_compra" value="Continuar a compra" onClick={handlePayment} />
                 </div>
             </main>
-            <ToastContainer />
             <Footer />
         </>
     );

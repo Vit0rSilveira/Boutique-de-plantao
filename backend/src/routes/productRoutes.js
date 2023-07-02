@@ -47,7 +47,7 @@ router.get('/', async (req, res) => {
     try {
         const products = await Product.find();
 
-        return res.status(200).json(products);
+        return res.status(200).json({produto: products});
     } catch (error) {
         console.log(error);
         return res.status(500).json({ error: error.message });
@@ -66,7 +66,7 @@ router.get("/:texto", async (req, res) => {
             ]
         });
 
-        return res.status(200).json(products);
+        return res.status(200).json({produto: products});
     } catch (error) {
         return res.status(500).json({ error: error });
     }
@@ -82,7 +82,7 @@ router.get("/codigo/:codigo", async (req, res) => {
             return res.status(404).json({ message: "Produto não encontrado" });
         }
 
-        return res.status(200).json(product);
+        return res.status(200).json({produto: product});
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }

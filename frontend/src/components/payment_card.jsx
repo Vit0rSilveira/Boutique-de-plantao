@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import Puglin from "./puglin";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/payment_card.css"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function Payment_card() {
     const navigate = useNavigate();
@@ -36,6 +36,7 @@ function Payment_card() {
 
     return (
         <div id="payment-card">
+            <Puglin />
             <label htmlFor="nome-cartao">Nome</label>
             <input type="text" name="nomeCartao" id="nomeCartao" value={formData.nomeCartao} onChange={handleChange} />
             <label htmlFor="numero-cartao">Número do Cartão</label>
@@ -45,7 +46,6 @@ function Payment_card() {
 
 
             <input type="button" className="card-button" value="Confirmar" onClick={handleSubmit} />
-            <ToastContainer />
         </div>
     );
 }

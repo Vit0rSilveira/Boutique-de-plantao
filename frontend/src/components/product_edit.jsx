@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { AiFillSave, AiFillDelete } from "react-icons/ai";
 import "../styles/components/complete_edit_product.css";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Puglin from "./puglin";
+import { toast } from "react-toastify";
 
 
 function Edit_product(props) {
@@ -44,7 +44,7 @@ function Edit_product(props) {
                 return response.json(); // Converte o corpo da resposta em um objeto JavaScript
             })
             .then((data) => {
-                toast(data.message); // Acessa a propriedade 'message' do objeto retornado
+                toast.success(data.message); // Acessa a propriedade 'message' do objeto retornado
             })
             .catch((error) => {
                 // Lógica de erro
@@ -59,6 +59,7 @@ function Edit_product(props) {
 
     return (
         <div id="complete-edit-product">
+            <Puglin />
             <img
                 src={props.imagem}
                 alt={`imagem do produto ${props.nome}`}
@@ -103,7 +104,6 @@ function Edit_product(props) {
                 </div>
 
             </div>
-            <ToastContainer />
         </div>
     );
 }

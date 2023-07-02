@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
+import Puglin from "../components/puglin";
 import Footer from "../components/footer";
 import Personal_data from "../components/personal_data";
 import New_product from "../components/new_product";
@@ -13,8 +15,7 @@ function User() {
     // Estado para controlar o botão ativo
     const [activeButton, setActiveButton] = useState("");
     const [user, setUser] = useState([]);
-    const [produtos, setProdutos] = useState({})
-    const [cookies] = useCookies(["credentials"]);
+    const [cookies, setCookies, removeCookies] = useCookies(["credentials"]);
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -31,6 +32,25 @@ function User() {
 
 
     }, [])
+
+
+    function handlerDeleteAcount() {
+        fetch(`http://localhost:3000/usuario/${cookies.credentials.email}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                toast.success(data.message);
+                setTimeout(() => {
+                    removeCookies("credentials");
+                    navigate("/");
+                }, 2000);
+            })
+            .catch((error) => console.log(error));
+    }
 
     // Função para lidar com o clique nos botões
     const handleButtonClick = (buttonType) => {
@@ -55,7 +75,10 @@ function User() {
                     <h3>Cadastrar novo Produto</h3>
                     <New_product />
                 </div>)
-        } else if (user) {
+        } else if (activeButton === "excluir") {
+            setActiveButton("")
+            handlerDeleteAcount();
+        }   else if (user) {
             // Card de boas-vindas
             return (
                 <div className="welcome-card">
@@ -75,6 +98,7 @@ function User() {
 
     return (
         <>
+            <Puglin />
             <Header />
             <Navbar />
             <main>
@@ -86,6 +110,7 @@ function User() {
                         </div>
                         <div>
                             <input type="button" value="Cadastrar Produto" className={"button-adm-page " + (activeButton === "novo-produto" ? "active" : "")} onClick={() => handleButtonClick("novo-produto")} />
+                            <input type="button" value="Excluir conta" className="dell-adm-page"  onClick={() => handleButtonClick("excluir")} />
                         </div>
                     </div>
 

@@ -22,7 +22,7 @@
     border-radius: 10px;
 }
 
-.button-personal-page {
+.button-personal-page, .dell-personal-page {
     height: 20vh;
     width: 15vw;
     margin: 5vh 0vw;
@@ -30,6 +30,10 @@
     background-color: #313D17;
     border: 1px solid black;
     border-radius: 10px;
+}
+
+.dell-personal-page {
+    background-color: red;
 }
 
 #user-card {
@@ -67,7 +71,7 @@
         width: 90%;
     }
 
-    .button-personal-page {
+    .button-personal-page, .dell-personal-page {
         width: 35%;
         height: 10vh;
         margin: 1vh 2vw;

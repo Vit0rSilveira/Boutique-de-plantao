@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Puglin from "./puglin";
 
 function Personal_data(props) {
-  const [cookies] = useCookies(['credentials'])
+  const [cookies, setCookies, removeCookies] = useCookies(["credentials"]);
   const { user: tipo } = props;
   const navigate = useNavigate();
   const [metodo, setMetodo] = useState("POST")
@@ -93,30 +93,17 @@ function Personal_data(props) {
       },
       body: JSON.stringify(requestBody),
     })
-      .then((response) => {
-        if (!response.ok) {
-          if (response.status === 404) {
-            throw new Error("Endpoint not found");
-          } else if (response.status === 401) {
-            throw new Error("Unauthorized request");
-          } else if (response.status === 422) {
-            return response.json().then((data) => {
-              toast.error(data.message);
-              navigate("/login");
-              throw new Error("Request failed with status: " + response.status);
-            });
-          } else {
-            throw new Error("Request failed with status: " + response.status);
-          }
-        }
-
-        return response.json().then((data) => {
-          toast.error(data.message);
-          navigate("/");
-        });
-      })
+      .then((response) => response.json())
       .then((data) => {
-        toast.success("Usuário inserido com sucesso.");
+        if (data.status === 422) {
+          toast.error(data.message);
+        } else {
+          toast.success(data.message);
+          setCookies("credentials", { email: formData.email, tipo: formData.tipo });
+          setTimeout(() => {
+            navigate("/")
+          }, 3000)
+        }
       })
       .catch((error) => {
         console.error("Error:", error.message);

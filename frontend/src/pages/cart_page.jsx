@@ -59,7 +59,7 @@ function Cart() {
             return;
         }
 
-        setFrete(Math.floor(cep / 1000000));
+        setFrete(Math.floor(cep.slice(0, 2)));
     }
 
     function handlePayment() {

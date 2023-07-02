@@ -11,7 +11,7 @@ async function encode_password(password) {
 }
 
 router.post('/', async (req, res) => {
-    const { nome, tipo, email, senha, tel, endereco, cep, numero, cidade, bairro, estado, complemento } = req.body
+    const { nome, tipo, email, senha, tel, endereco, cep, cidade, bairro, estado, complemento } = req.body
 
     const regex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
     if (!regex.test(senha)) {
@@ -34,7 +34,6 @@ router.post('/', async (req, res) => {
             tel,
             endereco,
             cep,
-            numero,
             cidade,
             bairro,
             estado,
@@ -75,7 +74,7 @@ router.get('/:email', async (req, res) => {
 
 router.patch("/:email", async (req, res) => {
     const findEmail = req.params.email
-    const { nome, tipo, email, senha, tel, endereco, cep, numero, cidade, bairro, estado, complemento } = req.body
+    const { nome, tipo, email, senha, tel, endereco, cep, cidade, bairro, estado, complemento } = req.body
 
     const senhaEncriptografada = await encode_password(senha);
 
@@ -87,7 +86,6 @@ router.patch("/:email", async (req, res) => {
         tel,
         endereco,
         cep,
-        numero,
         cidade,
         bairro,
         estado,

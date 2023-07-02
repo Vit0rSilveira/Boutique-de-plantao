@@ -54,7 +54,7 @@ function Complete_product(props) {
         <p>
           {props.descricao}
         </p>
-        <p>R$ {valor}</p>
+        <p>R$ {props.valor}</p>
         <div id="inputs">
           <button id="add-cart-product" onClick={handleAddToCart}>
             <AiOutlineShoppingCart /> Adicionar

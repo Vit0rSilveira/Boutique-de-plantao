@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { AiFillSave, AiFillDelete } from "react-icons/ai";
 import "../styles/components/complete_edit_product.css";
 import Puglin from "./puglin";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 
 function Edit_product(props) {
     const [valor, setValor] = useState(props.valor);
     const [disponibilidade, setDisponibilidade] = useState(props.quantidade_disponivel);
     const [imagem, setImagem] = useState(null);
+    const navigate = useNavigate()
 
     function handleSaveChanges() {
         const formData = new FormData();
@@ -29,6 +31,9 @@ function Edit_product(props) {
             })
             .then((data) => {
                 toast.error(data.message); // Acessa a propriedade 'message' do objeto retornado
+                setTimeout(() => {
+                    window,location.reload()
+                }, 3000)
             })
             .catch((error) => {
                 toast.error("Erro ao salvar as alterações", error);
@@ -44,7 +49,10 @@ function Edit_product(props) {
                 return response.json(); // Converte o corpo da resposta em um objeto JavaScript
             })
             .then((data) => {
-                toast.success(data.message); // Acessa a propriedade 'message' do objeto retornado
+                toast.success(data.message);
+                setTimeout(() => {
+                    navigate("/")
+                }, 3000) // Acessa a propriedade 'message' do objeto retornado
             })
             .catch((error) => {
                 // Lógica de erro

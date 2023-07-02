@@ -3,7 +3,7 @@
     flex-direction: row;
 }
 
-input[type="button"].button-adm-page,
+input[type="button"].button-adm-page, .dell-adm-page,
 #button-cadastrar-adm {
     display: flex;
     align-items: center;
@@ -17,6 +17,10 @@ input[type="button"].button-adm-page,
     font-size: larger;
     height: 10vh;
     margin-right: 5vw;
+}
+
+.dell-adm-page {
+    background-color: red;
 }
 
 .adm-card {
@@ -63,12 +67,11 @@ input[type="button"].button-adm-page,
         width: 80%;
     }
 
-    .button-adm-page {
+    .button-adm-page, .dell-adm-page {
         width: 48%;
         margin-bottom: 10px;
         white-space: normal;
         /* Permite que o texto quebre em múltiplas linhas */
-        height: 5vh;
         /* Ajuste a altura conforme necessário */
     }
 }

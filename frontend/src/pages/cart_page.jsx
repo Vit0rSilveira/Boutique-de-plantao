@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Header from '../components/header';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import Item from '../components/cart_item';
+import Puglin from '../components/puglin';
 import "../styles/pages/cart_page.css";
 import { useCookies } from 'react-cookie';
 
@@ -53,21 +55,21 @@ function Cart() {
 
         if (!cep) {
             setFrete(0);
-            alert("Por favor, digite seu CEP");
+            toast.error("Por favor, digite seu CEP");
             return;
         }
 
-        setFrete(Math.floor(cep / 1000000));
+        setFrete(Math.floor(cep.slice(0, 2)));
     }
 
     function handlePayment() {
         let cep = document.getElementById("input_cep").value;
         if (!cep) {
-            alert("Por favor, digite seu CEP");
+            toast.error("Por favor, digite seu CEP");
             return;
         }
         if (!subtotal) {
-            alert("Não há itens em seu carrinho");
+            toast.error("Não há itens em seu carrinho");
             return;
         }
         navigate("/pagamento");
@@ -75,6 +77,7 @@ function Cart() {
 
     return (
         <>
+            <Puglin />
             <Header />
             <Navbar />
             <main>

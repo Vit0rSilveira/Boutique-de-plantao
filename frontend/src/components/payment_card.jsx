@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import Puglin from "./puglin";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/payment_card.css"
 
@@ -24,7 +26,7 @@ function Payment_card() {
 
 
         if (!nomeCartao || numeroCartao.length < 4 || !cvv) {
-            alert("Por favor, preencha todos os campos obrigatórios.");
+            toast.error("Por favor, preencha todos os campos obrigatórios.");
             return;
         }
 
@@ -34,6 +36,7 @@ function Payment_card() {
 
     return (
         <div id="payment-card">
+            <Puglin />
             <label htmlFor="nome-cartao">Nome</label>
             <input type="text" name="nomeCartao" id="nomeCartao" value={formData.nomeCartao} onChange={handleChange} />
             <label htmlFor="numero-cartao">Número do Cartão</label>

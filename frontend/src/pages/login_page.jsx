@@ -3,8 +3,10 @@ import bcrypt from "bcryptjs";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import Footer from '../components/footer';
+import Puglin from "../components/puglin";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "../styles/pages/login.css";
 
 function Login() {
@@ -22,9 +24,6 @@ function Login() {
     };
 
     const authenticateUser = async (client, password) => {
-        console.log(client)
-        console.log(password)
-        console.log(client)
         const passwordMatches = await passwordsEqual(password, client.senha);
 
         if (passwordMatches) {
@@ -36,9 +35,7 @@ function Login() {
                 navigate("/adm");
             }
         } else {
-            setTimeout(() => {
-                alert("Usuário ou senha incorretos");
-            }, 0);
+            toast.error("Usuário ou senha inválidos");
         }
     };
 
@@ -48,13 +45,12 @@ function Login() {
         fetch(`http://localhost:3000/usuario/${login}`)
             .then(response => response.json())
             .then(data => {
-                const client = data;
+                const client = data.cliente;
+                console.log(client);
                 if (client) {
                     authenticateUser(client, password); // Passa a senha como argumento
                 } else {
-                    setTimeout(() => {
-                        alert("Usuário não encontrado");
-                    }, 0);
+                    toast.error("Usuário não encontrado!");
                 }
             })
             .catch(error => console.log(error));
@@ -62,6 +58,7 @@ function Login() {
 
     return (
         <>
+            <Puglin/>
             <Header />
             <Navbar />
 
@@ -82,7 +79,6 @@ function Login() {
 
                 </div>
             </main>
-
             <Footer />
         </>
     );

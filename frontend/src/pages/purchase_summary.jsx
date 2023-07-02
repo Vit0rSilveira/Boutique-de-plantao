@@ -28,15 +28,18 @@ function Payment() {
     }, [itens]);
 
     useEffect(() => {
-        if (!cookies.credentials)
-            navigate("/login")
-
-        fetch(`http://localhost:3000/usuario/${cookies.credentials.email}`)
+        alert(cookies.credentials.email)
+        if (!cookies.credentials || !cookies.credentials.email) {
+          navigate("/login");
+        } else if (cookies.credentials.tipo === "adm") {
+          navigate("/adm");
+        } else {
+          fetch(`http://localhost:3000/usuario/${cookies.credentials.email}`)
             .then((response) => response.json())
-            .then((data) => setUser(data))
+            .then((data) => setUser(data.cliente))
             .catch((error) => console.log(error));
-
-    }, [])
+        }
+      }, []);
 
     function handleInsertinDB(codProduto, body) {
         fetch(`http://localhost:3000/produto/${codProduto}`, {
@@ -66,7 +69,6 @@ function Payment() {
         const localStorageItems = itens;
 
         localStorageItems.forEach(element => {
-            console.log(element)
             handleUpdateAmount(element.codigo, element.quantidade_carrinho)
         });
         localStorage.clear()
@@ -76,7 +78,7 @@ function Payment() {
 
     if (Object.keys(user).length === 0) return <>Carregando...</>;
 
-    const frete = Math.floor((user.cep).replace(/-/g, "") / 1000000);
+    const frete = Math.floor((user.cep).slice(0, 2));
 
     return (
         <>

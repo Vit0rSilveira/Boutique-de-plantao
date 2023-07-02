@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Images_carousel from '../components/carousel';
 import Header from '../components/header';
 import Navbar from '../components/navbar';
+import Puglin from '../components/puglin';
 import ProductCard from '../components/product_card';
 import Footer from '../components/footer';
 import "../styles/pages/home.css";
@@ -12,12 +13,14 @@ function Home() {
     useEffect(() => {
         fetch('http://localhost:3000/produto')
             .then(response => response.json())
-            .then(data => setProdutos(Object.values(data)))
+            .then(data => {setProdutos(data.produto)})
             .catch(error => console.log(error));
     }, []);
 
     return (
         <>
+            
+            <Puglin />
             <Header />
             <Navbar />
             <main>

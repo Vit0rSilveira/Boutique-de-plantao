@@ -8,7 +8,6 @@ const Person = mongoose.model('Person', {
     tel: String,
     endereco: String,
     cep: String,
-    numero: Number,
     cidade: String,
     bairro: String,
     estado: String,

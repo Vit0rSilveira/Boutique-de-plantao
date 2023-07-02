@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import Puglin from "./puglin";
 
 function NewProduct() {
     const [formData, setFormData] = useState({
@@ -40,8 +42,8 @@ function NewProduct() {
         } = formData;
 
         if (!nome || !codigo || !categoria || !descricao || !quantidade || !valor || !imagem) {
-            alert("Por favor, preencha todos os campos obrigatórios.");
-            return;
+            toast.error("Por favor, preencha todos os campos obrigatórios.");
+            return
         }
 
         const requestBody = new FormData();
@@ -52,6 +54,7 @@ function NewProduct() {
         requestBody.append("quantidade_disponivel", quantidade);
         requestBody.append("valor", valor);
         requestBody.append("file", imagem);
+
 
         fetch("http://localhost:3000/produto", {
             method: "POST",
@@ -65,7 +68,7 @@ function NewProduct() {
                         throw new Error("Unauthorized request");
                     } else if (response.status === 422) {
                         return response.json().then((data) => {
-                            alert(data.message);
+                            toast.error(data.message);
                             throw new Error("Request failed with status: " + response.status);
                         });
                     } else {
@@ -75,10 +78,10 @@ function NewProduct() {
                 return response.json();
             })
             .then((data) => {
-                alert("Produto inserido com sucesso.");
+                toast.success("Produto inserido com sucesso.");
             })
             .catch((error) => {
-                alert("Erro ao adicionar o produto")
+                toast.error("Erro ao adicionar o produto")
                 console.error("Error:", error.message);
             });
 
@@ -86,6 +89,7 @@ function NewProduct() {
 
     return (
         <>
+            <Puglin />
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="nome">Nome do Produto</label>
                 <input type="text" id="nome" name="nome" onChange={handleInputChange} />

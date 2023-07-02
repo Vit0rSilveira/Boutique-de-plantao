@@ -8,6 +8,16 @@
     padding: 5vh 0 5vh 0;
     border: 2px solid black;
     border-radius: 10px;
+    font: normal 1.2em;
+}
+
+.card-button {
+    background-color: #313D17;
+    color: white;
+    text-align: center;
+    align-items: center;
+    display: inline-block;
+    border-radius: 10px;
 }
 
 @media (max-width: 650px) {

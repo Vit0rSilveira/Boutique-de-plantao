@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function NewProduct() {
     const [formData, setFormData] = useState({
@@ -40,9 +42,9 @@ function NewProduct() {
         } = formData;
 
         if (!nome || !codigo || !categoria || !descricao || !quantidade || !valor || !imagem) {
-            alert("Por favor, preencha todos os campos obrigatórios.");
-            return;
-        }
+            toast.error("Por favor, preencha todos os campos obrigatórios.");
+            return
+        }  
 
         const requestBody = new FormData();
         requestBody.append("nome", nome);
@@ -52,6 +54,7 @@ function NewProduct() {
         requestBody.append("quantidade_disponivel", quantidade);
         requestBody.append("valor", valor);
         requestBody.append("file", imagem);
+        
 
         fetch("http://localhost:3000/produto", {
             method: "POST",
@@ -65,7 +68,7 @@ function NewProduct() {
                         throw new Error("Unauthorized request");
                     } else if (response.status === 422) {
                         return response.json().then((data) => {
-                            alert(data.message);
+                            toast.error(data.message);
                             throw new Error("Request failed with status: " + response.status);
                         });
                     } else {
@@ -75,10 +78,10 @@ function NewProduct() {
                 return response.json();
             })
             .then((data) => {
-                alert("Produto inserido com sucesso.");
+                toast("Produto inserido com sucesso.");
             })
             .catch((error) => {
-                alert("Erro ao adicionar o produto")
+                toast.error("Erro ao adicionar o produto")
                 console.error("Error:", error.message);
             });
 
@@ -103,6 +106,7 @@ function NewProduct() {
                 <input type="file" name="imagem" id="imagem" onChange={handleFileChange} />
                 <input type="submit" value="Cadastrar" id="button-cadastrar-adm" />
             </form>
+            <ToastContainer />
         </>
     );
 }

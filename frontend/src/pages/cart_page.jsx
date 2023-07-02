@@ -6,6 +6,8 @@ import Footer from '../components/footer';
 import Item from '../components/cart_item';
 import "../styles/pages/cart_page.css";
 import { useCookies } from 'react-cookie';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Cart() {
     const [itens, setItens] = useState(() => {
@@ -53,7 +55,7 @@ function Cart() {
 
         if (!cep) {
             setFrete(0);
-            alert("Por favor, digite seu CEP");
+            toast.error("Por favor, digite seu CEP");
             return;
         }
 
@@ -63,11 +65,11 @@ function Cart() {
     function handlePayment() {
         let cep = document.getElementById("input_cep").value;
         if (!cep) {
-            alert("Por favor, digite seu CEP");
+            toast.error("Por favor, digite seu CEP");
             return;
         }
         if (!subtotal) {
-            alert("Não há itens em seu carrinho");
+            toast.error("Não há itens em seu carrinho");
             return;
         }
         navigate("/pagamento");
@@ -124,6 +126,7 @@ function Cart() {
                     <input type="submit" id="continuar_compra" value="Continuar a compra" onClick={handlePayment} />
                 </div>
             </main>
+            <ToastContainer />
             <Footer />
         </>
     );

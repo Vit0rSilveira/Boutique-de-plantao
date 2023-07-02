@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/payment_card.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Payment_card() {
     const navigate = useNavigate();
@@ -24,7 +26,7 @@ function Payment_card() {
 
 
         if (!nomeCartao || numeroCartao.length < 4 || !cvv) {
-            alert("Por favor, preencha todos os campos obrigatórios.");
+            toast.error("Por favor, preencha todos os campos obrigatórios.");
             return;
         }
 
@@ -43,6 +45,7 @@ function Payment_card() {
 
 
             <input type="button" className="card-button" value="Confirmar" onClick={handleSubmit} />
+            <ToastContainer />
         </div>
     );
 }

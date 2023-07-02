@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/components/personal_data.css";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Personal_data(props) {
   const [cookies] = useCookies(['credentials'])
@@ -74,10 +76,10 @@ function Personal_data(props) {
       !cidade ||
       !bairro
     ) {
-      alert("Por favor, preencha todos os campos obrigatórios.");
+      toast.error("Por favor, preencha todos os campos obrigatórios.");
       return;
     } else if (senha !== confirmacaoSenha) {
-      alert("As senhas não coincidem");
+      toast.error("As senhas não coincidem");
       return;
     }
 
@@ -99,7 +101,7 @@ function Personal_data(props) {
             throw new Error("Unauthorized request");
           } else if (response.status === 422) {
             return response.json().then((data) => {
-              alert(data.message);
+              toast.error(data.message);
               navigate("/login");
               throw new Error("Request failed with status: " + response.status);
             });
@@ -109,12 +111,12 @@ function Personal_data(props) {
         }
 
         return response.json().then((data) => {
-          alert(data.message);
+          toast.error(data.message);
           navigate("/");
         });
       })
       .then((data) => {
-        console.log("Usuário inserido com sucesso.");
+        toast("Usuário inserido com sucesso.");
       })
       .catch((error) => {
         console.error("Error:", error.message);
@@ -161,6 +163,7 @@ function Personal_data(props) {
       <div className="button-wrapper">
         <input type="button" className="login-button" value="Cadastrar" onClick={handlerRegister} />
       </div>
+      <ToastContainer />
     </form>
   );
 }

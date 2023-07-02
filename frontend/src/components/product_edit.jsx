@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { AiFillSave, AiFillDelete } from "react-icons/ai";
 import "../styles/components/complete_edit_product.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Edit_product(props) {
     const [valor, setValor] = useState(props.valor);
@@ -25,11 +28,10 @@ function Edit_product(props) {
                 return response.json(); // Converte o corpo da resposta em um objeto JavaScript
             })
             .then((data) => {
-                alert(data.message); // Acessa a propriedade 'message' do objeto retornado
+                toast.error(data.message); // Acessa a propriedade 'message' do objeto retornado
             })
             .catch((error) => {
-                // Lógica de erro
-                console.error("Erro ao salvar as alterações", error);
+                toast.error("Erro ao salvar as alterações", error);
             });
     }
 
@@ -42,11 +44,11 @@ function Edit_product(props) {
                 return response.json(); // Converte o corpo da resposta em um objeto JavaScript
             })
             .then((data) => {
-                alert(data.message); // Acessa a propriedade 'message' do objeto retornado
+                toast(data.message); // Acessa a propriedade 'message' do objeto retornado
             })
             .catch((error) => {
                 // Lógica de erro
-                console.error("Erro ao salvar as alterações", error);
+                toast.error("Erro ao salvar as alterações", error);
             });
     }
 
@@ -99,9 +101,9 @@ function Edit_product(props) {
                         </button>
                     </div>
                 </div>
-                    
-            </div>
 
+            </div>
+            <ToastContainer />
         </div>
     );
 }

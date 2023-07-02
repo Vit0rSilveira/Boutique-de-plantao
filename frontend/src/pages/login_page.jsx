@@ -6,6 +6,8 @@ import Footer from '../components/footer';
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import "../styles/pages/login.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
     const navigate = useNavigate();
@@ -37,7 +39,7 @@ function Login() {
             }
         } else {
             setTimeout(() => {
-                alert("Usuário ou senha incorretos");
+                toast.error("Usuário ou senha inválidos");
             }, 0);
         }
     };
@@ -53,7 +55,7 @@ function Login() {
                     authenticateUser(client, password); // Passa a senha como argumento
                 } else {
                     setTimeout(() => {
-                        alert("Usuário não encontrado");
+                        toast.error("Usuário não encontrado");
                     }, 0);
                 }
             })
@@ -82,7 +84,7 @@ function Login() {
 
                 </div>
             </main>
-
+            <ToastContainer />
             <Footer />
         </>
     );

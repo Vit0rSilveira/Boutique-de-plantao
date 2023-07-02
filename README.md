@@ -51,12 +51,9 @@ O primeiro passo para fazer o protótipo do projeto, foi criar o [Mockup](https:
 ![diagrama_de_navegacao](https://github.com/Vit0rSilveira/Boutique-de-plantao/blob/main/images/relatorio/diagrama_de_navegacao.jpg?raw=true)
 
 ## Comentários Sobre o Código
-
-### Frontend
-
 O código da aplicação foi organizado em uma estrutura de pastas para melhorar a sua modularização e facilitar o reaproveitamento de código. 
-
-A estrutura de pastas na pasta `src` é a seguinte:
+Segue o exemplo da estruturação do código:
+### Frontend
 
 ```
 - src
@@ -177,6 +174,40 @@ Durante o desenvolvimento do projeto, foram elaborados planos de testes para gar
    - **Descrição:** Verificar se o sistema impede corretamente que um administrador acesse o perfil de cliente.
    - **Resultado:** Caso um administrador tente acessar o perfil de cliente, o sistema não deve permitir o acesso.
 
+### Backend
+
+Durante o desenvolvimento do projeto, foram realizados testes no backend para garantir o correto funcionamento das rotas e das funcionalidades. As seguintes verificações foram feitas:
+
+Rota de Cadastro de Usuário:
+
+1. Teste de correspondência entre senha e confirmação de senha:
+   - Descrição: Verificar se a senha e a confirmação de senha inseridas pelo usuário correspondem.
+   - Resultado: Caso as senhas não sejam iguais, o servidor deve retornar um código de status adequado e uma mensagem de erro indicando que as senhas devem ser idênticas.
+
+Rota de Login:
+
+1. Teste de validação do campo de login:
+   - Descrição: Verificar se o campo de login exige um e-mail válido como entrada.
+   - Resultado: Caso o valor fornecido não corresponda a um e-mail válido, o servidor deve retornar um código de status adequado e uma mensagem de erro informando que o login fornecido é inválido.
+
+2. Teste de autenticação de usuário:
+   - Descrição: Verificar se o servidor autentica corretamente um usuário com as credenciais fornecidas.
+   - Resultado: Após a autenticação bem-sucedida, o servidor deve retornar um código de status adequado e uma mensagem de sucesso informando que o usuário foi autenticado com sucesso.
+
+Outras Rotas:
+Todas as outras rotas do backend foram testadas utilizando o Postman, uma ferramenta de testes de API. As seguintes verificações foram realizadas:
+
+1. Teste de envio de dados para as rotas:
+   - Descrição: Verificar se os dados fornecidos são aceitos corretamente pelas rotas.
+   - Resultado: Caso os dados fornecidos sejam inválidos ou incompletos, o servidor deve retornar um código de status adequado e uma mensagem de erro informando o problema.
+
+2. Teste de resposta das rotas:
+   - Descrição: Verificar se as rotas retornam os dados esperados em suas respostas.
+   - Resultado: As respostas das rotas devem conter os dados solicitados ou as mensagens de erro apropriadas, conforme necessário.
+
+Esses testes no backend ajudaram a garantir o correto funcionamento das rotas e a validação dos dados fornecidos, contribuindo para a qualidade e a segurança da aplicação.
+
+
 ## Resultado dos Testes
 ### Frontend
 Os testes foram realizados com sucesso e os seguintes resultados foram obtidos:
@@ -201,6 +232,41 @@ Os testes foram realizados com sucesso e os seguintes resultados foram obtidos:
 
 Esses resultados validam o correto funcionamento das funcionalidades e garantem uma melhor experiência para os usuários.
 
+### Backend
+Backend
+
+Os testes realizados no backend foram concluídos com sucesso e os seguintes resultados foram obtidos:
+
+Rota de Cadastro de Usuário:
+
+1. Teste de preenchimento dos campos obrigatórios:
+   - Resultado: O servidor valida corretamente se todos os campos obrigatórios são fornecidos e retorna uma mensagem de erro adequada caso algum campo esteja em branco.
+
+2. Teste de validação do campo de e-mail:
+   - Resultado: O servidor verifica se o campo de e-mail contém um valor válido e retorna uma mensagem de erro apropriada caso contrário.
+
+3. Teste de correspondência entre senha e confirmação de senha:
+   - Resultado: O servidor valida se a senha e a confirmação de senha fornecidas pelo usuário correspondem e retorna uma mensagem de erro caso não sejam idênticas.
+
+Rota de Login:
+
+1. Teste de validação do campo de login:
+   - Resultado: O servidor verifica se o campo de login contém um e-mail válido como entrada e retorna uma mensagem de erro apropriada em caso negativo.
+
+2. Teste de autenticação de usuário:
+   - Resultado: O servidor autentica corretamente um usuário com as credenciais fornecidas e retorna uma mensagem de sucesso após a autenticação bem-sucedida.
+
+Outras Rotas:
+Todas as outras rotas do backend foram testadas utilizando o Postman, uma ferramenta de testes de API. Os seguintes resultados foram obtidos:
+
+1. Teste de envio de dados para as rotas:
+   - Resultado: O servidor valida corretamente os dados fornecidos pelas rotas e retorna mensagens de erro apropriadas caso os dados sejam inválidos ou incompletos.
+
+2. Teste de resposta das rotas:
+   - Resultado: As rotas retornam corretamente os dados esperados em suas respostas, incluindo mensagens de erro apropriadas quando necessário.
+
+Esses resultados confirmam o correto funcionamento das rotas, a validação dos dados fornecidos e contribuem para a qualidade e segurança da aplicação.
+
 ## Instalação
 Para instalar e executar corretamente a aplicação, siga os passos abaixo. Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
@@ -209,6 +275,8 @@ Para instalar e executar corretamente a aplicação, siga os passos abaixo. Cert
 - npm versão 9.5.1
 
 Após verificar as versões das ferramentas acima, siga as instruções abaixo:
+
+### Frontend
 
 1. Acesse a pasta do frontend no seu terminal:
 
@@ -230,9 +298,37 @@ Este comando irá baixar e instalar todas as dependências listadas no arquivo `
 npm run dev
 ```
 
-Este comando irá iniciar o servidor de desenvolvimento e você poderá acessar a aplicação no seu navegador através do endereço `http://localhost:5173`.
+### Backend
+1. Acesse a pasta do frontend no seu terminal:
 
-Certifique-se de seguir todos os passos corretamente para garantir uma instalação adequada da aplicação. Caso encontre algum erro ou tenha alguma dificuldade durante o processo, consulte a documentação do Node.js, Vite e npm para obter mais informações e suporte.
+```bash
+cd backend
+```
+
+2. Instale as dependências necessárias executando o seguinte comando:
+
+```bash
+npm install
+```
+
+Este comando irá baixar e instalar todas as dependências listadas no arquivo `package.json` do projeto.
+
+3. Após a conclusão da instalação das dependências, execute o seguinte comando para iniciar o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Este comando irá iniciar o servidor de desenvolvimento e você poderá acessar a aplicação no seu navegador através do endereço `http://localhost:{PORT}`.
+
+##OBS: 
+Para maior segurança foi usado dotenv no backend, para salvar a porta, e o login e senha do mongodb, então, é necessário que se tenha um login e senha no mongodeb e crie um arquivo .env contendo as seguintes informações:
+
+```bash
+USER_MONGODB = ""
+PASSWORD_MONGODB = ""
+PORT = "" (número)
+```
 
 ## Dificuldades
 ### Dificuldades no Frontend

@@ -30,7 +30,7 @@ function Edit_product(props) {
                 return response.json(); // Converte o corpo da resposta em um objeto JavaScript
             })
             .then((data) => {
-                toast.error(data.message); // Acessa a propriedade 'message' do objeto retornado
+                toast.success(data.message); // Acessa a propriedade 'message' do objeto retornado
                 setTimeout(() => {
                     window,location.reload()
                 }, 3000)

@@ -28,7 +28,6 @@ function Payment() {
     }, [itens]);
 
     useEffect(() => {
-        alert(cookies.credentials.email)
         if (!cookies.credentials || !cookies.credentials.email) {
           navigate("/login");
         } else if (cookies.credentials.tipo === "adm") {
@@ -50,7 +49,7 @@ function Payment() {
             body: JSON.stringify(body),
         })
             .then((response) => response.json())
-            .then((data) => console.log(data))
+            .then((data) => console.log(data.message))
             .catch((err) => console.log(err));;
     }
 
@@ -58,8 +57,8 @@ function Payment() {
         fetch(`http://localhost:3000/produto/codigo/${codProduto}`)
             .then((response) => response.json())
             .then((data) => {
-                setBody(data);
-                body.quantidade_disponivel = data.quantidade_disponivel - quantidadeVendida
+                setBody(data.produto);
+                body.quantidade_disponivel = data.produto.quantidade_disponivel - quantidadeVendida
                 handleInsertinDB(codProduto, body)
             })
             .catch((error) => console.log(error));
@@ -78,7 +77,7 @@ function Payment() {
 
     if (Object.keys(user).length === 0) return <>Carregando...</>;
 
-    const frete = Math.floor((user.cep).slice(0, 2));
+    const frete = 15
 
     return (
         <>

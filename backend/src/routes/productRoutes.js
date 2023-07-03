@@ -98,7 +98,7 @@ router.patch("/:codigo", upload.any(), async (req, res) => {
         // Se houver arquivos enviados, atribua o caminho do primeiro arquivo
         imagem = req.files[0].path;
     }
-
+    
     try {
         const existingProduct = await Product.findOne({ codigo: findCod });
 

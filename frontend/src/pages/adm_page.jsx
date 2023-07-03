@@ -27,7 +27,7 @@ function User() {
 
         fetch(`http://localhost:3000/usuario/${cookies.credentials.email}`)
             .then((response) => response.json())
-            .then((data) => setUser(data))
+            .then((data) => setUser(data.cliente))
             .catch((error) => console.log(error));
 
 

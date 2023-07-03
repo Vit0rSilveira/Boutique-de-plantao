@@ -10,7 +10,7 @@ import "../styles/components/complete_product_card.css"
 function Complete_product(props) {
   const navigate = useNavigate();
   const [valor, setValor] = useState(props.valor);
-  const [quantidade, setQuantidade] = useState(0);
+  const [quantidade, setQuantidade] = useState(props.quantidade_disponivel <= 0 ? 0 : 1);
 
   useEffect(() => {
     setValor(props.valor * quantidade);

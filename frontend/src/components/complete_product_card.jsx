@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { toast } from "react-toastify";
+import Puglin from "../components/puglin";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +10,7 @@ import "../styles/components/complete_product_card.css"
 function Complete_product(props) {
   const navigate = useNavigate();
   const [valor, setValor] = useState(props.valor);
-  const [quantidade, setQuantidade] = useState(1);
+  const [quantidade, setQuantidade] = useState(0);
 
   useEffect(() => {
     setValor(props.valor * quantidade);
@@ -22,6 +24,11 @@ function Complete_product(props) {
   }
 
   function handleAddToCart() {
+    if (props.quantidade_disponivel <= 0) {
+      toast.warning("Sem estoque")
+      return
+    }
+
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
     const existingItem = cartItems.find(item => item.codigo === props.codigo);
@@ -47,6 +54,7 @@ function Complete_product(props) {
 
   return (
     <div id="complete-card-product">
+      <Puglin/>
       <img src={props.imagem} alt={`imagem do produto ${props.nome}`} id="product-image-complete" />
       <div id="not-image">
         <h1>{props.nome}</h1>

@@ -43,7 +43,7 @@ textarea {
 @media (max-width: 800px) {
     #complete-edit-product {
         flex-direction: column;
-        height: 100vh;
+        height: 120vh;
     }
 
     #product-image-complete {

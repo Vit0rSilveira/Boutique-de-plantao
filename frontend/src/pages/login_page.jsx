@@ -46,7 +46,6 @@ function Login() {
             .then(response => response.json())
             .then(data => {
                 const client = data.cliente;
-                console.log(client);
                 if (client) {
                     authenticateUser(client, password); // Passa a senha como argumento
                 } else {

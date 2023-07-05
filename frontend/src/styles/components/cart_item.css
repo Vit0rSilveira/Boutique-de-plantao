@@ -19,10 +19,9 @@
 
 #amount-wrapper {
     display: flex;
-    justify-content:center;
-    align-items:baseline;
+    justify-content: center;
+    align-items: baseline;
     text-align: center;
-    vertical-align: center;
 }
 
 #amount-in-cart {
@@ -31,9 +30,9 @@
 
 .amount-button {
     background-color: white;
-    border:none;
+    border: none;
     text-align: center;
-    padding: 0vw;
+    padding: 0;
     vertical-align: bottom;
     width: 2vw;
     height: auto;
@@ -50,7 +49,6 @@
     height: auto;
 }
 
-
 #cross {
     width: 1.3vw;
     height: auto;
@@ -59,9 +57,10 @@
 @media (max-width: 1000px) {
     #cart-item {
         display: flex;
-        flex-flow: column wrap;
-        justify-content:center;
-        align-items:center;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
     }
 
     #cart-item img {
@@ -72,6 +71,20 @@
     #amount-wrapper {
         width: 15vw;
         height: auto;
+    }
+
+    .amount-button {
+        width: 8vw;
+        height: auto;
+    }
+
+    .amount-icon {
+        width: auto;
+        height: auto;
+    }
+
+    #amount-in-cart {
+        font-size: 3vw;
     }
 
     #remove-item {

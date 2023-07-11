@@ -90,7 +90,6 @@ router.get("/codigo/:codigo", async (req, res) => {
 
 router.patch("/:codigo", upload.any(), async (req, res) => {
     const findCod = req.params.codigo;
-
     const { nome, codigo, quantidade_disponivel, valor, descricao } = req.body;
     let imagem = null;
 
@@ -108,7 +107,7 @@ router.patch("/:codigo", upload.any(), async (req, res) => {
 
         existingProduct.nome = nome || existingProduct.nome;
         existingProduct.codigo = codigo || existingProduct.codigo;
-        existingProduct.quantidade_disponivel = quantidade_disponivel || existingProduct.quantidade_disponivel;
+        existingProduct.quantidade_disponivel = quantidade_disponivel >= 0 ? quantidade_disponivel : existingProduct.quantidade_disponivel;
         existingProduct.valor = valor || existingProduct.valor;
         existingProduct.descricao = descricao || existingProduct.descricao;
 
